@@ -1,5 +1,8 @@
 // Primary site layout for Centrarium Theme
-
+:root {
+	/* colors */ 
+	--transparent-dark:#1f232bea;
+}
 /*
 *	Variables
 */
@@ -100,7 +103,6 @@ pre code.hljs {
 *	Header
 */
 .navigation {
-	background-color: transparent;
 	box-shadow: 0 2px $highlight-color;
 	padding: 0 1em;
 	margin: 0;
