@@ -9,12 +9,12 @@ exclude:
   - "/vendor/"
 
 # Site settings
-title: roseline blog
-subtitle: "this is roseline's blog"
+title: 유혹하는 개발하기
+subtitle: ""
 email: guseod24@gmail.com
 name: Roseline Song
 description: >
-  this is roseline' blog 
+  인생은 예술을 위해 존재하는 게 아니다. 오히려 그 반대이다. - 스티븐 킹
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
@@ -49,13 +49,13 @@ ga_tracking_id: "UA-135996088-1"
 # Category descriptions (for archive pages)
 descriptions:
   - cat: DailyStudy
-    desc: "Posts describing Jekyll setup techniques."
+    desc: "내일 없는 오늘의 공부"
 
-  - cat: Python
-    desc: "Just some placeholder posts, lorem ipsum and the rest."
+  - cat: Toython
+    desc: "파이썬으로 재밌는 것들을 해보자."
 
   - cat: Django
-    desc: "Just some placeholder posts, lorem ipsum and the rest."
+    desc: "마감시간은 없지만 성격이 급한 개발자가 애용하는 웹 프레임워크"
 
 # Social icons and sharing options
 #
