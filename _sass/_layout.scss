@@ -100,9 +100,25 @@ pre code.hljs {
 *	Header
 */
 .navigation {
+	background-color: transparent;
 	box-shadow: 0 2px $highlight-color;
 	padding: 0 1em;
 	margin: 0;
+.nav-top {
+	background-color: transparent !important;}
+.nav-fixed {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+}
+.nav-bg {
+	background-color : var(--transparent-dark);
+}
+.navbar {
+	transition: background-color .5s ease-out;
+}
+
 	/*
 	*	Navigation Menu - http://refills.bourbon.io/unstyled/ (see "Navigation")
 	*/
@@ -117,7 +133,8 @@ pre code.hljs {
       display: none;
     }
   }
-  // Nav menu
+	// Nav menu
+	
   .navigation-wrapper {
   	@include outer-container;
     @include clearfix;
