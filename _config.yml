@@ -82,14 +82,14 @@ descriptions:
 
   - name: Facebook
     icon: facebook
-    username: roseline124
+    username: Roseline
     url: https://www.facebook.com/guseod24
     desc: Friend me on Facebook
-    share: false
+    share: true
 
   - name: GitHub
     icon: github
-    username: roseline124
+    username: Roseline
     url: https://github.com/roseline124
     desc: Fork me on GitHub
     share: true
