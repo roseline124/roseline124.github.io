@@ -72,14 +72,14 @@ descriptions:
 #     url: https://twitter.com/TheBenCentra # URL of your profile (leave blank to not display in footer)
 #     desc: Follow me on Twitter            # Description to display as link title, etc
 #     share: true                           # Include in the "Share" section of posts
-social:
+
 #   - name: Twitter
 #     icon: twitter
 #     username: TheBenCentra
 #     url: https://twitter.com/TheBenCentra
 #     desc: Follow me on Twitter
 #     share: false
-
+social:
   - name: Facebook
     icon: facebook
     username: Roseline
