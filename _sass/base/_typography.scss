@@ -74,6 +74,6 @@ picture {
   max-width: 100%;
 }
 
-pre > code {
-  font-size: 10;
+pre code.hljs {
+  font-size: 0.9em !important;
 }
