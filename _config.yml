@@ -51,11 +51,8 @@ descriptions:
   - cat: DailyStudy
     desc: "내일 없는 오늘의 공부"
 
-  - cat: Toython
-    desc: "파이썬으로 재밌는 것들을 해보자."
-
-  - cat: Django
-    desc: "마감시간은 없지만 성격이 급한 개발자가 애용하는 웹 프레임워크"
+  - cat: Data & Algorithm
+    desc: "자료구조와 알고리즘"
 
 # Social icons and sharing options
 #
