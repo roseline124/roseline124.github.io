@@ -93,10 +93,8 @@ layout: default
   {% endfor %}
 </section>
 
-<br>
-
 {% if site.inter_post_navigation == true %}
-	<section class="post-navigation">
+	<section class="post-navigation" style="margin-top:1rem; margin-bottom:1rem;">
 		<span class="prev-post">
 			{% if page.previous.url %}
 				<a href="{{page.previous.url | prepend: site.baseurl}}">
@@ -121,8 +119,6 @@ layout: default
 		</span>
 	</section>
 {% endif %}
-
-<br>
 
 {% if site.disqus_shortname %}
 {% unless page.disqus_disabled %}
