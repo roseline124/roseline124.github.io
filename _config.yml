@@ -51,7 +51,7 @@ descriptions:
   - cat: DailyStudy
     desc: "내일 없는 오늘의 공부"
 
-  - cat: 알고리즘
+  - cat: Algorithm
     desc: "자료구조와 알고리즘"
 
 # Social icons and sharing options
