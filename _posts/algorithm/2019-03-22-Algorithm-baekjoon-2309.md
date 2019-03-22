@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[백준 알고리즘#2309] 일곱난장이 찾기 (python)"
+title:  "[백준 알고리즘#2309] 일곱난쟁이 찾기 (python)"
 date: 2019-03-22 12:19:59
 author: Roseline Song
 categories: Algorithm
