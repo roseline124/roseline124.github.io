@@ -37,7 +37,35 @@ N개의 수가 주어졌을 때, 네 가지 기본 통계값을 구하는 프로
 
 ### 풀이 
 
-참고로 맞은 풀이는 아닙니다. 50% 구간에서 계속 틀려요. 
+**배운 것**
+
+- input()이 안 먹힐 때가 있는데 `sys.stdin.readline()`으로 읽는 방법이 있었다. 
+- collections 패키지의 Counter 모듈을 알게 됨. dict(zip())을 이용해서 빈도 수를 셌었는데, 좋은 바퀴를 발견했다.
+
+<br>
+
+collections의 Counter를 쓰지 않을 땐 아래처럼 했다.
+
+<br>
+
+{% highlight python %}
+
+def mode(nums):
+    nums = sorted(nums)
+    mode_dict = dict(zip(nums, [0]*len(nums)))
+    
+    for n in nums : 
+        mode_dict[n] += 1
+        
+    modes = [ k for k, v in mode_dict.items() if v == max(mode_dict.values())]
+
+    ...(생략)...
+
+{% endhighlight %}
+
+<br>
+
+참고로 아래 코드는 맞은 풀이가 아닙니다. 50% 구간에서 계속 틀려요. 
 어디가 잘못됐는지 아시는 분 계신다면 알려주시면 감사하겠습니다.
 
 <br>
@@ -76,3 +104,5 @@ print(median(numbers))
 print(mode(numbers))
 print(scope(numbers))
 {% endhighlight %}
+
+
