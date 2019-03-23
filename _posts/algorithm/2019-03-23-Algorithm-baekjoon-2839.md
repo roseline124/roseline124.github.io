@@ -52,3 +52,6 @@ N = int(input()) #배달해야할 설탕 킬로그램
 print(sugar(N))
 
 {% endhighlight %}
+
+<br>
+<br>
