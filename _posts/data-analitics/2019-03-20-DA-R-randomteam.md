@@ -5,7 +5,7 @@ date: 2019-03-20 22:53:59
 author: Roseline Song
 categories: Data-Analitics
 tags: R 데이터 랜덤팀배정 함수 과제 강의
-cover: "/assets/einstein.gif"
+cover: "/assets/DataAnalysis.gif"
 ---
 
 
