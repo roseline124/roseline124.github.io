@@ -5,7 +5,7 @@ date: 2019-03-23 19:30:59
 author: Roseline Song
 categories: Django
 tags: python django
-cover: "/assets/dailystudy.jpg"
+cover: "/assets/django.jpg"
 ---
 
 ### 웹 프로젝트 PickMeal

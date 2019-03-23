@@ -5,7 +5,7 @@ date: 2019-03-23 20:30:59
 author: Roseline Song
 categories: Django
 tags: python django
-cover: "/assets/dailystudy.jpg"
+cover: "/assets/django.jpg"
 ---
 
 ### Model Join 
@@ -83,13 +83,21 @@ select_related() 함수에 Review 모델이 foreignkey로 잡은 `restaurant`이
 
 SELECT 
 
-"reviewBoard_review"."id", "reviewBoard_review"."restaurant_id", "reviewBoard_review"."title", "reviewBoard_review"."review", "reviewBoard_review"."photo", 
+"reviewBoard_review"."id", 
+"reviewBoard_review"."restaurant_id", 
+"reviewBoard_review"."title", 
+"reviewBoard_review"."review", 
+"reviewBoard_review"."photo", 
 
-"reviewBoard_restaurant"."id", "reviewBoard_restaurant"."name", "reviewBoard_restaurant"."location", "reviewBoard_restaurant"."category"
+"reviewBoard_restaurant"."id", 
+"reviewBoard_restaurant"."name", 
+"reviewBoard_restaurant"."location", 
+"reviewBoard_restaurant"."category"
 
-FROM
+FROM "reviewBoard_review" 
 
-"reviewBoard_review" INNER JOIN "reviewBoard_restaurant" ON ("reviewBoard_review"."restaurant_id" = "reviewBoard_restaurant"."id")
+INNER JOIN "reviewBoard_restaurant" 
+ON ("reviewBoard_review"."restaurant_id" = "reviewBoard_restaurant"."id")
 
 {% endhighlight %}
 
