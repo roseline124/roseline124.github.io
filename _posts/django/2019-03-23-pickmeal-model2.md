@@ -148,7 +148,6 @@ def index(request) :
 <br>
 
 {% highlight python %}
-~~~
 {% for res in restaurants %}
     <h3>{{ res.name }} | {{ r.category }}</h3>
 
@@ -159,7 +158,6 @@ def index(request) :
     {% endfor %}
 
 {% endfor %}
-~~~
 {% endhighlight %}
 
 
