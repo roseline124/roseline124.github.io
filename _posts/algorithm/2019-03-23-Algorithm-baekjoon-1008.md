@@ -49,7 +49,7 @@ cover: "/assets/dailystudy.jpg"
 {% highlight python %}
 
 #소숫점 32자리까지 표현
-%precision 55
+%precision 32
 
 #다시 복구하려면
 %precision %r
