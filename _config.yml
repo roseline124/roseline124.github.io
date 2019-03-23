@@ -57,6 +57,9 @@ descriptions:
   - cat: Data-Analitics
     desc: "데이터 통계 및 분석"
 
+  - cat: Django
+    desc: "마감은 없지만 성격은 급한 개발자의 Django 프로젝트"
+
 # Social icons and sharing options
 #
 # Social settings are used in two places:
