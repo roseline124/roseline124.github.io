@@ -140,7 +140,7 @@ def index(request) :
 <br>
 
 {% highlight python %}
-
+~~~
 {% for res in restaurants %}
     <h3>{{ res.name }} | {{ r.category }}</h3>
 
@@ -151,13 +151,14 @@ def index(request) :
     {% endfor %}
 
 {% endfor %}
-
+~~~
 {% endhighlight %}
 
 
 <br>
 <br>
 
-해결할 문제 
+### 해결할 문제 
 
 **1. media 폴더 경로 문제** : media 폴더가 프로젝트 폴더 경로에 생긴다. app 폴더의 하위에 media 폴더가 생겨야 하는데, 계속 경로가 엇갈린다. 경로가 틀리니 템플릿에서도 사진이 보이지 않는다. 
+

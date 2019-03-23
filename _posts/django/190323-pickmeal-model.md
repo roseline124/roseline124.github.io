@@ -64,8 +64,10 @@ class Restaurant(models.Model) :
 사용자가 업로드할 파일들을 관리할 media 폴더 루트를 추가한다. 
 
 <pre><code>
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 </code></pre>
 
 <br>
