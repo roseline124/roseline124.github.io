@@ -51,8 +51,12 @@ cover: "/assets/dailystudy.jpg"
 
 - `[ x ]`는 가우스 기호 : x의 값을 넘지 않는 최대의 정수이다. x가 1.5라면 `[x]`는 1이다. int()를 쓰면 내림이 되므로 int()를 쓴다. (math.floor를 써도 된다.)
 
+<br>
+<br>
+
 
 **코드**
+<br>
 
 {% highlight python %}
 
