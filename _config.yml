@@ -18,9 +18,9 @@ description: >
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
-baseurl: "/" # the subpath of your site, e.g. /blog/
+baseurl: "/" # the subpath of your site, e.g. /blog/ #jekyll로 확인할 때는 슬래시 빼기 
 url: "http://roseline124.github.io" # the base hostname & protocol for your site
-cover: "https://images.unsplash.com/photo-1552476536-812d56464447?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"
+cover: "/assets/header_image.jpg"
 # logo: "/assets/logo.png"
 
 # Build settings
