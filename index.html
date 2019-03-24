@@ -10,9 +10,12 @@ layout: default
       {% if site.subtitle %}<p class="subtitle">{{ site.subtitle }}</p>{% endif %}
     </header>
   </div>
+  <a href="#content-list" class="scroll-down icon-arrow-left" data-offset="-45">
+    <span class="hidden">Scroll Down</span>
+  </a>
 </div>
 
-<div class="wrapper">
+<div class="wrapper" id="content-list">
 <ul class="post-list">
   {% for post in paginator.posts %}
   <li>
