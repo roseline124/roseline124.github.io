@@ -1,8 +1,5 @@
 <header class="navigation nav-top nav-fixed nav-bg" role="banner">
   <div class="navigation-wrapper">
-    <a href="{{ site.baseurl }}/">
-        <span>Home</span>
-    </a>
     <!-- <a href="{{ site.baseurl }}/" class="logo">
       {% if site.logo %}
       <img src="{{ site.logo | prepend: site.baseurl }}" alt="{{ site.title }}">
@@ -15,6 +12,7 @@
     </a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link"><a href="{{ site.baseurl }}/">Home</a>
         {% for page in site.pages %}
           {% if page.title and page.main_nav != false %}
           <li class="nav-link"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
