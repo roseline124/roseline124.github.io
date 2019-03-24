@@ -122,25 +122,15 @@ cover: "/assets/DataAnalysis.gif"
 
 1. Outlier : 극단치, 평균에서 너무 떨어진 수치를 말한다. 평균은 outlier의 영향을 많이 받는다. 예를 들어 "oo의 월등한 점수 덕분에 반 평균 점수가 상향됐다." 같은 말처럼, outlier의 넘사벽(양적, 음적) 값이 평균을 움직인다. 
 
-<br>
-
 2. Median : 순서대로 정렬된 리스트 중 가장 가운데 번지에 있는 값. 만약 짝수라면 가운데 있는 수가 2개가 되므로 두 median을 더해 2로 나눈다. 
-
-<br>
 
 3. Variance : 변량. 편차(평균에서 떨어진 정도)를 제곱한 값들의 평균값이다. sample에서는 N이 아니라 N-1로 나누는 이유 : 자유도 고려. population(모집단)에서는 N으로 나눔. 
 
-<br>
-
 4. 변량 == 0이 되는 순간 : 모두가 평균에 위치하는 순간이다. 변량이 없으면 상관관계가 있다고 할 수 없다. 정비례든 반비례든 일정한 변량이 갖춰져 있어야 상관관계를 따질 수 있다.
-
-<br>
 
 5. Empirical Rule(경험적 규칙) : 정규 분포를 이루고 있다는 가정 하에, 데이터 일부는 신뢰도 수준에 따라 특정 편차 내에 존재한다. 
 
 예를 들어, 0~100점까지 100명의 시험 성적 데이터가 평균 50이라고 해보자. 신뢰도 95% 수준에서 95%에 해당하는 학생들의 시험 성적은 맞출 수 있다(5점~95점). 하지만 그 밖 구간에 존재하는 outlier(극단치) 학생들의 시험 성적은 예측할 수 없다.  
-
-<br>
 
 6. Quartile(사분위수)
 
@@ -152,4 +142,8 @@ cover: "/assets/DataAnalysis.gif"
 
 <br>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Iqr_with_quantile.png" style="width:600px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Iqr_with_quantile.png" style="width:600px;" title="출처 : 위키피디아">
+
+
+<br>
+<br>
