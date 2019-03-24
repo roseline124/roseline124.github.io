@@ -33,7 +33,7 @@ cover: "/assets/dailystudy.jpg"
 
 <br>
 
-<img src="https://dbscthumb-phinf.pstatic.net/4689_000_1/20161021105304690_47XIKZZ5Z.jpg/cd7_171_f1.jpg?type=h30_fst&wm=N">
+<img src="https://dbscthumb-phinf.pstatic.net/4689_000_1/20161021105304690_47XIKZZ5Z.jpg/cd7_171_f1.jpg?type=h30_fst&wm=N" style="width=100px;">
 
 <br>
 
