@@ -5,7 +5,7 @@ date: 2019-03-23 20:30:59
 author: Roseline Song
 categories: Django
 tags: python django
-cover: "/assets/django.jpg"
+cover: "/assets/django2.jpg"
 ---
 
 ### Model Join 
