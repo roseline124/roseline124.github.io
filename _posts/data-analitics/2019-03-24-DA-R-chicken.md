@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[R] 서울시 치킨 데이터 - read.csv 한글 깨짐 오류 해결 / 움직이는 그래프 그리기"
-date: 2019-03-23 22:53:59
+date: 2019-03-22 22:53:59
 author: Roseline Song
 categories: Data-Analitics
 tags: R data 
