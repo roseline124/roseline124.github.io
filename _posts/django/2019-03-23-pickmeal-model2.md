@@ -157,7 +157,6 @@ def index(request) :
     {% endfor %}
 
 {% endfor %}
-{% endhighlight %}
 ~~~
 
 <br>
