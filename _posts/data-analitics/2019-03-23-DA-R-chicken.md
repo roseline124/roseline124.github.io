@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[R] 서울시 치킨 데이터 - read.csv 한글 깨짐 오류 해결 / 움직이는 그래프 그리기"
+title:  "[R] 서울시 치킨 데이터 - read.csv 한글 깨짐 오류 해결, 움직이는 그래프 그리기"
 date: 2019-03-22 22:53:59
 author: Roseline Song
 categories: Data-Analitics
@@ -41,9 +41,11 @@ df <- read.csv('dataset/chicken.csv',
 
 read.csv() 함수를 쓰면서 겪었던 에러 문제를 먼저 말해보겠다.
 
-~~~
+<pre><code>
+
 'dataset/chicken.csv 에서 readTableHeader에 의하여 발견된 완성되지 않은 마지막 라인입니다
-~~~
+
+</code></pre>
 
 **해결** 
 
@@ -54,19 +56,23 @@ read.csv() 함수를 쓰면서 겪었던 에러 문제를 먼저 말해보겠다
 
 2. Error2 
 
-~~~
+<pre><code>
+
 Error in make.names(col.names, unique = TRUE) :
-  invalid multibyte string at '<b9><f8>ȣ'
-~~~
+  invalid multibyte string at '~'
+
+</code></pre>
 
 **해결**
 
 맨 위 코드처럼 read.csv에 아래 옵션을 추가한다.
 
-~~~
+<pre><code>
+
 fileEncoding = "euc-kr",
 encoding = 'utf-8' 
-~~~
+
+</code></pre>
 
 
 ### chicken 데이터 가공하기 
