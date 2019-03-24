@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[통계학#1] 통계 기초 개념"
-date: 2019-03-20 22:53:59
+date: 2019-03-19 17:53:59
 author: Roseline Song
 categories: Data-Analitics
 tags: R 데이터 랜덤팀배정 함수 과제 강의
