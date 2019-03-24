@@ -140,8 +140,8 @@ api_create() 함수가 잘 동작하는지 확인해보자.
 
 {% highlight python %}
 
-library(tidyverse)
-library(plotly)
+library(tidyverse) 
+library(plotly) #install.packages("plotly")로 패키지 추가
 library(gapminder)
 
 gapminder$year
