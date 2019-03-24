@@ -18,6 +18,9 @@ layout: default
 
       <p class="info">by {{ page.author }} | {{ page.date | date: "%B %-d, %Y" }}</p>
     </header>
+    <a href="#content-post" class="scroll-down icon-arrow-left" data-offset="-45">
+        <span class="hidden">Scroll Down</span>
+      </a>
   </div>
 </div>
 
@@ -25,7 +28,7 @@ layout: default
 
 {% unless page.cover %} {% include page_divider.html %} {% endunless %}
 
-<section class="post-meta">
+<section class="post-meta" id="content-post">
   <div class="post-date">{{ page.date | date: "%B %-d, %Y" }}</div>
   <div class="post-categories">
   {% if page.categories.size > 0 %}in {% for cat in page.categories %}
