@@ -21,7 +21,7 @@ description: >
 baseurl: "/" # the subpath of your site, e.g. /blog/
 url: "http://roseline124.github.io" # the base hostname & protocol for your site
 cover: "https://images.unsplash.com/photo-1552476536-812d56464447?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"
-logo: "/assets/logo.png"
+# logo: "/assets/logo.png"
 
 # Build settings
 markdown: kramdown
