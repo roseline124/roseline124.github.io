@@ -140,7 +140,7 @@ def index(request) :
 
 {% endhighlight %}
 
-<br>
+<!-- <br>
 <br>
 
 **templates : index.html**
@@ -157,7 +157,7 @@ def index(request) :
     {% endfor %}
 
 {% endfor %}
-~~~
+~~~ -->
 
 <br>
 <br>
