@@ -91,9 +91,9 @@ pre code.hljs {
 		padding: 3em 1em;
 		&.has-cover {
 			background-color: rgba(0,0,0,0.2);
-			padding: 6em 1em !important;
+			padding: 18em 1em !important;
 			@include media($tablet) {
-				padding: 9em 1em !important;
+				padding: 18em 1em !important;
 			}
 		}
 	}
@@ -103,9 +103,12 @@ pre code.hljs {
 *	Header
 */
 .navigation {
-	box-shadow: 0 2px $highlight-color;
+	// box-shadow: 0 2px $highlight-color;
 	padding: 0 1em;
 	margin: 0;
+	position: absolute;
+	top:0;
+	right:0;
 .nav-top {
 	background-color: transparent !important;}
 .nav-fixed {
@@ -196,12 +199,14 @@ pre code.hljs {
   }
   li.nav-link {
   	a {
+			color: white;
 	    display: inline-block;
 	    @include media ($tablet) {
 	      padding-right: 1.5em;
 	    }
 	  }
 	  &:last-child a {
+			color: white;
 	  	@include media ($tablet) {
     		padding-right: 1em;
     	}
