@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[R] 서울 치킨집 사장님이 배달의 민족을 사용해야 하는 이유 / 치킨은 관악구에서 튀겨야 하는 이유"
+title:  "[R] 대격변 5년 - 서울시 1인 가구 비율에 따른 치킨 데이터 분석"
 date: 2019-03-25 22:53:59
 author: Roseline Song
 categories: Data-Analitics
