@@ -21,7 +21,6 @@ cover: "/assets/DataAnalysis.gif"
 
 ### 표집 분포(Sampling Distribution)
 
-<br>
 
 하나의 모집단에서 여러 샘플을 뽑을 수 있다.
 그리고 **각각의 샘플링에서 평균을 내어, 샘플들의 분포**를 만들 수 있다. 이런 분포를 '샘플링 분포'라고 한다. 이 샘플링 과정을 무한히 하면 우리가 평소에 보는 그래프처럼 자연스러운 분포를 만들 수 있다. 
@@ -35,7 +34,6 @@ cover: "/assets/DataAnalysis.gif"
 
 ### Sampling Distribution의 특징 
 
-<br>
 
 **1. 표집 분포를 무한히 반복하면, 무조건 정규 분포**가 나온다
 
@@ -48,9 +46,8 @@ cover: "/assets/DataAnalysis.gif"
 <br>
 <br>
 
-### SE(Standard Error) : 샘플 분포의 표준편차**
+### SE(Standard Error) : 샘플 분포의 표준편차
 
-<br>
 
 표준편차는 일반적으로 SD(Standard Diviation)라고 하지만, 표집 분포의 표준편차는 모집단과 구별하기 위해 SE(Standare Error)라고 부른다. 
 
