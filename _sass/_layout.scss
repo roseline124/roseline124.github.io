@@ -161,7 +161,7 @@ pre code.hljs {
     img {
       max-height: 2.5em;
       margin-top: 0.75em;
-      padding-right: 1em;
+			padding-right: 1em;
     }
     span {
     	font-size: 1.25em;
@@ -340,6 +340,7 @@ pre code.hljs {
 		display: block;
 		margin: auto;
 		width: 90%;
+		box-shadow:3px 6px 15px 0px;
 	} // wrapper 
 	
 	/*

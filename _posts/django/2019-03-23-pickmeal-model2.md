@@ -168,3 +168,11 @@ def index(request) :
 
 <br>
 <br>
+
+### 해결 (190327)
+
+**[media 폴더 경로 추가하기](https://roseline124.github.io/django/2019/03/27/pickmeal-media.html)** 포스트 확인
+
+
+<br>
+<br>
