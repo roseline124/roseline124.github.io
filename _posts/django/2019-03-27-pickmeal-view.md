@@ -12,7 +12,7 @@ cover: "/assets/django2.jpg"
 
 <br>
 
-\> **[media 폴더 경로 추가하기]()** 포스트 확인
+\> **[media 폴더 경로 추가하기](https://roseline124.github.io/django/2019/03/27/pickmeal-media.html)** 포스트 확인
 
 <br>
 
