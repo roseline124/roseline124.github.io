@@ -336,18 +336,14 @@ pre code.hljs {
 			}
 		}
 	}
-	// img {
-	// 	display: block;
-	// 	margin: auto;
-	// 	width: 90%;
-	// 	box-shadow:3px 6px 15px 0px;
-	// } // wrapper 
-
-	img + em {
+	img {
 		display: block;
 		margin: auto;
 		width: 90%;
 		box-shadow:3px 6px 15px 0px;
+	} // wrapper 
+
+	img + em {
 		text-align: center;
 		font-family: "Noto Sans KR"; 
 		color: gray;
