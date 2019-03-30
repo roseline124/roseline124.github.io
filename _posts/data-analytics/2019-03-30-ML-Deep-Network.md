@@ -67,7 +67,7 @@ W는 가중치들을 모아놓은 **가중치 행렬**이다. 첫번째 행은 �
 
 <br>
 
-<img src="/assets/images/190330_deep4.PNG" style="width:600px;">
+<img src="/assets/images/190330_deep4.png" style="width:600px;">
 
 <br>
 <br>
