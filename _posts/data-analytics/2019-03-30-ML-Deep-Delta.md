@@ -5,7 +5,7 @@ date: 2019-03-30 13:54:00
 author: Roseline Song
 categories: Data-Analytics
 tags: 기록 공부
-cover: "/assets/dailystudy2.jpg"
+cover: "/assets/dailystudy.jpg"
 sitemap : 
 changefreq : week
 ---
