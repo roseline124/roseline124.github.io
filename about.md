@@ -51,7 +51,7 @@ permalink: /about/
 
 <br>
 
-쓰다보니 길어졌네요! 읽어주셔서 감사합니다. 
+쓰다보니 길어졌네요! 읽어주셔서 감사합니다. <br>
 질문이 있다면 [guseod24@gmail.com](guseod24@gmail.com)으로 메일 주시면 감사하겠습니다.
 
 
