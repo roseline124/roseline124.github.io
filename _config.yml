@@ -54,7 +54,7 @@ descriptions:
   - cat: Algorithm
     desc: "자료구조와 알고리즘"
 
-  - cat: Data-Analitics
+  - cat: Data-Analytics
     desc: "데이터 통계 및 분석"
 
   - cat: Django

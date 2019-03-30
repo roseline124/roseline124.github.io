@@ -3,7 +3,7 @@ layout: post
 title:  "[통계학#2] 추론 통계 - 표집 분포(Sampling Distribution)"
 date: 2019-03-27 23:53:59
 author: Roseline Song
-categories: Data-Analitics
+categories: Data-Analytics
 tags: R 데이터 랜덤팀배정 함수 과제 강의
 cover: "/assets/DataAnalysis.gif"
 ---

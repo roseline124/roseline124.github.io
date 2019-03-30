@@ -3,7 +3,7 @@ layout: post
 title:  "[R] plotly 시작하기 / 자동으로 setwd() 실행하기"
 date: 2019-03-23 22:53:59
 author: Roseline Song
-categories: Data-Analitics
+categories: Data-Analytics
 tags: R data 
 cover: "/assets/DataAnalysis.gif"
 ---

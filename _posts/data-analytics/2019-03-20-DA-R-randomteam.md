@@ -3,7 +3,7 @@ layout: post
 title:  "[R] 랜덤 팀 배정하는 함수 / R로 마음 전하기"
 date: 2019-03-20 22:53:59
 author: Roseline Song
-categories: Data-Analitics
+categories: Data-Analytics
 tags: R 데이터 랜덤팀배정 함수 과제 강의
 cover: "/assets/DataAnalysis.gif"
 ---

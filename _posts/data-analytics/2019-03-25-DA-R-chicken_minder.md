@@ -3,7 +3,7 @@ layout: post
 title:  "[R] 치킨 대격변 5년 - 서울시 1인 가구 비율에 따른 치킨 데이터 분석"
 date: 2019-03-25 22:53:59
 author: Roseline Song
-categories: Data-Analitics
+categories: Data-Analytics
 tags: R data 
 cover: "/assets/images/chicken.jpg"
 ---
