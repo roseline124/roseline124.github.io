@@ -26,8 +26,8 @@ permalink: /about/
 <br>
 
 
-<img src="/assets/images/myfolio.PNG" style="width:350px; marign-right:20px; display:inline">웹프로젝트 Myfolio
-<img src="/assets/images/baccarat.PNG" style="width:350px; display:inline">Baccarat 게임
+<img src="/assets/images/myfolio.PNG" style="width:350px; marign-right:20px; display:inline">
+<img src="/assets/images/baccarat.PNG" style="width:350px; display:inline">
 
 <br>
 
@@ -37,8 +37,8 @@ permalink: /about/
 <br>
 
 
-<img src="/assets/images/tigtag.jpg" style="width:350px; marign-right:20px; display:inline">NFC 태깅 웨이팅 서비스
-<img src="/assets/images/random_team.PNG" style="width:350px; display:inline">랜덤 팀 배정 프로그램
+<img src="/assets/images/tigtag.jpg" style="width:350px; marign-right:20px; display:inline">
+<img src="/assets/images/random_team.PNG" style="width:350px; display:inline">
 
 <br>
 
@@ -46,8 +46,8 @@ permalink: /about/
 
 <br>
 <br>
-<img src="/assets/images/onemore_template2.jpg" style="width:350px; marign-right:20px; display:inline" alt="onemorescoop">Django 스터디 OneMoreScoop
-<img src="/assets/images/dbdeep.jpg" style="width:350px; display:inline">딥러닝 스터디 DB Deep
+<img src="/assets/images/onemore_template2.jpg" style="width:350px; marign-right:20px; display:inline" alt="onemorescoop">
+<img src="/assets/images/dbdeep.jpg" style="width:350px; display:inline">
 
 <br>
 
