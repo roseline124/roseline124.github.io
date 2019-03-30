@@ -344,6 +344,7 @@ pre code.hljs {
 	} // wrapper 
 
 	img + em {
+		display: block;
 		text-align: center;
 		font-family: "Noto Sans KR"; 
 		color: gray;
