@@ -22,29 +22,28 @@ permalink: /about/
 제가 원하는 걸 만들 수 있고, 남들을 도울 수 있고, 또 저는 새로운 걸 배우는게 좋거든요.
 <br>
 
-<div style="display:inline">
-<img src="/assets/images/myfolio.PNG" style="width:400px; marign-right:10px;">
-<img src="/assets/images/baccarat.PNG" style="width:400px;">
-</div>
+
+<img src="/assets/images/myfolio.PNG" style="width:350px; marign-right:20px; display:inline">
+<img src="/assets/images/baccarat.PNG" style="width:350px; display:inline">
+
 <br>
 
 만든 프로젝트는 포트폴리오 사이트 'Myfolio'와 (Django), Baccarat 카드 게임(Pygame)이 있어요. '지금 혼자라면 맹자를 만나라'라는 책에서 Baccarat라는 카지노 게임을 처음 접했는데요. 룰이 쉬워보여서 시작했다가 나중에 알고보니 더 복잡한 룰이 있어서 만드는 데 조금 고생했던 기억이 나네요. 
 <br>
-<div style="display:inline">
 
-<img src="/assets/images/tigtag.jpg" style="width:400px; marign-right:10px;" >
-<img src="/assets/images/random_team.PNG" style="width:400px;">
-</div>
+
+<img src="/assets/images/tigtag.jpg" style="width:350px; marign-right:20px; display:inline" >
+<img src="/assets/images/random_team.PNG" style="width:350px; display:inline">
+
 <br>
 <br>
 
 남들을 도울 수 있는 프로젝트는 NFC 태깅으로 웨이팅 서비스를 제공하는 'TicTag', 그리고 교수님 부탁으로 만들었던 랜덤 팀 배정 프로그램이 있어요. 이건 R, Python 각 언어로 만들어봤는데요. 출석부 파일만 넣으면 알아서 배정해주는 프로그램인데 Python은 GUI로 만들어서 배포했어요. 제 블로그를 본 사람이 부탁해서 프로그램을 받아간 적도 있었고, 전략적 글로벌 캠페인이라는 전공 수업에서 실제로 이 프로그램을 사용해 팀 배정을 했답니다! :) 
 
 <br>
-<div style="display:inline">
-<img src="/assets/images/onemore_template2.jpg" style="width:400px; marign-right:10px;" alt="onemorescoop">
-<img src="/assets/images/dbdeep.jpg" style="width:400px;">
-</div>
+<img src="/assets/images/onemore_template2.jpg" style="width:350px; marign-right:20px; display:inline" alt="onemorescoop">
+<img src="/assets/images/dbdeep.jpg" style="width:350px; display:inline">
+
 <br>
 <br>
 
