@@ -45,6 +45,8 @@ changefreq : week
 <code>
 w <- w + αex
 </code>
+<br>
+
 ※ 팁 : 그리스문자를 쓰려면 `ㅎ + 한자`, 수학 기호는 `ㄷ + 한자`
 
 <br>
