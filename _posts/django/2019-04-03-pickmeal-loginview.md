@@ -14,7 +14,7 @@ cover: "/assets/django2.jpg"
 
 <br>
 
-<img src="/assets/images/190403_login.png">*Django Login Page*
+<img src="/assets/images/190403_login.PNG">*Django Login Page*
 
 <br>
 <br>
