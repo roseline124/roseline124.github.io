@@ -340,7 +340,7 @@ pre code.hljs {
 	}
 
 	img + em {
-		display: block;
+		display: block !important;
 		margin: auto;
 		width: 90%;
 		box-shadow:3px 6px 15px 0px;
@@ -348,7 +348,7 @@ pre code.hljs {
 		font-size: .8rem;
 		font-family: "Noto Sans KR"; 
 		color: gray;
-		margin-top: 20px;
+		margin-top: 20px !important;
 	}
 
 	/*
