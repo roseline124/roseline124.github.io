@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Django 스터디 준비#5-2] 함수형 & 클래스형 뷰 - 맛집 리뷰 사이트"
+title:  "[Django 스터디#5-2] 함수형 & 클래스형 뷰 - 맛집 리뷰 사이트"
 date: 2019-03-27 21:30:59
 author: Roseline Song
 categories: Django
@@ -202,9 +202,7 @@ urlpatterns = [
 <br>
 <br>
 
-### 템플릿 
-
-
+템플릿은 다른 포스팅에서 다룰 예정.
 
 <br>
 <br>

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Django 스터디 준비#4-2] 웹 프로젝트 model join 및 뷰, 템플릿"
+title:  "[Django 스터디#4-2] 웹 프로젝트 model join 및 뷰, 템플릿"
 date: 2019-03-23 20:30:59
 author: Roseline Song
 categories: Django

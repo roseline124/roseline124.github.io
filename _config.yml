@@ -60,6 +60,9 @@ descriptions:
   - cat: Django
     desc: "마감은 없지만 성격은 급한 개발자의 Django 프로젝트"
 
+  - cat: Fail-Of-Wall
+    desc: "실패와 에러에 대한 기록. 삽질이 나를 성장시킨다."
+
 # Social icons and sharing options
 #
 # Social settings are used in two places:

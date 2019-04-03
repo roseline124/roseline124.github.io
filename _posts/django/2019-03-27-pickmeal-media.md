@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Django 스터디 준비#5-1] Media 폴더 경로 설정하기"
+title:  "[Django 스터디#5-1] Media 폴더 경로 설정하기"
 date: 2019-03-27 20:30:59
 author: Roseline Song
 categories: Django

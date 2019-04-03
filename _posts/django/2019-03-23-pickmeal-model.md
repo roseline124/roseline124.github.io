@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Django 스터디 준비#4-1] 웹 프로젝트 model 생성 및 마이그레이션"
+title:  "[Django 스터디#4-1] 웹 프로젝트 model 생성 및 마이그레이션"
 date: 2019-03-23 19:30:59
 author: Roseline Song
 categories: Django
