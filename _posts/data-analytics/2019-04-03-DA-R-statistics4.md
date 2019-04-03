@@ -75,7 +75,8 @@ sd(x)
 
 <br>
 
-<img src="/assets/images/bar.png" style="width:600px;">*균일 분포*
+<img src="/assets/images/bar.png" style="width:600px;">
+*균일 분포*
 
 균일 분포의 그래프이다. 샘플링해서 각각의 표본 평균을 구하고, 그래프를 그려보자. 중심 극한 정리대로 샘플의 크기가 충분히 클 때, 정규 분포의 형태를 띠는지 확인한다.
 
@@ -98,7 +99,10 @@ sd(xbar)
 
 {% endhighlight %}
 
-<img src="/assets/images/norm_hist.png" style="width:600px;">*정규 분포의 형태를 띤다*
+<br>
+
+<img src="/assets/images/norm_hist.png" style="width:600px;">
+*정규 분포의 형태를 띤다*
 
 
 <br>
