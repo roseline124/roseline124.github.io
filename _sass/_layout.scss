@@ -338,17 +338,12 @@ pre code.hljs {
 			}
 		}
 	}
-
-	img + em {
-		display: block !important;
+	img {
+		display: block;
 		margin: auto;
 		width: 90%;
 		box-shadow:3px 6px 15px 0px;
-		text-align: center;
-		font-size: .8rem;
-		font-family: "Noto Sans KR"; 
-		color: gray;
-		margin-top: 20px !important;
+
 	}
 
 	/*
@@ -446,7 +441,13 @@ pre code.hljs {
 	}
 } // Body
 
-
+img + em {
+	text-align: center;
+	font-size: .8rem;
+	font-family: "Noto Sans KR"; 
+	color: gray;
+	margin-top: 20px;
+}
 
 
 /*
