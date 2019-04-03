@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Django 스터디#5-3] 로그인, 로그아웃 뷰(Login, Logout View)"
-date: 2019-03-27 21:30:59
+date: 2019-04-03 15:07:59
 author: Roseline Song
 categories: Django
 tags: python django
