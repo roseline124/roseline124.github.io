@@ -316,6 +316,7 @@ pre code.hljs {
       text-decoration: none;
     }
 	}
+
 	.site-header-container {
 		color: $white;
 		// text-shadow: 0 2px 1px rgba(0,0,0,0.33);
@@ -337,14 +338,16 @@ pre code.hljs {
 			}
 		}
 	}
-	img {
-		display: block;
-		margin: auto;
-		width: 90%;
-		box-shadow:3px 6px 15px 0px;
-	} // wrapper 
+
+	// img {
+	// 	display: block;
+	// 	margin: auto;
+	// 	width: 90%;
+	// 	box-shadow:3px 6px 15px 0px;
+	// }  
 
 	img + em {
+		display: block;
 		text-align: center;
 		font-size: .8rem;
 		font-family: "Noto Sans KR"; 
