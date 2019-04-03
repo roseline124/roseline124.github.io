@@ -340,14 +340,17 @@ pre code.hljs {
 	}
 
 	// img {
-	// 	display: block;
-	// 	margin: auto;
-	// 	width: 90%;
-	// 	box-shadow:3px 6px 15px 0px;
+		// display: block;
+		// margin: auto;
+		// width: 90%;
+		// box-shadow:3px 6px 15px 0px;
 	// }  
 
 	img + em {
 		display: block;
+		margin: auto;
+		width: 90%;
+		box-shadow:3px 6px 15px 0px;
 		text-align: center;
 		font-size: .8rem;
 		font-family: "Noto Sans KR"; 
