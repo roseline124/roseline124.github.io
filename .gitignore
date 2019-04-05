@@ -8,6 +8,7 @@ _site/assets
 _site/css
 _site/js
 _site/page*
+_site
 
 
 # Sass garbage

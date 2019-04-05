@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head lang="ko">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>[오늘의 공부] 알고리즘 문제 풀이, 캐글 - Box Office 영화 수익 예측</title>
+  <meta name="description" content="알고리즘 문제 풀이">
+  
+  <meta name="author" content="Roseline Song">
+  <meta name="copyright" content="&copy; Roseline Song 2019">
+  
+
+  <!-- External libraries -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="알고리즘 문제 풀이" />
+  <meta property="og:url" content="http://roseline124.github.io" />
+  <meta property="og:site_name" content="유혹하는 개발하기" />
+  <meta property="og:title" content="[오늘의 공부] 알고리즘 문제 풀이, 캐글 - Box Office 영화 수익 예측" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://roseline124.github.io/assets/dailystudy.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[오늘의 공부] 알고리즘 문제 풀이, 캐글 - Box Office 영화 수익 예측">
+  <meta name="twitter:description" content="알고리즘 문제 풀이">
+  <meta name="twitter:image" content="http://roseline124.github.io/assets/dailystudy.jpg">
+  <meta name="twitter:url" content="http://roseline124.github.io">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/spacing.css">
+  <link rel="canonical" href="http://roseline124.github.io/daily-study/2019/03/18/Study-190318.html">
+  <link rel="alternate" type="application/rss+xml" title="유혹하는 개발하기" href="http://roseline124.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="navbar nav-bg navigation nav-top " role="banner">
+  <div class="navigation-wrapper">
+    <!-- <a href="/" class="logo">
+      
+      <span>유혹하는 개발하기</span>
+      
+    </a> -->
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link"><a href="/">Home</a>
+        
+          
+          <li class="nav-link"><a href="/about/">About</a>
+          
+        
+          
+          <li class="nav-link"><a href="/category/">Category</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/tag/">Tag</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/dailystudy.jpg);">
+  <div class="scrim has-cover">
+    <header class="post-header" style="padding-left:8rem;">
+        
+           
+            <p class="category">Daily-study</p>
+          
+        
+        <!-- display:inline-block : 콘텐츠 길이에 맞춰 너비 조정 -->
+      <div style="display:inline-block;">
+        <p class="title">[오늘의 공부] 알고리즘 문제 풀이, 캐글 - Box Office 영화 수익 예측</p>
+        
+        <hr>
+
+        <p class="info">by Roseline Song | March 18, 2019</p>
+      </div>
+    </header>
+    <a href="#content-post" class="scroll-down icon-arrow-left" data-offset="-45">
+        <span class="hidden">Scroll Down</span>
+      </a>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta" id="content-post">
+  <div class="post-date">March 18, 2019</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/Daily-Study">Daily-study</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h3 id="section">알고리즘 문제 풀이</h3>
+
+<p><br /></p>
+
+<p><a href="https://roseline124.github.io/algorithm/2019/03/18/Algorithm-190318.html">백준 알고리즘 10866번</a></p>
+
+<p><br /></p>
+
+<h3 id="box-office---">캐글 - Box Office 영화 수익 예측</h3>
+
+<p><br /></p>
+
+<p><strong>Description</strong></p>
+
+<p>In this dataset, you are provided with 7398 movies and a variety of metadata obtained from The Movie Database (TMDB). Movies are labeled with id. Data points include cast, crew, plot keywords, budget, posters, release dates, languages, production companies, and countries.
+<strong>7398개의 영화 데이터와 TMDB로부터 얻은 다양한 메타데이터가 주어진다. 영화는 id로 라벨링된다. 출연진, 크루, 줄거리 키워드, 예산, 포스터, 출시일, 언어, 제작 회사 및 국가 등의 데이터 포인트를 포함한다.</strong></p>
+
+<p>You are predicting the worldwide revenue for 4398 movies in the test file.
+<strong>테스트 파일에서 4398개의 영화에 대한 세계적인 수익을 예측해야 한다.</strong></p>
+
+<p>Note - many movies are remade over the years, therefore it may seem like multiple instance of a movie may appear in the data, however they are different and should be considered separate movies. In addition, some movies may share a title, but be entirely unrelated. 
+<strong>몇 년에 걸쳐 리메이크되는 영화가 많다. 데이터에서 같은 객체가 여러 개인 것처럼 보이지만, 이들은 별개의 영화로 생각해야 한다. 추가로, 어떤 영화들은 제목은 같으나, 관련은 없다. 이 역시 별개로 생각해야 한다.</strong></p>
+
+<p><br /></p>
+
+<p><strong>Data Dictionary</strong></p>
+
+<p>알 수 없는 데이터 :
+<code class="highlighter-rouge">belongs_to_collection, popularity(관객 수? 단위는?), revenue(수익, 단위는?)</code></p>
+
+<ul>
+  <li>belongs_to_collection  ,</li>
+  <li>budget : 예산,</li>
+  <li>genres : 장르 <code class="highlighter-rouge">({id(장르 식별자) : drame(장르 종류)})</code>,</li>
+  <li>homepage : 홈페이지 주소,</li>
+  <li>imdb_id : 인터넷 영화 데이터베이스 식별자 ,</li>
+  <li>original_language : 오리지날 언어,</li>
+  <li>original_title : 원래 타이틀(자국 언어), // 수출될 때는 영어로 번역되니 상관없을 듯</li>
+  <li>overview : 줄거리,</li>
+  <li>popularity : 관객 수? (단위는?),</li>
+  <li>poster_path : 포스터 이미지주소,</li>
+  <li>production_companies : 제작사,</li>
+  <li>production_countries : 제작 국가,</li>
+  <li>release_date : 출시일,</li>
+  <li>runtime : 상영 시간,</li>
+  <li>spoken_languages : 발화 언어,</li>
+  <li>status : 상영 중 혹은 상영 전,</li>
+  <li>tagline : 캐치 프레이즈,</li>
+  <li>title : 영어 타이틀,</li>
+  <li>Keywords : 키워드(액션, 저널리즘, 재즈 등),</li>
+  <li>cast : 캐릭터, 배우</li>
+  <li>crew : 감독, 프로듀서 등 (gender:2:남성)</li>
+  <li>revenue : 수입 (단위는?)</li>
+</ul>
+
+<p>문제 : feature engineering을 하려는데 dictionary처럼 보이는 값들이 문자열로 인식된다.</p>
+
+<p><br /></p>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/기록">기록</a>,&nbsp;<a href="/tag/공부">공부</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%5B%EC%98%A4%EB%8A%98%EC%9D%98+%EA%B3%B5%EB%B6%80%5D+%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98+%EB%AC%B8%EC%A0%9C+%ED%92%80%EC%9D%B4%2C+%EC%BA%90%EA%B8%80+-+Box+Office+%EC%98%81%ED%99%94+%EC%88%98%EC%9D%B5+%EC%98%88%EC%B8%A1&u=http%3A%2F%2Froseline124.github.io%2Fdaily-study%2F2019%2F03%2F18%2FStudy-190318.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+	<section class="post-navigation">
+		<span class="prev-post">
+			
+				<a href="/algorithm/2019/03/18/Algorithm-190318.html">
+					<span class="fa-stack fa-lg">
+						<!-- <i class="fa fa-square fa-stack-2x"></i> -->
+						<!-- <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i> -->
+            <button class="btn btn-info"><</button>
+          </span>
+					<span class="page-number">[백준 알고리즘#10866] 덱(Deque) 구현하기 </span>
+				</a>
+			
+		</span>
+		<span class="next-post">
+			
+				<a href="/algorithm/2019/03/19/Algorithm-190319.html">
+					<span class="page-number">[백준 알고리즘#1475] 방 번호 구하기 - 최소 세트 개수 (Python) </span>
+					<span class="fa-stack fa-lg">
+						<!-- <i class="fa fa-square fa-stack-2x"></i> -->
+            <!-- <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i> -->
+            <button class="btn btn-info">></button>
+					</span>
+				</a>
+			
+		</span>
+	</section>
+
+
+
+
+<section class="disqus" style="margin-top:1rem;">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'roseline';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+<!-- PREVIOUS / NEXT POST -->
+<!-- 
+<div>
+    
+    <section class="post-navigation">
+
+      <span class="prev-post">
+        
+          <a href="/algorithm/2019/03/18/Algorithm-190318.html">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="page-number">[백준 알고리즘#10866] 덱(Deque) 구현하기 </span>
+          </a>
+        
+      </span>
+
+      <span class="next-post">
+        
+          <a href="/algorithm/2019/03/19/Algorithm-190319.html">
+            <span class="page-number">[백준 알고리즘#1475] 방 번호 구하기 - 최소 세트 개수 (Python) </span>
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        
+      </span>
+    </section>
+  
+</div> -->
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">유혹하는 개발하기</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/about/">About</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/category/">Category</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/">Tag</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:guseod24@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">guseod24@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://www.facebook.com/guseod24" title="Friend me on Facebook">
+              <i class="fa fa-facebook"></i>
+              <span class="username">Roseline</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://github.com/roseline124" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Roseline</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">인생은 예술을 위해 존재하는 게 아니다. 오히려 그 반대이다. - 스티븐 킹
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="/js/nav.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.11.2.min.js"></script> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-135996088-1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/daily-study/2019/03/18/Study-190318.html',
+    'title': '[오늘의 공부] 알고리즘 문제 풀이, 캐글 - Box Office 영화 수익 예측'
+  });
+</script>
+
+
+
+  </body>
+
+</html>
