@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head lang="ko">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>[Django 스터디#4-2] 웹 프로젝트 model join 및 뷰, 템플릿</title>
+  <meta name="description" content="Model Join">
+  
+  <meta name="author" content="Roseline Song">
+  <meta name="copyright" content="&copy; Roseline Song 2019">
+  
+
+  <!-- External libraries -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="Model Join" />
+  <meta property="og:url" content="http://roseline124.github.io" />
+  <meta property="og:site_name" content="유혹하는 개발하기" />
+  <meta property="og:title" content="[Django 스터디#4-2] 웹 프로젝트 model join 및 뷰, 템플릿" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://roseline124.github.io/assets/django2.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[Django 스터디#4-2] 웹 프로젝트 model join 및 뷰, 템플릿">
+  <meta name="twitter:description" content="Model Join">
+  <meta name="twitter:image" content="http://roseline124.github.io/assets/django2.jpg">
+  <meta name="twitter:url" content="http://roseline124.github.io">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/spacing.css">
+  <link rel="canonical" href="http://roseline124.github.io/django/2019/03/23/pickmeal-model2.html">
+  <link rel="alternate" type="application/rss+xml" title="유혹하는 개발하기" href="http://roseline124.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="navbar nav-bg navigation nav-top " role="banner">
+  <div class="navigation-wrapper">
+    <!-- <a href="/" class="logo">
+      
+      <span>유혹하는 개발하기</span>
+      
+    </a> -->
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link"><a href="/">Home</a>
+        
+          
+          <li class="nav-link"><a href="/about/">About</a>
+          
+        
+          
+          <li class="nav-link"><a href="/category/">Category</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/tag/">Tag</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/django2.jpg);">
+  <div class="scrim has-cover">
+    <header class="post-header" style="padding-left:8rem;">
+        
+           
+            <p class="category">Django</p>
+          
+        
+        <!-- display:inline-block : 콘텐츠 길이에 맞춰 너비 조정 -->
+      <div style="display:inline-block;">
+        <p class="title">[Django 스터디#4-2] 웹 프로젝트 model join 및 뷰, 템플릿</p>
+        
+        <hr>
+
+        <p class="info">by Roseline Song | March 23, 2019</p>
+      </div>
+    </header>
+    <a href="#content-post" class="scroll-down icon-arrow-left" data-offset="-45">
+        <span class="hidden">Scroll Down</span>
+      </a>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta" id="content-post">
+  <div class="post-date">March 23, 2019</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/Django">Django</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h3 id="model-join">Model Join</h3>
+
+<p>Restaurant 모델에는 음식점 이름, 카테고리(한식, 중식 등), 주소 정보가 있으며, Review 모델에는 제목, 리뷰, 사진 정보가 있다.</p>
+
+<p>이를 모두 한 template에 하나의 view로 보여주고 싶었다. Review 모델이 forienkey field로 Restaurant을 참조하고 있으니 Join을 생각했고, 각 모델의 데이터를 한 번에 보여줄 방법을 찾아봤다.</p>
+
+<p><br /></p>
+
+<p><strong>모델 코드 참고</strong></p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">PIL</span> <span class="c"># Review 모델의 imagefield를 위해 추가 </span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">cat_food</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s">"한식"</span><span class="p">,</span><span class="s">"한식"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">"중식"</span><span class="p">,</span><span class="s">"중식"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">"일식"</span><span class="p">,</span><span class="s">"일식"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s">"양식"</span><span class="p">,</span><span class="s">"양식"</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">location</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">cat_food</span><span class="p">)</span> 
+
+    <span class="o">...</span><span class="p">(</span><span class="err">생략</span><span class="p">)</span><span class="o">...</span>
+
+<span class="k">class</span> <span class="nc">Review</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">restaurant</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Restaurant</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">PROTECT</span><span class="p">)</span> <span class="c">#참조키</span>
+
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">review</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
+    <span class="n">photo</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="s">"reviewBoard/images"</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c"># 처음 이미지를 업로드하면 media 폴더가 자동으로 생성된다.</span>
+
+    <span class="o">...</span><span class="p">(</span><span class="err">생략</span><span class="p">)</span><span class="o">...</span></code></pre></figure>
+
+<p><br />
+<br /></p>
+
+<h3 id="django-orm-cookbook">Django ORM CookBook</h3>
+
+<p>8퍼센트 프로덕트팀에서 번역한 ORM CookBook을 참고했다.</p>
+
+<p><a href="https://django-orm-cookbook-ko.readthedocs.io/en/latest/join.html">참고: ORM CookBook</a></p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">restaurants</span> <span class="o">=</span> <span class="n">Review</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">select_related</span><span class="p">(</span><span class="s">'restaurant'</span><span class="p">)</span> <span class="c">#foreignkey 변수 이름</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">restaurants</span>
+<span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">Review</span><span class="p">:</span> <span class="err">은성밥차</span> <span class="err">맛집</span> <span class="err">리뷰</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span></code></pre></figure>
+
+<p><br />
+<br /></p>
+
+<p>select_related() 함수에 Review 모델이 foreignkey로 잡은 <code class="highlighter-rouge">restaurant</code>이라는 이름을 인자로 전달했다. 겉보기에는 일반적인 Review 데이터를 가져온 것 같지만 SQL 문으로 보면 INNER JOIN의 결과라는 걸 알 수 있다.</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">restaurants</span><span class="o">.</span><span class="n">query</span><span class="p">)</span>
+
+<span class="n">SELECT</span> 
+
+<span class="s">"reviewBoard_review"</span><span class="o">.</span><span class="s">"id"</span><span class="p">,</span> 
+<span class="s">"reviewBoard_review"</span><span class="o">.</span><span class="s">"restaurant_id"</span><span class="p">,</span> 
+<span class="s">"reviewBoard_review"</span><span class="o">.</span><span class="s">"title"</span><span class="p">,</span> 
+<span class="s">"reviewBoard_review"</span><span class="o">.</span><span class="s">"review"</span><span class="p">,</span> 
+<span class="s">"reviewBoard_review"</span><span class="o">.</span><span class="s">"photo"</span><span class="p">,</span> 
+
+<span class="s">"reviewBoard_restaurant"</span><span class="o">.</span><span class="s">"id"</span><span class="p">,</span> 
+<span class="s">"reviewBoard_restaurant"</span><span class="o">.</span><span class="s">"name"</span><span class="p">,</span> 
+<span class="s">"reviewBoard_restaurant"</span><span class="o">.</span><span class="s">"location"</span><span class="p">,</span> 
+<span class="s">"reviewBoard_restaurant"</span><span class="o">.</span><span class="s">"category"</span>
+
+<span class="n">FROM</span> <span class="s">"reviewBoard_review"</span> 
+
+<span class="n">INNER</span> <span class="n">JOIN</span> <span class="s">"reviewBoard_restaurant"</span> 
+<span class="n">ON</span> <span class="p">(</span><span class="s">"reviewBoard_review"</span><span class="o">.</span><span class="s">"restaurant_id"</span> <span class="o">=</span> <span class="s">"reviewBoard_restaurant"</span><span class="o">.</span><span class="s">"id"</span><span class="p">)</span></code></pre></figure>
+
+<p><br />
+<br /></p>
+
+<h3 id="setall">참조하는 테이블_set.all()</h3>
+
+<p>하지만 위 쿼리셋에서 어떤 방법을 써야 Restaurant 모델의 데이터를 가져올 수 있는지 알 수 없었다. 그래서 다른 방법을 스택 오버 플로우에서 찾았다.</p>
+
+<p><a href="https://django-orm-cookbook-ko.readthedocs.io/en/latest/join.html">참고: ORM CookBook</a></p>
+
+<p><br /></p>
+
+<p><strong>인터랙티브 셸에서 확인</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">reviewBoard.models</span> <span class="kn">import</span> <span class="n">Restaurant</span><span class="p">,</span> <span class="n">Review</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">Restaurant</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">review_set</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+
+<span class="o">&lt;</span><span class="n">QuerySet</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">Review</span><span class="p">:</span> <span class="err">은성밥차</span> <span class="err">맛집</span> <span class="err">리뷰</span><span class="o">&gt;</span><span class="p">]</span><span class="o">&gt;</span></code></pre></figure>
+
+<p>참조당하는 테이블 Restaurant의 데이터 객체에서 <code class="highlighter-rouge">참조하는 테이블(소문자)_set.all()</code>과 같은 형태로 적어주면 관계 테이블의 데이터를 가져올 수 있다.</p>
+
+<p><br /></p>
+
+<p><strong>views.py</strong></p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">restaurants</span> <span class="o">=</span> <span class="n">Restaurant</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">"reviewBoard/index.html"</span><span class="p">,</span> <span class="p">{</span><span class="s">'restaurants'</span> <span class="p">:</span> <span class="n">restaurants</span><span class="p">})</span></code></pre></figure>
+
+<!-- <br>
+<br>
+
+**templates : index.html**
+
+<br>
+~~~
+
+~~~ -->
+
+<p><br />
+<br /></p>
+
+<h3 id="section">해결할 문제</h3>
+
+<p><strong>1. media 폴더 경로 문제</strong> : media 폴더가 프로젝트 폴더 경로에 생긴다. app 폴더의 하위에 media 폴더가 생겨야 하는데, 계속 경로가 엇갈린다. 경로가 틀리니 템플릿에서도 사진이 보이지 않는다.</p>
+
+<p><br />
+<br /></p>
+
+<h3 id="section-1">해결 (190327)</h3>
+
+<p><strong><a href="https://roseline124.github.io/django/2019/03/27/pickmeal-media.html">media 폴더 경로 추가하기</a></strong> 포스트 확인</p>
+
+<p><br />
+<br /></p>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/python">python</a>,&nbsp;<a href="/tag/django">django</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%5BDjango+%EC%8A%A4%ED%84%B0%EB%94%94%234-2%5D+%EC%9B%B9+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+model+join+%EB%B0%8F+%EB%B7%B0%2C+%ED%85%9C%ED%94%8C%EB%A6%BF&u=http%3A%2F%2Froseline124.github.io%2Fdjango%2F2019%2F03%2F23%2Fpickmeal-model2.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+	<section class="post-navigation">
+		<span class="prev-post">
+			
+				<a href="/django/2019/03/23/pickmeal-model.html">
+					<span class="fa-stack fa-lg">
+						<!-- <i class="fa fa-square fa-stack-2x"></i> -->
+						<!-- <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i> -->
+            <button class="btn btn-info"><</button>
+          </span>
+					<span class="page-number">[Django 스터디#4-1] 웹 프로젝트 model 생성 및 마이그레이션</span>
+				</a>
+			
+		</span>
+		<span class="next-post">
+			
+				<a href="/data-analytics/2019/03/23/DA-R-plotly.html">
+					<span class="page-number">[R] plotly 시작하기 / 자동으로 setwd() 실행하기</span>
+					<span class="fa-stack fa-lg">
+						<!-- <i class="fa fa-square fa-stack-2x"></i> -->
+            <!-- <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i> -->
+            <button class="btn btn-info">></button>
+					</span>
+				</a>
+			
+		</span>
+	</section>
+
+
+
+
+<section class="disqus" style="margin-top:1rem;">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'roseline';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+<!-- PREVIOUS / NEXT POST -->
+<!-- 
+<div>
+    
+    <section class="post-navigation">
+
+      <span class="prev-post">
+        
+          <a href="/django/2019/03/23/pickmeal-model.html">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="page-number">[Django 스터디#4-1] 웹 프로젝트 model 생성 및 마이그레이션</span>
+          </a>
+        
+      </span>
+
+      <span class="next-post">
+        
+          <a href="/data-analytics/2019/03/23/DA-R-plotly.html">
+            <span class="page-number">[R] plotly 시작하기 / 자동으로 setwd() 실행하기</span>
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        
+      </span>
+    </section>
+  
+</div> -->
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">유혹하는 개발하기</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/about/">About</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/category/">Category</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/">Tag</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:guseod24@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">guseod24@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://www.facebook.com/guseod24" title="Friend me on Facebook">
+              <i class="fa fa-facebook"></i>
+              <span class="username">Roseline</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://github.com/roseline124" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Roseline</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">인생은 예술을 위해 존재하는 게 아니다. 오히려 그 반대이다. - 스티븐 킹
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="/js/nav.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.11.2.min.js"></script> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-135996088-1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/django/2019/03/23/pickmeal-model2.html',
+    'title': '[Django 스터디#4-2] 웹 프로젝트 model join 및 뷰, 템플릿'
+  });
+</script>
+
+
+
+  </body>
+
+</html>

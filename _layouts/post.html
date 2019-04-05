@@ -12,11 +12,14 @@ layout: default
             <p class="category">{{ cat | capitalize }}</p>
           {% endfor %}
         {% endif %}
-      <p class="title">{{ page.title }}</p>
-      
-      <hr style="width:50%;">
+        <!-- display:inline-block : 콘텐츠 길이에 맞춰 너비 조정 -->
+      <div style="display:inline-block;">
+        <p class="title">{{ page.title }}</p>
+        
+        <hr>
 
-      <p class="info">by {{ page.author }} | {{ page.date | date: "%B %-d, %Y" }}</p>
+        <p class="info">by {{ page.author }} | {{ page.date | date: "%B %-d, %Y" }}</p>
+      </div>
     </header>
     <a href="#content-post" class="scroll-down icon-arrow-left" data-offset="-45">
         <span class="hidden">Scroll Down</span>
@@ -110,9 +113,10 @@ layout: default
 			{% if page.previous.url %}
 				<a href="{{page.previous.url | prepend: site.baseurl}}">
 					<span class="fa-stack fa-lg">
-						<i class="fa fa-square fa-stack-2x"></i>
-						<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-					</span>
+						<!-- <i class="fa fa-square fa-stack-2x"></i> -->
+						<!-- <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i> -->
+            <button class="btn btn-info"><</button>
+          </span>
 					<span class="page-number">{{page.previous.title}}</span>
 				</a>
 			{% endif %}
@@ -122,8 +126,9 @@ layout: default
 				<a href="{{page.next.url | prepend: site.baseurl}}">
 					<span class="page-number">{{page.next.title}}</span>
 					<span class="fa-stack fa-lg">
-						<i class="fa fa-square fa-stack-2x"></i>
-						<i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+						<!-- <i class="fa fa-square fa-stack-2x"></i> -->
+            <!-- <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i> -->
+            <button class="btn btn-info">></button>
 					</span>
 				</a>
 			{% endif %}

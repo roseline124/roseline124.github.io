@@ -2,7 +2,13 @@
 .vscode
 
 # Compiled site
-_site
+_site/about
+_site/algorithm
+_site/assets
+_site/css
+_site/js
+_site/page*
+
 
 # Sass garbage
 .sass-cache

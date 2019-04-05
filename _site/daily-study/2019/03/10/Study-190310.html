@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head lang="ko">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>[오늘의 공부] 케라스, 머신러닝 개념 정리, Django 모델 공부, 생활 수준에 따른 범죄율 분석 </title>
+  <meta name="description" content="케라스 창시자에게 배우는 딥러닝">
+  
+  <meta name="author" content="Roseline Song">
+  <meta name="copyright" content="&copy; Roseline Song 2019">
+  
+
+  <!-- External libraries -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="케라스 창시자에게 배우는 딥러닝" />
+  <meta property="og:url" content="http://roseline124.github.io" />
+  <meta property="og:site_name" content="유혹하는 개발하기" />
+  <meta property="og:title" content="[오늘의 공부] 케라스, 머신러닝 개념 정리, Django 모델 공부, 생활 수준에 따른 범죄율 분석 " />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://roseline124.github.io/assets/dailystudy.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[오늘의 공부] 케라스, 머신러닝 개념 정리, Django 모델 공부, 생활 수준에 따른 범죄율 분석 ">
+  <meta name="twitter:description" content="케라스 창시자에게 배우는 딥러닝">
+  <meta name="twitter:image" content="http://roseline124.github.io/assets/dailystudy.jpg">
+  <meta name="twitter:url" content="http://roseline124.github.io">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/spacing.css">
+  <link rel="canonical" href="http://roseline124.github.io/daily-study/2019/03/10/Study-190310.html">
+  <link rel="alternate" type="application/rss+xml" title="유혹하는 개발하기" href="http://roseline124.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="navbar nav-bg navigation nav-top " role="banner">
+  <div class="navigation-wrapper">
+    <!-- <a href="/" class="logo">
+      
+      <span>유혹하는 개발하기</span>
+      
+    </a> -->
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link"><a href="/">Home</a>
+        
+          
+          <li class="nav-link"><a href="/about/">About</a>
+          
+        
+          
+          <li class="nav-link"><a href="/category/">Category</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/tag/">Tag</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/dailystudy.jpg);">
+  <div class="scrim has-cover">
+    <header class="post-header" style="padding-left:8rem;">
+        
+           
+            <p class="category">Daily-study</p>
+          
+        
+        <!-- display:inline-block : 콘텐츠 길이에 맞춰 너비 조정 -->
+      <div style="display:inline-block;">
+        <p class="title">[오늘의 공부] 케라스, 머신러닝 개념 정리, Django 모델 공부, 생활 수준에 따른 범죄율 분석 </p>
+        
+        <hr>
+
+        <p class="info">by Roseline Song | March 10, 2019</p>
+      </div>
+    </header>
+    <a href="#content-post" class="scroll-down icon-arrow-left" data-offset="-45">
+        <span class="hidden">Scroll Down</span>
+      </a>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta" id="content-post">
+  <div class="post-date">March 10, 2019</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/Daily-Study">Daily-study</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h3 id="section">케라스 창시자에게 배우는 딥러닝</h3>
+
+<p>​<br /></p>
+
+<ul>
+  <li>
+    <p>1장 ~ 2장 3절 공부 : mnist예제, 0~3D 텐서, 텐서 연산</p>
+  </li>
+  <li>
+    <p>3장 3절, 케라스 실습 환경 만들기 : 주피터 노트북 커널이 파이썬 버전을 제대로 찾지 못해서, 아나콘다 가상환경들을 싹다 밀어버리고 새로 만들었다. python 3.6으로 새로 설치하고, 딥러닝에 필요한 라이브러리 설치함.</p>
+  </li>
+</ul>
+
+<p>​<br /></p>
+
+<p>50쪽 공부하는데만 4~5시간이 걸렸다. 어려운 개념이 많다.</p>
+
+<p>예전에 타리크 라시드의 ‘신경망 첫걸음’이라는 책으로 머신러닝 공부하면서 정리한 개념을 다시 정리한다.</p>
+
+<p>​</p>
+<hr />
+
+<p>​</p>
+
+<h4 id="section-1">학습 모델  종류</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>의사결정트리 : 기호주의, 귀납적 추론</p>
+  </li>
+  <li>
+    <p>신경망 기반 : 노드, 연결주의</p>
+  </li>
+  <li>
+    <p>KNN, 서포트벡터머신 : 유사성 근거로 학습</p>
+  </li>
+  <li>
+    <p>베이지안모델 : 확률 추론</p>
+  </li>
+  <li>
+    <p>유전 알고리즘 : 모든 선택은 자연 선택에 의해 이뤄진다, 진화주의, 유전학</p>
+  </li>
+  <li>
+    <p>모델 앙상블(여러 학습 모델을 활용하는 것)</p>
+  </li>
+</ul>
+
+<p>​
+<br /></p>
+
+<p>​</p>
+
+<h4 id="section-2">모델 평가하기</h4>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>에러의 제곱</p>
+  </li>
+  <li>
+    <p>정확도</p>
+  </li>
+  <li>
+    <p>우도 (가능도) : 모델의 예측값을 ‘가능성’이 큰 쪽으로 이동시킨다. 로그함수 이용</p>
+  </li>
+  <li>
+    <p>정밀도와 재현률</p>
+  </li>
+  <li>
+    <p>엔트로피</p>
+  </li>
+</ul>
+
+<p>​
+<br /></p>
+
+<p>​</p>
+
+<h4 id="section-3">머신러닝의 응용분야</h4>
+
+<ul>
+  <li>
+    <p>분류 : 특정 데이터에 레이블을 붙여 분류</p>
+  </li>
+  <li>
+    <p>클러스터링 : 데이터의 유사성을 기반으로 데이터를 여러 그룹으로 나눈다.</p>
+  </li>
+  <li>
+    <p>추천 : 과거 데이터를 기반으로 다른 제품 추천</p>
+  </li>
+  <li>
+    <p>회귀 : 과거 데이터를 기반으로 미래, 미래 데이터를 예측하는 것 (판매, 주가 예측)</p>
+  </li>
+  <li>
+    <p>차원 축소 : 데이터의 특성을 유지하면서 데이터 양을 줄여주는 것 (많은 데이터를 계산하기보다는 특성을 기반으로 데이터 양을 줄여 메모리 양을 줄이고 계산 속도를 빠르게 함)</p>
+  </li>
+</ul>
+
+<p>​</p>
+
+<p>​</p>
+
+<h4 id="activation-function">활성화 함수(activation function)</h4>
+
+<p>생물학적 뉴런은 입력된 신호의 합들이 특정 분계점을 넘을 때에만 반응한다.</p>
+
+<p>즉, 딸기를 보았을 때, 빨간색, 씨앗, 달콤한 냄새, 시큼한 냄새 등 입력 신호의 합이 ‘딸기’라는 점을 넘어섰을 때 우리는 ‘딸기’임을 인식하는 반응(출력)을 한다.</p>
+
+<p>​활성화함수도 이와 마찬가지로, 입력된 값들을 합해보았을 때 특정 분계점을 넘지 않으면 반응하지 않고, 특정 분계점을 넘으면 반응을 할 수 있게 해주는 함수이다.</p>
+
+<p>활성화함수는 여러 종류가 있고 그중에서도 ReLU함수가 실무에서 많이 쓰이지만 학습 용도로는 시그모이드 함수가 쉽다.</p>
+
+<p>※ ReLU 함수는 입력이 0보다 크면 입력을 그대로 반환. 0보다 작으면 0을 반환</p>
+
+<p>​</p>
+
+<p>​&lt;hr&gt;</p>
+
+<p>​</p>
+
+<h3 id="django---">Django 모델 공부 ​</h3>
+
+<p>​<br /></p>
+
+<p>어제 Django 모델을 직접 만들고 참조 테이블을 만들었다. Django의 OneToOneField, ManyToOneField, ManyToManyField에 대해 이해가 안되서 데이터베이스의 1:1, 1:N, N:N 관계를 공부했다.</p>
+
+<p>​공부하는 과정에서 마이그레이션, 마이그레이트의 차이, 용도 공부 + sqllite3를 브라우저에서 볼 수 있는 파일을 발견했다.</p>
+
+<p><br /></p>
+
+<p><img src="https://postfiles.pstatic.net/MjAxOTAzMTBfMTc1/MDAxNTUyMjE5Njg2ODA3.YyedH1m4s0EUmykJvNv9DzelCbTDX1eQttEI2YIQlFkg.Y5S2XWAhv5EByoXzgoYbb6HWNYAu8t6hjWsp0QuA78gg.PNG.guseod24/SE-43a8526b-336e-4b71-b626-a72ca2221cbc.png?type=w966" style="width:600;" title="dbBrowser" /></p>
+
+<p><br />
+<br /></p>
+
+<h3 id="section-4">파이썬으로 데이터 주무르기</h3>
+<p>​
+<br /></p>
+
+<p><strong>1. 시카고 샌드위치 맛집 분석, 날짜별 영화 평점 변화 분석</strong></p>
+
+<p><br /></p>
+
+<p><img src="https://postfiles.pstatic.net/MjAxOTAzMTBfMjY4/MDAxNTUyMjIzMzY2Mzk5.I6YdXwnzBhhKiw3Yh3yxd5c-hDPJPEh-bfarXKGg6-Ig.J2aQcREn8RGX-EjdLTZe31L-nOGTlS4zBAsKXsNK_fkg.PNG.guseod24/%EC%98%81%ED%99%94.png?type=w966" style="width:600;" /></p>
+
+<p><br />
+<br /></p>
+
+<p><strong>2. 생활 정도에 따른 범죄율</strong></p>
+
+<p><br />​</p>
+
+<p>상류층과 중산층, 저소득층 사이의 격차가 매우 심하다. 중산층이라 해도 범죄율이 낮지 않은데, 상류층은 상위 7개의 범죄들을 빼면 범죄율이 모두 5 ~ 10% 대. 압도적으로 범죄율이 낮다.</p>
+
+<p><img src="https://postfiles.pstatic.net/MjAxOTAzMTFfMTQw/MDAxNTUyMjM0ODkzNTY1.FLrMwFwzNyidKvefC9gK5ZSP09TZO7Z4U19OYyFwPLEg.XpfUNcXrQ5LMTzH6tdRcZHYVl9yVyjZCzoPibY5PHaog.PNG.guseod24/%EB%B2%94%EC%A3%84%EC%9C%A8%EB%B6%84%EC%84%9D.png?type=w966" style="width:600;" /></p>
+
+<p><br />
+<br /></p>
+
+<p>각 계층별 범죄 종류는 어떤지 보자. (※ 아래 사진에서 x축을 보면 퍼센티지를 알 수 있다.)</p>
+
+<p>※증수뢰 : 뇌물을 주고 받는 범죄</p>
+
+<p><strong>상류층</strong>
+<img src="https://postfiles.pstatic.net/MjAxOTAzMTFfMTcg/MDAxNTUyMjM1MDU3Nzc3.rzXWlqZAYx4CBKxxKia-yj7sQsXNXGJT3rfo9U22JIAg.0_QnErhQaQPY3L-ZR16ZrdHHU3DC6dR2xsvuEu8cy4kg.PNG.guseod24/high.png?type=w966" style="width:600;" /></p>
+
+<p><strong>중류층</strong>
+<img src="https://postfiles.pstatic.net/MjAxOTAzMTFfMjM0/MDAxNTUyMjM1MDU3Nzgw.oC9QLmsyGbz1rUPMCVYxuHYBkuMe3_Hnqtjchq48Rs8g.X5SYvRbrL49Eczg4o7gUK35WoE9qzSjaJlTUNiAUPYAg.PNG.guseod24/middle.png?type=w966" style="width:600;" /></p>
+
+<p><strong>하류층</strong>
+<img src="https://postfiles.pstatic.net/MjAxOTAzMTFfMjY3/MDAxNTUyMjM1MDU3Nzg0.jzxq5TZrzRtV5tUO8jG0MgGGbb4HypTtkKax6p0HMCQg.aDoRavteC4o5uFp9vO1qdDukyed7WqZYa2wTgjzguRkg.PNG.guseod24/low.png?type=w966" style="width:600;" /></p>
+
+<p>상류층은 범죄율이 낮지만 지능범죄(특히 뇌물수수)가 많고, 안보, 선거, 직권남용 등 어느 정도의 사회적 위치에 올라야 저지를 수 있는 범죄가 많다. 중산층은 상류층보다도 더 지능범죄가 중심적으로 일어난다.  상류층과 중산층의 경우, 각 계층이 속한 직종, 직급에 따라 범죄의 종류도 달라지는 것 같다고 추측해본다. 그리고 저소득층은 살인미수, 강도 등의 강력범죄가 많은데 반대로 지능범죄는 가장 낮다.</p>
+
+<p>​</p>
+
+<p>무전유죄, 유전무죄는 죄의 판결에만 그치는 이야기가 아니다. 생활이 어려우면 범죄에 노출되기 십상이다.</p>
+
+<p>​</p>
+
+<p>캐나다, 네덜란드의 mincome은 저소득층의 기본 소득을 보장하여 삶의 질은 물론 노동의 질까지 향상시키고 있다.</p>
+
+<p>mincome과 같은 사회보장제도로 생활이 어려운 사람들에게 더 많은 지원을 하고, 기본 소득을 보장해주면 저소득층에게 교육, 사회참여는 물론 범죄 발생율도 줄어들지 않을까.</p>
+
+<ul>
+  <li>
+    <p>저소득층(빨간색) : 강력범죄 중심</p>
+  </li>
+  <li>
+    <p>중산층(초록색) : 지능범죄 중심(직무유기, 직권남용)</p>
+  </li>
+  <li>
+    <p>상류층(노란색) : 지능범죄, 안보, 선거범죄, 직권남용 등</p>
+  </li>
+</ul>
+
+<p>​</p>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/기록">기록</a>,&nbsp;<a href="/tag/공부">공부</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%5B%EC%98%A4%EB%8A%98%EC%9D%98+%EA%B3%B5%EB%B6%80%5D+%EC%BC%80%EB%9D%BC%EC%8A%A4%2C+%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D+%EA%B0%9C%EB%85%90+%EC%A0%95%EB%A6%AC%2C+Django+%EB%AA%A8%EB%8D%B8+%EA%B3%B5%EB%B6%80%2C+%EC%83%9D%ED%99%9C+%EC%88%98%EC%A4%80%EC%97%90+%EB%94%B0%EB%A5%B8+%EB%B2%94%EC%A3%84%EC%9C%A8+%EB%B6%84%EC%84%9D+&u=http%3A%2F%2Froseline124.github.io%2Fdaily-study%2F2019%2F03%2F10%2FStudy-190310.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+	<section class="post-navigation">
+		<span class="prev-post">
+			
+				<a href="/daily-study/2019/03/09/Study-190309.html">
+					<span class="fa-stack fa-lg">
+						<!-- <i class="fa fa-square fa-stack-2x"></i> -->
+						<!-- <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i> -->
+            <button class="btn btn-info"><</button>
+          </span>
+					<span class="page-number">[오늘의 공부] Django 모델 공부, 딥러닝 스터디 시작, 랜덤 팀 배정</span>
+				</a>
+			
+		</span>
+		<span class="next-post">
+			
+				<a href="/daily-study/2019/03/11/Study-190311.html">
+					<span class="page-number">[오늘의 공부] 딥러닝(활성화 함수 사용 이유), Django 템플릿, 랜덤 팀 배정 </span>
+					<span class="fa-stack fa-lg">
+						<!-- <i class="fa fa-square fa-stack-2x"></i> -->
+            <!-- <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i> -->
+            <button class="btn btn-info">></button>
+					</span>
+				</a>
+			
+		</span>
+	</section>
+
+
+
+
+<section class="disqus" style="margin-top:1rem;">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'roseline';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+<!-- PREVIOUS / NEXT POST -->
+<!-- 
+<div>
+    
+    <section class="post-navigation">
+
+      <span class="prev-post">
+        
+          <a href="/daily-study/2019/03/09/Study-190309.html">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="page-number">[오늘의 공부] Django 모델 공부, 딥러닝 스터디 시작, 랜덤 팀 배정</span>
+          </a>
+        
+      </span>
+
+      <span class="next-post">
+        
+          <a href="/daily-study/2019/03/11/Study-190311.html">
+            <span class="page-number">[오늘의 공부] 딥러닝(활성화 함수 사용 이유), Django 템플릿, 랜덤 팀 배정 </span>
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        
+      </span>
+    </section>
+  
+</div> -->
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">유혹하는 개발하기</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/about/">About</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/category/">Category</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/">Tag</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:guseod24@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">guseod24@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://www.facebook.com/guseod24" title="Friend me on Facebook">
+              <i class="fa fa-facebook"></i>
+              <span class="username">Roseline</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://github.com/roseline124" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Roseline</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">인생은 예술을 위해 존재하는 게 아니다. 오히려 그 반대이다. - 스티븐 킹
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="/js/nav.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.11.2.min.js"></script> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-135996088-1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/daily-study/2019/03/10/Study-190310.html',
+    'title': '[오늘의 공부] 케라스, 머신러닝 개념 정리, Django 모델 공부, 생활 수준에 따른 범죄율 분석 '
+  });
+</script>
+
+
+
+  </body>
+
+</html>

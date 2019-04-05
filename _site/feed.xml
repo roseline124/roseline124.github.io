@@ -1,0 +1,1156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>유혹하는 개발하기</title>
+    <description>인생은 예술을 위해 존재하는 게 아니다. 오히려 그 반대이다. - 스티븐 킹
+</description>
+    <link>http://roseline124.github.io/</link>
+    <atom:link href="http://roseline124.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 05 Apr 2019 18:56:04 +0900</pubDate>
+    <lastBuildDate>Fri, 05 Apr 2019 18:56:04 +0900</lastBuildDate>
+    <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>[통계학#5] 통계적 추론 - 점추정과 구간추정</title>
+        <description>&lt;p&gt;※ K-Mooc 통계학 / 전공 데이터 애널리틱스 강의를 듣고 정리한 내용입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;statistical-inferences&quot;&gt;통계적 추론 (Statistical Inferences)&lt;/h3&gt;
+
+&lt;p&gt;통계적 추론, 추론 통계는 &lt;strong&gt;샘플을 통해 모집단의 특성을 추론하는 것&lt;/strong&gt;을 말한다. 통계적 추론은 ‘추정’과 ‘가설 검정’의 과정으로 나뉘고 ‘추정’은 다시 ‘점 추정’ 또는 ‘구간 추정’으로 나뉜다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;통계적 추론 = 추정 + 가설검정&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;추정 = 점추정,  구간 추정&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;점 추정&lt;/h3&gt;
+
+&lt;p&gt;모수는 &lt;script type=&quot;math/tex&quot;&gt;θ&lt;/script&gt; 라고 하고, 점 추정치는 &lt;script type=&quot;math/tex&quot;&gt;\hat{θ}&lt;/script&gt; 라고 한다. &lt;script type=&quot;math/tex&quot;&gt;\hat{θ}&lt;/script&gt;은 &lt;script type=&quot;math/tex&quot;&gt;X_i&lt;/script&gt;부터 &lt;script type=&quot;math/tex&quot;&gt;X_n&lt;/script&gt;까지 표본들의 함수로 구성되어 있다. 이 &lt;script type=&quot;math/tex&quot;&gt;X_i&lt;/script&gt;, …, &lt;script type=&quot;math/tex&quot;&gt;X_n&lt;/script&gt;는 평균, 분산 등의 통계량을 뜻한다.  따라서, 이 표본들에 따라서 &lt;script type=&quot;math/tex&quot;&gt;\hat{θ}&lt;/script&gt; 값은 달라진다.&lt;/p&gt;
+
+&lt;p&gt;※ 통계량 : 모수 추정을 위해 표본을 이용해 만든 함수. IQR, 평균, 분산 등&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;불편 추정치(unbiased estimator)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;E(\hat{θ}) = θ&lt;/script&gt;를 만족하면 &lt;script type=&quot;math/tex&quot;&gt;\hat{θ}&lt;/script&gt;은 &lt;script type=&quot;math/tex&quot;&gt;θ&lt;/script&gt;에 대한 불편추정치라고 한다. 불편이라고 하는 것은 ‘치우치지 않음’을 뜻하는 unbiased을 직역한 것이다. &lt;script type=&quot;math/tex&quot;&gt;\hat{θ}&lt;/script&gt;의 기댓값이 &lt;script type=&quot;math/tex&quot;&gt;θ&lt;/script&gt;라는 것은 표본으로 통계를 내서 추론했을 때 모집단과 일치한다는 뜻이다. 즉, 모집단에서 벗어나 어느 한쪽으로 치우쳐진 게 아니므로 ‘불편(unbiased)’라고 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;점 추정치 X의 성질&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;\bar{X}&lt;/script&gt;는 &lt;script type=&quot;math/tex&quot;&gt;μ&lt;/script&gt;에 대한 불편추정치다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;E(\bar{X}) = μ&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;표본 분산&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Var(\bar{X}) = σ^2/n&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;표준 편차 (σ를 아는 경우)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;s.d(\bar{X}) = σ/\sqrt{n}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;표준 오차 σ를 모르는 경우&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;s.e(\bar{X}) = s/\sqrt{n}&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;σ 대신 s를 쓴다(σ 대신 추정치를 썼다는 것을 표시해주는 것이다.). &lt;script type=&quot;math/tex&quot;&gt;s/\sqrt{n}&lt;/script&gt;는 표본 분산에 루트를 씌워서 구한 점 추정치이다. 이 경우 표준 편차가 아니라 &lt;strong&gt;표준 오차(Standard Error)&lt;/strong&gt;라고 부른다. 표준오차는 쉽게 생각하면, 표준편차의 추정치라고 생각하면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;모분산 &lt;script type=&quot;math/tex&quot;&gt;σ^2&lt;/script&gt;에 대한 점 추정치 &lt;script type=&quot;math/tex&quot;&gt;s^2&lt;/script&gt;의 성질&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;s^2&lt;/script&gt;은 &lt;script type=&quot;math/tex&quot;&gt;σ^2&lt;/script&gt;에 대한 불편추정치이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;구간 추정&lt;/h3&gt;
+
+&lt;p&gt;구간 추정은 우리가 모르는 &lt;strong&gt;모수 &lt;script type=&quot;math/tex&quot;&gt;θ&lt;/script&gt;의 특정 구간을 추정&lt;/strong&gt;하는 것이다. 구간 추정 수식은 다음과 같이 나타낼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;모수 &lt;script type=&quot;math/tex&quot;&gt;θ&lt;/script&gt;에 대한 &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+100(1-α)% (단, 0 &lt; α &lt; 1) %]]&gt;&lt;/script&gt; 신뢰구간은&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+P( L(\hat{θ})  &lt;  θ  &lt; U(\hat{θ}) ) = 1-α %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;를 만족하는 구간이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;1-α&lt;/script&gt;는 &lt;strong&gt;신뢰 수준&lt;/strong&gt;을 뜻한다. 보통 0.01, 0.05, 0.1 등의 값을 많이 가지며 이에 따라 신뢰 구간은 99%, 95%, 90% 등이 많이 쓰인다. &lt;script type=&quot;math/tex&quot;&gt;L(\hat{θ})&lt;/script&gt;는 low bound(하한선)이고, &lt;script type=&quot;math/tex&quot;&gt;U(\hat{θ})&lt;/script&gt;는 upper bound(상한선)을 뜻한다.&lt;/p&gt;
+
+&lt;p&gt;즉, 예를 들어 95%의 신뢰 구간이라는 것은 &lt;strong&gt;모수 &lt;script type=&quot;math/tex&quot;&gt;θ&lt;/script&gt;가 low bound와 upper bound 사이의 경계에 존재할 확률이 95%&lt;/strong&gt;라는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;대표본일 경우&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;표본 함수 &lt;script type=&quot;math/tex&quot;&gt;X_i&lt;/script&gt;부터 &lt;script type=&quot;math/tex&quot;&gt;X_n&lt;/script&gt;은 &lt;script type=&quot;math/tex&quot;&gt;E(X_1) = μ, Var(X_1) = σ^2&lt;/script&gt;인 임의 표본 &lt;script type=&quot;math/tex&quot;&gt;n &gt; 25&lt;/script&gt;인 경우, 즉 &lt;strong&gt;표본의 크기 n이 25보다 큰 ‘대표본’&lt;/strong&gt;인 경우는&lt;/p&gt;
+
+&lt;p&gt;중심극한정리에 따라 표준정규분포 &lt;script type=&quot;math/tex&quot;&gt;N(0, 1)&lt;/script&gt;에 수렴하게 된다. 이에 따라, 모평균 &lt;script type=&quot;math/tex&quot;&gt;μ&lt;/script&gt;가 하한선, 상한선 사이에 있게 될 확률이 &lt;script type=&quot;math/tex&quot;&gt;1-α&lt;/script&gt;이다.&lt;/p&gt;
+
+&lt;p&gt;※ 중심극한정리 : 표본의 크기 n이 충분히 클 때, 표집 분포는 표준정규분포 &lt;script type=&quot;math/tex&quot;&gt;N(0, 1)&lt;/script&gt;에 수렴한다.&lt;/p&gt;
+
+&lt;p&gt;하지만, 주의할 것은 완전히 표준정규분포가 되는 것이 아니라 ‘근사적’으로 표준정규분포에 수렴하는 것이므로 신뢰 구간 &lt;script type=&quot;math/tex&quot;&gt;1-α&lt;/script&gt; 역시 ‘근사적 신뢰구간’을 쓰게 된다. 이 경우에는 2가지로 나뉠 수 있다. 모수 σ를 아는 경우와 모르는 경우. 이 두 경우에 대한 근사적 신뢰구간은 다음과 같다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;σ를 아는 경우&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\bar{X} ± z_{α/2} \frac{σ}{\sqrt{n}}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;σ를 모르는 경우&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\bar{X} ± z_{α/2} \frac{s}{\sqrt{n}}&lt;/script&gt;
+
+&lt;p&gt;※ &lt;script type=&quot;math/tex&quot;&gt;s/\sqrt{n}&lt;/script&gt;는 표준오차이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;소표본일 경우&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;표본의 크기 n이 25보다 작은 경우 ‘소표본’이라고 하며 대표본과는 다른 구간 추정을 한다. 이때는 임의 표본 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt;가 반드시 정규분포 &lt;script type=&quot;math/tex&quot;&gt;N(μ, σ^2)&lt;/script&gt;을 따른다는 가정이 필요하다. 또한, &lt;script type=&quot;math/tex&quot;&gt;σ&lt;/script&gt;(시그마)를 모를 경우, 표준값 z-score는 추정치 s를 대입한&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\bar{X} - μ \over s/\sqrt{n}&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;와 같다. 추정치 s를 대입하는 이유는 표본의 크기 n이 작기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 05 Apr 2019 08:50:59 +0900</pubDate>
+        <link>http://roseline124.github.io/data-analytics/2019/04/04/DA-R-statistics5.html</link>
+        <guid isPermaLink="true">http://roseline124.github.io/data-analytics/2019/04/04/DA-R-statistics5.html</guid>
+        
+        <category>R</category>
+        
+        <category>데이터</category>
+        
+        <category>함수</category>
+        
+        <category>과제</category>
+        
+        <category>강의</category>
+        
+        
+        <category>Data-Analytics</category>
+        
+      </item>
+    
+      <item>
+        <title>[오늘의 공부] Django 스터디, 통계학 - 통계적 추론</title>
+        <description>&lt;h3 id=&quot;django--&quot;&gt;Django 스터디 발표&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;함수형 / 클래스형 뷰&lt;/li&gt;
+  &lt;li&gt;Media 경로 추가 - 이미지 서빙&lt;/li&gt;
+  &lt;li&gt;로그인, 로그아웃 뷰&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;발표자 분이 독감에 걸리셔서 이번 발표는 내가 맡았다. 다행히 이번주 분을 미리 준비해놔서 스터디는 예정대로 진행할 수 있었다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;학교에 스터디룸이 꽉 차 있어서 하마터면 스터디를 못할 뻔했다..ㅠ.ㅠ 스터디 준비보다 더 빡센 스터디룸 잡기.. 이것도 서비스로 만들면 좋겠다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;통계적 추론&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;점추정&lt;/li&gt;
+  &lt;li&gt;구간추정&lt;/li&gt;
+  &lt;li&gt;t 분포&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;gt; &lt;a href=&quot;https://roseline124.github.io/data-analytics/2019/04/04/DA-R-statistics5.html&quot;&gt;통계적 추론 : 점추정, 구간추정&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 04 Apr 2019 00:15:00 +0900</pubDate>
+        <link>http://roseline124.github.io/daily-study/2019/04/03/Study-190404.html</link>
+        <guid isPermaLink="true">http://roseline124.github.io/daily-study/2019/04/03/Study-190404.html</guid>
+        
+        <category>기록</category>
+        
+        <category>공부</category>
+        
+        
+        <category>Daily-Study</category>
+        
+      </item>
+    
+      <item>
+        <title>[오늘의 공부] Django 로그인 뷰, 네이버 hackday 신청, Bayse 필터 </title>
+        <description>&lt;h3 id=&quot;django----view--template&quot;&gt;Django 스터디 준비 : View + Template&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; &lt;strong&gt;&lt;a href=&quot;https://roseline124.github.io/django/2019/04/03/pickmeal-loginview.html&quot;&gt;로그인, 로그아웃 뷰&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/190403_login.PNG&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;hackday--&quot;&gt;네이버 hackday 지원서 작성&lt;/h3&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+
+&lt;p&gt;있는 힘껏 1월부터 지금까지 했던 프로젝트를 긁어모았다. 자료도 첨부할 수 있길래 지금까지의 프로젝트를 설명하는 단순한 포트폴리오를 만들어 PDF로 첨부했다. 지원서의 다른 항목은 이틀 전부터 틈틈이 해두었고, 마무리만 하면 됐었는데.. 마무리를 하는 데에만 3시간 정도 걸렸다. 생각보다 오래 걸렸다. 하지만 그럴만한 가치가 있는, 재밌을 것 같은 대회라 꼭 참여하고 싶다. 그래서 좀 더 오래 고민하고 쓴 것 같다. (아.. 통계학 강의 들어야 하는데..)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;bayes-&quot;&gt;Bayes 필터&lt;/h3&gt;
+
+&lt;p&gt;베이즈 필터 클래스를 만들어서 메일을 카테고리 별로 분류했다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 04 Apr 2019 00:15:00 +0900</pubDate>
+        <link>http://roseline124.github.io/daily-study/2019/04/03/Study-190403.html</link>
+        <guid isPermaLink="true">http://roseline124.github.io/daily-study/2019/04/03/Study-190403.html</guid>
+        
+        <category>기록</category>
+        
+        <category>공부</category>
+        
+        
+        <category>Daily-Study</category>
+        
+      </item>
+    
+      <item>
+        <title>[Django 스터디#5-3] 로그인, 로그아웃 뷰(Login, Logout View)</title>
+        <description>&lt;h3 id=&quot;loginhtml&quot;&gt;Login.html&lt;/h3&gt;
+
+&lt;p&gt;만들어볼 login.html의 모습. 참고로 template을 손보기 &lt;a href=&quot;https://roseline124.github.io/daily-study/2019/04/01/Study-190401.html&quot;&gt;이전 모습&lt;/a&gt;은 여기 페이지에서 볼 수 있다. 아래처럼 디자인하려면 bootstrap을 이용한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/190403_login.PNG&quot; /&gt;&lt;em&gt;Django Login Page&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;urlspy&quot;&gt;프로젝트 폴더의 urls.py&lt;/h3&gt;
+
+&lt;p&gt;※ 참고 : &lt;a href=&quot;https://docs.djangoproject.com/en/2.1/topics/auth/default/#module-django.contrib.auth.views&quot;&gt;Django 공식문서&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;프로젝트 폴더의 urls.py의 urlpatterns에 accounts의 url 경로를 추가한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# 추가하지 않으면 login 페이지에 접근할 수 없다.&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'accounts/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'django.contrib.auth.urls'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;  
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;생략&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Django accounts 템플릿&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;auth.urls를 include하면 다음과 같은 url들이 포함&lt;/strong&gt;된다. 목록에 있는 것들을 원하는 대로 쓸 수 있다. 이 포스팅에서는 login, logout을 활용한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;accounts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;login&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'login'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;accounts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'logout'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;accounts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password_change&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'password_change'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;accounts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password_change&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'password_change_done'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;accounts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password_reset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'password_reset'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;accounts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password_reset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'password_reset_done'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;accounts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uidb64&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;/&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'password_reset_confirm'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;accounts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'password_reset_complete'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;urlspy-1&quot;&gt;앱 폴더의 urls.py&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib.auth&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auth_views&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'login/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auth_views&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LoginView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;login&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'logout/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auth_views&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LogoutView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;logout&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;생략&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;from django.contrib.auth import views as auth_views&lt;/code&gt;를 추가해야 Django auth에 내장되어 있는 LoginView, LogoutView를 사용할 수 있다. 따라서 앱 폴더의 views.py에서 따로 코드를 작성할 필요가 없다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;as auth_views&lt;/code&gt;로 alias(별칭)을 주는 이유는 앱 폴더 내에 있는 views.py와 충돌하지 않도록 다른 이름을 사용한 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;template-&quot;&gt;Template 덮어쓰기&lt;/h3&gt;
+
+&lt;p&gt;위의 view까지만 추가하면 관리자 페이지에 로그인할 때 나오는 페이지를 사용한다. template을 커스터마이징하고 싶다면(아마 대부분 그럴 것이다) &lt;code class=&quot;highlighter-rouge&quot;&gt;login.html, logged_out.html&lt;/code&gt; 파일을 추가해주면 된다.&lt;/p&gt;
+
+&lt;p&gt;※ 주의 : 템플릿을 덮어쓸 때 &lt;strong&gt;login.html, logged_out.html&lt;/strong&gt;이라는 이름을 그대로 유지한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;registration 폴더&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;앱 폴더의 templates 하위 폴더에 registration 폴더를 만들고, login.html, logged_out.html 파일을 저장한다. myblog와 같이 templates 폴더 내에 있는 앱 이름의 폴더에는 base.html, index.html 등 개발자가 만든 템플릿을 저장한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;※ templates 폴더 안에 앱 이름과 같은 폴더를 한 번 더 만드는 이유?&lt;/p&gt;
+
+&lt;p&gt;Django는 Templates 폴더 경로를 따로 지정해주지 않는 이상 &lt;strong&gt;각 앱에 있는 Templates 폴더를 찾는다&lt;/strong&gt;. 이때, 폴더 이름이 다 Templates이므로 Django가 어느 앱의 Templates 폴더인지 알 수 없으므로 &lt;strong&gt;각 앱의 템플릿 폴더를 구분해주기 위해&lt;/strong&gt; 같은 이름의 폴더를 한 번 더 만들어 템플릿 파일을 저장하는 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;└─myblog&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;앱 이름&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    ├─templates
+    │  ├─registration &lt;span class=&quot;c&quot;&gt;# 계정 관련 template 파일 저장&lt;/span&gt;
+    │  └─myblog &lt;span class=&quot;c&quot;&gt;# 개발자가 만든 template 파일 저장&lt;/span&gt;
+    └─...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;가장 간단한 형태의 login.html&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+{% if user.is_active %} 
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--로그인 상태면 아이디 / logout 이 뜨고--&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{%url 'login' %}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{% url 'logout' %}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Logout&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+{% else %} 
+    
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--로그인 상태가 아니면 login / admin이 뜬다.--&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{% url 'login' %}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; Login&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{% url 'admin:index' %}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Admin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+{% endif %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;가장 간단한 형태의 logged_out.html&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&amp;gt;&lt;/span&gt; Good Bye. &lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{%url 'login'%}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        다시 로그인하기 
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;settingspy&quot;&gt;프로젝트 폴더의 Settings.py&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;앱 위치 옮기기&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;앱 폴더의 login.html로 기존 템플릿을 덮어쓰기 위해서는     &lt;code class=&quot;highlighter-rouge&quot;&gt;'django.contrib.admin', 'django.contrib.auth'&lt;/code&gt;보다도 상위에 존재해야 한다. 앱을 아래에 추가했다면, 맨 위로 위치를 옮겨준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'앱 이름(app name)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 맨 위에 app name &lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'django.contrib.admin'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'django.contrib.auth'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'django.contrib.contenttypes'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'django.contrib.sessions'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'django.contrib.messages'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'django.contrib.staticfiles'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;이전 페이지로 돌아가기&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;login 한 뒤 accounts/profile로 리다이렉트 되어 에러가 생기는 경우 프로젝트 폴더의 settings.py 에 login_redirect_url을 정해준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;LOGIN_REDIRECT_URL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'../../'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;template--1&quot;&gt;Template 디자인&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;base.html로 템플릿 확장&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;템플릿을 여러 개 만들다보면 내비게이션이나 푸터와 같이 계속 반복해서 써줘야 하는 코드들이 있다. 이런 경우, 반복되는 코드는 base.html(다른 이름도 상관 없다.)로 만들고 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;extends&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'reviewBoard/base.html'&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;처럼 다른 템플릿에서 이를 확장해서 쓸 수 있다. 확장하고 싶은 부분은 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;와 &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;endblock&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;의 템플릿 태그 사이에 작성해주면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;base.html의 내비게이션에 로그인 링크를 추가한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+{% load static %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ko&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 부트스트랩 추가 (Add Bootstrap) --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Site Name&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 내비게이션에 login 링크 추가 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;nav justify-content-end&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        {% if user.is_active %}
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;nav-item&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;nav-link&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{% url 'login' %}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{user.username}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;nav-item&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;nav-link&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{% url 'logout' %}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;logout&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        {% else %}
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;nav-item&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;nav-link&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{%url 'login' %}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; Login&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        {% endif %}
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 템플릿 확장을 위한 템플릿 태그 - Block --&amp;gt;&lt;/span&gt;
+    {% block content %}
+    {% endblock %}
+
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- JavaScript --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;integrity=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;crossorigin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;anonymous&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;디자인 추가한 login.html&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;class에 있는 my, mt같은 경우는 내가 자체적으로 spacing.css를 만들어 margin이나 padding을 클래스로 정의해놓은 것이다. 따라서, class 안에서 my- 또는 mt- 부분은 지우고, 직접 margin을 주고 싶다면 태그 안의 &lt;code class=&quot;highlighter-rouge&quot;&gt;style=&quot;margin-top:2rem; margin-bottom:2rem;&quot;&lt;/code&gt;과 같은 형태로 줄 수 있다. 예를 들면 이렇다. &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;div class=&quot;...&quot; style=&quot;margin-top:2rem; margin-bottom:2rem;&quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;※ &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%csrf_token%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;같은 경우는 보안을 위해 Django에서 필수적으로 요구하는 템플릿 태그다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+{% extends 'Your_App_Name/base.html' %}
+
+{% block content %}
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jumbotron jumbotronfluid&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container my-5&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h3&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my-3&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Login&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;hr&amp;gt;&lt;/span&gt;
+
+    {% if form.errors %}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color:red;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;아이디, 비밀번호가 일치하지 않습니다. 다시 시도해주세요.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt; 페이지에 대한 접근 권한이 없습니다. 접근 권한을 가진 계정으로 로그인해주세요.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+        {% else %}
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;페이지를 보시려면 로그인을 해주세요.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+        {% endif %}
+    {% endif %}
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{% url 'login' %}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    {% csrf_token %}
+
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;form-group row&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;label&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;for=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;staticEmail&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;col-sm-2 col-form-label&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;ID&lt;span class=&quot;nt&quot;&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;col-sm-10 mt-1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+              {{ form.username }}
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;form-group row&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;label&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;for=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;inputPassword&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;col-sm-2 col-form-label&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Password&lt;span class=&quot;nt&quot;&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;col-sm-10 mt-1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                {{ form.password }}
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-info mt-3&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; Sign in &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hidden&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;next&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ next }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+
+    {# Assumes you setup the password_reset view in your URLconf #}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-2&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{% url 'password_reset' %}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;비밀번호를 잊으셨나요?&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+{% endblock %}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;디자인 추가한 logged_out.html&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+{% extends 'Your_App_Name/base.html' %}
+
+{% block content %}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-5&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; Good Bye. &lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-3&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{%url 'login'%}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-info&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; 다시 로그인하기 
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+{% endblock %}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 04 Apr 2019 00:07:59 +0900</pubDate>
+        <link>http://roseline124.github.io/django/2019/04/03/pickmeal-loginview.html</link>
+        <guid isPermaLink="true">http://roseline124.github.io/django/2019/04/03/pickmeal-loginview.html</guid>
+        
+        <category>python</category>
+        
+        <category>django</category>
+        
+        
+        <category>Django</category>
+        
+      </item>
+    
+      <item>
+        <title>[통계학#4] 표집분포와 Central Limit Theorem(중심극한정리)</title>
+        <description>&lt;p&gt;※ K-Mooc 통계학 강의를 듣고 정리한 내용입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;sampling-distribution&quot;&gt;표집 분포(Sampling Distribution)&lt;/h3&gt;
+
+&lt;p&gt;교수님께서는 표본 분포라고 하셨는데, Sampling Distribution을 표집 분포, 표본 분포 혼용해서 쓰는 것 같다. 위키피디아에서는 표집 분포와 표본 분포는 다르다고 설명하고 있다. 그래서 일단 여기서는 ‘표집 분포’라고 쓰겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;모집단(Parameter)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;모집단의 특성들 μ, σ, P, … 등은 &lt;strong&gt;‘알 수 없는’ 상수&lt;/strong&gt;이다. 이 특성들은 표본을 통해 ‘추정’, ‘추론’해야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;통계량&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;모수 추정을 위해 표본을 이용해 만든 함수이다. IQR 역시 모수 추정을 위해 만든 통계량의 일종이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;임의 표본(Random Sample)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기댓값 E(barX) = μ : 표본이 갖는 기대값은 모평균과 일치&lt;/li&gt;
+  &lt;li&gt;분산 = σ^2 / n&lt;/li&gt;
+  &lt;li&gt;표준오차 = σ / root n&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;central-limit-theorem&quot;&gt;중심 극한 정리(Central Limit Theorem)&lt;/h3&gt;
+
+&lt;p&gt;모집단이 정규 분포라면, 임의 표본은 &lt;code class=&quot;highlighter-rouge&quot;&gt;bar X ~ N(μ, σ^2 / n)&lt;/code&gt;으로 역시 정규 분포가 된다. 또한, &lt;strong&gt;표본의 크기 n이 커질 수록 정규 분포를 띠는 경향&lt;/strong&gt;이 강해진다(중심 극한 정리, Central Limit Theorem).&lt;/p&gt;
+
+&lt;p&gt;임의 표본을 표준화해보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(barX - E(barX))/sd(barX)&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;(barX - μ) / (σ / root n)&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;root n(barX - E(X)) / sd(X)&lt;/code&gt; ≡ Z&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;일반적으로 중심 극한 정리는 &lt;strong&gt;표본의 크기가 25보다 크면&lt;/strong&gt; 이용 가능하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Central limit theorem&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# floor : 버림&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# runifrom : r unifrom 난수, 균일 분포 생성 &lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;runif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;hist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/bar.png&quot; style=&quot;width:600px;&quot; /&gt;
+&lt;em&gt;균일 분포&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;균일 분포의 그래프이다. 샘플링해서 각각의 표본 평균을 구하고, 그래프를 그려보자. 중심 극한 정리대로 샘플의 크기가 충분히 클 때, 정규 분포의 형태를 띠는지 확인한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 2500개의 정수를 5개씩 묶어서 500개의 표본으로 만든다.&lt;/span&gt;
+
+
+&lt;span class=&quot;c&quot;&gt;# 크기가 5인 표본에서 표본평균을 구해 500개의 표본평균 생성&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;xbar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# mean은 위 코드의 균일 분포에서 구한 모평균&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;xbar&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;hist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xbar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xbar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xbar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/norm_hist.png&quot; style=&quot;width:600px;&quot; /&gt;
+&lt;em&gt;정규 분포의 형태를 띤다&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 03 Apr 2019 17:50:59 +0900</pubDate>
+        <link>http://roseline124.github.io/data-analytics/2019/04/03/DA-R-statistics4.html</link>
+        <guid isPermaLink="true">http://roseline124.github.io/data-analytics/2019/04/03/DA-R-statistics4.html</guid>
+        
+        <category>R</category>
+        
+        <category>데이터</category>
+        
+        <category>강의</category>
+        
+        
+        <category>Data-Analytics</category>
+        
+      </item>
+    
+      <item>
+        <title>[통계학#3] 정규 분포와 표준화 - pnorm, qnorm</title>
+        <description>&lt;p&gt;※ K-Mooc 통계학 강의를 듣고 정리한 내용입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;normal-distribution&quot;&gt;정규 분포 (Normal Distribution)&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/norm.png&quot; style=&quot;width:600px;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;X ~ N(μ, σ^2)&lt;/code&gt; (평균, 분산)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;μ에 대해 대칭인 형태를 띤다.&lt;/li&gt;
+  &lt;li&gt;확률 변수 X가 &lt;code class=&quot;highlighter-rouge&quot;&gt;μ - 3σ ≤ X ≤ μ + 3σ&lt;/code&gt;의 범위 내에 있을 확률은 99.9%이다.&lt;/li&gt;
+  &lt;li&gt;분산이 작을 수록 그래프의 폭은 좁아지고 μ에 수렴한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;아래 그래프를 보면, 빨간색 정규분포의 분산은 1이며, 약간 펑퍼짐한 형태를 띤다. 반면, 파란색 정규분포의 분산은 0.2이며 μ에 수렴하여 뾰족한 형태의 그래프를 그린다. 분산이 커질 수록 그래프는 flat(평평한) 형태에 가까워지며, &lt;strong&gt;분산이 작을 수록 μ에 수렴하여 뾰족한 형태&lt;/strong&gt;에 가까워진다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/wiki_norm.png&quot; style=&quot;width:600px;&quot; /&gt;&lt;em&gt;출처 : 위키피디아&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;표준 정규 분포&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/normdis.png&quot; style=&quot;width:600px;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;표준 정규 분포는 N(0, 1), 즉 &lt;strong&gt;평균 0, 분산은 1&lt;/strong&gt;인 분포를 말한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;pz--z&quot;&gt;α = P(Z &amp;gt; z_α)&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;잠시 후, qnorm(정규 분포의 quantile, 사분위수)에서 나올 α를 설명하면, &lt;strong&gt;α는 Z가 z_α보다 클 확률&lt;/strong&gt;을 말한다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어, P(Z) &amp;gt; 1.37)에서 Z가 1.37보다 클 확률은 아래 그래프에서 빨간색 면적의 크기에 해당한다. 그 크기는 0.0853이며 α의 값이 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/quantile.png&quot; style=&quot;width:600px;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;pnorm-qnorm&quot;&gt;정규분포표 이용 : pnorm, qnorm&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. pnorm(x, μ, σ)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;pnorm은 정규분포의 확률을 말한다. pnorm(x, μ, σ)은 &lt;strong&gt;N(μ, σ^2)일 때, P(Z ≤ x)일 확률&lt;/strong&gt;이다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어 pnorm(2, 0, 1)은 N(0, 1)이고, 이 정규분포에서 P(Z ≤ 2)일 확률은 0.9772499이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;# R&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;pnorm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. qnorm(α, μ, σ)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;qnorm은 정규분포에서 P(X ≤ x) 를 만족하는 x를 α로 놓는다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어, 표준정규분포 N(0, 1)에서 x값 이하의 면적(확률)이 0.03이 되는 x값(α)을 찾으면 -1.880794이 나온다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;# R&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;qnorm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.03&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;표준화&lt;/h3&gt;
+
+&lt;p&gt;이항 분포든, 정규 분포든, &lt;strong&gt;모든 분포를 정규 분포의 형태&lt;/strong&gt;로 만들 수 있다. 이것을 표준화라고 한다. 표준화된 확률 변수는 &lt;strong&gt;항상 평균은 0이며, 분산은 1&lt;/strong&gt;이 된다.&lt;/p&gt;
+
+&lt;p&gt;단, 표준화를 할 때, 주의해야 할 2가지가 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;집단의 크기가 20 이상&lt;/strong&gt;이어야 하며&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;각 집단은 ‘동질적’&lt;/strong&gt;이어야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;각 집단이 ‘동질적’이어야 한다는 의미는 뭘까? 예를 들어 학생들이 전국 모의고사를 봤을 때 각 집단의 학업성취도가 ‘유사하다’는 전제를 필요로 한다. 대학생들이 모의고사를 본 점수와 고등학생들이 모의고사를 본 점수를 표준화하려고 하면 이상치(outlier)가 높아져 이상적인 표준정규분포의 형태를 이루기 어렵다. 즉, 표준화를 하려면 각 집단이 어느 정도 동일한 베이스를 이루고 있어야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 03 Apr 2019 08:50:59 +0900</pubDate>
+        <link>http://roseline124.github.io/data-analytics/2019/04/02/DA-R-statistics3.html</link>
+        <guid isPermaLink="true">http://roseline124.github.io/data-analytics/2019/04/02/DA-R-statistics3.html</guid>
+        
+        <category>R</category>
+        
+        <category>데이터</category>
+        
+        <category>강의</category>
+        
+        
+        <category>Data-Analytics</category>
+        
+      </item>
+    
+      <item>
+        <title>[오늘의 공부] 머신러닝, 알고리즘, 통계학-확률분포</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;[책] 파이썬을 이용한 머신러닝, 딥러닝 실전 개발 입문&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SVM / 랜덤포레스트 / 형태소 분석&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;머신러닝 알고리즘에 대한 이해가 부족해서 SVM, 랜덤 포레스트 알고리즘을 실습했다. 사이킷런으로 구현.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SVM : 비만도 분류&lt;/li&gt;
+  &lt;li&gt;랜덤 포레스트 : 독버섯 구별&lt;/li&gt;
+  &lt;li&gt;형태소 분석 : KoNLP, Word2Vec 이용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​&lt;br /&gt;
+​&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;백준 알고리즘 2750번 - 정렬&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://roseline124.github.io/algorithm/2019/04/02/Altorithm-baekjoon-2750.html&quot;&gt;버블 정렬 &amp;amp; 삽입 정렬&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​&lt;br /&gt;
+​&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;​&lt;/p&gt;
+&lt;h3 id=&quot;k-mooc-----&quot;&gt;K-Mooc 통계학 개론 : 확률 분포&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;정규 분포, 표준 정규 분포&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;표집 분포(Sampling Distribution) / 중심 극한 정리(Central Limit Theorem) / 표준화&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이항분포의 정규근사화&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; &lt;a href=&quot;https://roseline124.github.io/data-analytics/2019/04/02/DA-R-statistics3.html&quot;&gt;정규 분포 - pnorm, qnorm&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;gt; &lt;a href=&quot;https://roseline124.github.io/data-analytics/2019/04/03/DA-R-statistics4.html&quot;&gt;표집 분포와 중심극한정리&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;​&lt;br /&gt;
+​&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/stat_1.jpg&quot; style=&quot;width:400px;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​&lt;br /&gt;
+​&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 03 Apr 2019 08:26:00 +0900</pubDate>
+        <link>http://roseline124.github.io/daily-study/2019/04/02/Study-190402.html</link>
+        <guid isPermaLink="true">http://roseline124.github.io/daily-study/2019/04/02/Study-190402.html</guid>
+        
+        <category>기록</category>
+        
+        <category>공부</category>
+        
+        
+        <category>Daily-Study</category>
+        
+      </item>
+    
+      <item>
+        <title>[백준 알고리즘#2750] 수 정렬하기 - 버블, 삽입 정렬 (python)</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;문제&lt;/h3&gt;
+
+&lt;p&gt;N개의 수가 주어졌을 때, 이를 오름차순으로 정렬하는 프로그램을 작성하시오. (오름차순 : 1, 2, 3, 4, 5)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;입력&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;첫째 줄에 수의 개수 N(1 ≤ N ≤ 1,000)이 주어진다. 둘째 줄부터 N개의 줄에는 숫자가 주어진다. 이 수는 절댓값이 1,000보다 작거나 같은 정수이다. 수는 중복되지 않는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;출력&lt;/strong&gt;
+첫째 줄부터 N개의 줄에 오름차순으로 정렬한 결과를 한 줄에 하나씩 출력한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;해결&lt;/h3&gt;
+
+&lt;p&gt;채점할 때 틀리거나, 에러 발생 시 확인할 것&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;라이브러리가 import 되어있는지 확인&lt;/li&gt;
+  &lt;li&gt;enumerate() 사용 -&amp;gt; range(len) 사용&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;버블 정렬&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Bubble Sort&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+            &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+            
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;삽입 정렬&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Insert Sort&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        
+        &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; 
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Wed, 03 Apr 2019 06:00:59 +0900</pubDate>
+        <link>http://roseline124.github.io/algorithm/2019/04/02/Altorithm-baekjoon-2750.html</link>
+        <guid isPermaLink="true">http://roseline124.github.io/algorithm/2019/04/02/Altorithm-baekjoon-2750.html</guid>
+        
+        <category>자료구조</category>
+        
+        <category>알고리즘</category>
+        
+        <category>python</category>
+        
+        <category>Baekjoon</category>
+        
+        
+        <category>Algorithm</category>
+        
+      </item>
+    
+      <item>
+        <title>[오늘의 공부] Django 로그인뷰, 데이터 사이언스 대회</title>
+        <description>&lt;h3 id=&quot;pickmeal---template-&quot;&gt;PickMeal 로그인뷰 + Template 수정&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;login view 추가&lt;/li&gt;
+  &lt;li&gt;Template : 부트스트랩 추가해서 Review 목록을 카드 목록으로 바꿨다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://postfiles.pstatic.net/MjAxOTA0MDFfMjcy/MDAxNTU0MTMwMjUwMDk0.OIFpAvGWco0xATMV8cNkGc7msLxgaOTw4GFJWE82280g.tGzlL_GE6dTePd8lRt6qRdO0nXGWKWG1cYVkWueVMDQg.PNG.guseod24/pickmeal_login.PNG?type=w966&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://postfiles.pstatic.net/MjAxOTA0MDFfMjMx/MDAxNTU0MTMwMjUwMTQw.P-BabPSmvPTKXxBkrS5yRXENsGYSIB45LQLsBmspqPAg.nFQkSeBJPDE2jPUIdtXmVHNct4NnSoWFeYULnbTKY_sg.PNG.guseod24/pickmeal.PNG?type=w966&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;네이버 데이터사이언스 대회 준비&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;3월 31일 마지막으로 대회 신청이 끝나고 4월 1일이 되자마자 개최측에서 메일이 왔다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;신청할 때 썼던 내용을 바탕으로 강의 목록을 추천해주는 내용이었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;그중 K-Mooc에서 R을 활용한 통계학 개론 1~4주차까지 수강하다가… 이론적인 내용이 태반이라 4주차까지 듣고 다른 강의를 들어갔다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;부스트코스에서 진행 중인 머신러닝을 위한 Python 워밍업 강의 수강 시작. 선형대수학에 관해 간단한 실습 + News Categorization 실습 일부 진행&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/Data Science.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 02 Apr 2019 08:26:00 +0900</pubDate>
+        <link>http://roseline124.github.io/daily-study/2019/04/01/Study-190401.html</link>
+        <guid isPermaLink="true">http://roseline124.github.io/daily-study/2019/04/01/Study-190401.html</guid>
+        
+        <category>기록</category>
+        
+        <category>공부</category>
+        
+        
+        <category>Daily-Study</category>
+        
+      </item>
+    
+      <item>
+        <title>[오늘의 공부] 딥러닝 공부, 스터디, 알고리즘</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;딥러닝 첫걸음&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;역전파 알고리즘&lt;/li&gt;
+  &lt;li&gt;Cross Entropy&lt;/li&gt;
+  &lt;li&gt;활성화 함수 : Sigmoid, Relu&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;딥러닝 스터디&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;TMDB 캐글 분석&lt;/strong&gt; : 박스오피스 영화 개봉일은 금요일이 압도적으로 높지만, 가장 높은 수익을 낸 영화들 중에는 수요일 날 개봉한 영화들이 많았다. 흥미롭다. 수요일날 영화가 할인되나? 단체로 영화라도 보러 가나?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;새로운 프로젝트 시작&lt;/strong&gt; : 캐글 프로젝트 말고, 딥러닝을 활용할 수 있는 분야에 대해 고민했다. 중국의 인공지능 CCTV, 반고흐 딥러닝 작품 등 딥러닝을 활용할 수 있는 재밌는 분야가 많았다. 어떤 프로젝트를 할까 하다가 쉽사리 결정 짓지 못해 다음주까지 각자 생각해오기로 했다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;알고리즘&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://roseline124.github.io/algorithm/2019/03/31/Altorithm-baekjoon-11654.html&quot;&gt;11654번 아스키 코드&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://roseline124.github.io/algorithm/2019/03/31/Altorithm-baekjoon-10809.html&quot;&gt;10809번 알파벳 찾기&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://roseline124.github.io/algorithm/2019/03/31/Altorithm-baekjoon-2675.html&quot;&gt;2675번 문자열 반복&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://roseline124.github.io/algorithm/2019/03/31/Altorithm-baekjoon-1157.html&quot;&gt;1157번 단어 공부&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://roseline124.github.io/algorithm/2019/03/31/Altorithm-baekjoon-1316.html&quot;&gt;1316번 그룹 단어 체커&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://roseline124.github.io/algorithm/2019/03/31/Altorithm-baekjoon-2908.html&quot;&gt;2908번 상수&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://roseline124.github.io/algorithm/2019/03/31/Altorithm-baekjoon-2941.html&quot;&gt;2941번 크로아티아 알파벳&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 01 Apr 2019 08:26:00 +0900</pubDate>
+        <link>http://roseline124.github.io/daily-study/2019/03/31/Study-190331.html</link>
+        <guid isPermaLink="true">http://roseline124.github.io/daily-study/2019/03/31/Study-190331.html</guid>
+        
+        <category>기록</category>
+        
+        <category>공부</category>
+        
+        
+        <category>Daily-Study</category>
+        
+      </item>
+    
+  </channel>
+</rss>

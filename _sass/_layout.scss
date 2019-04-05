@@ -35,7 +35,18 @@ code {
 }
 
 pre code.hljs {
-	font-size: modular-scale(-1);
+	// font-size: modular-scale(-1);
+	font-size: 1em !important;
+}
+
+.btn-info {
+	color: #fff;
+	background-color: #70aad0;
+	border-color: #70aad0;
+}
+
+h3 {
+	font-weight: 700;
 }
 
 .page-divider {
@@ -210,7 +221,8 @@ pre code.hljs {
 			color: white;
 	    display: inline-block;
 	    @include media ($tablet) {
-	      padding-right: 1.5em;
+				padding-right: 1.5em;
+				text-decoration: none;
 	    }
 	  }
 	  &:last-child a {
@@ -229,6 +241,8 @@ pre code.hljs {
 }
 .navbar {
 	transition: background-color .5s ease-out;
+	display: block;
+	z-index: 10;
 }
 
 
@@ -289,6 +303,9 @@ pre code.hljs {
 		padding-top: 1em !important;
 		@extend %default-ul;
 	}
+	.post-link{
+		font-weight: 700;
+	}
 	.post-meta {
 		@include outer-container;
 		// padding: 1em 0;
@@ -306,6 +323,7 @@ pre code.hljs {
 		}
 	}
 	.pagination {
+		display: inline;
 		padding-top: 2em;
 		text-align: center;
 		color: $medium-gray;
@@ -332,6 +350,7 @@ pre code.hljs {
 			.subtitle {
 				font-size: modular-scale(1);
 				color:#f5f5f58a;
+				font-family: 'Nanum Myeongjo' !important;
 			}
 			.category {
 				margin:0;
@@ -343,7 +362,7 @@ pre code.hljs {
 		margin: auto;
 		width: 90%;
 		box-shadow:3px 6px 15px 0px;
-
+		z-index: 1;
 	}
 
 	/*
@@ -464,18 +483,15 @@ img + em {
 	  &:active,
 	  &:focus,
 	  &:hover {
-	    color: darken($link-color, 10%);
+			color: darken($link-color, 10%);
 	  }
 	  &:active,
 	  &:focus {
-	    outline: none;
+			outline: none;
 	  }
 	}
 	.wrapper {
 		@include outer-container;
-	}
-	.footer-heading {
-
 	}
 	/*
 	*	Site Navigation (left)
