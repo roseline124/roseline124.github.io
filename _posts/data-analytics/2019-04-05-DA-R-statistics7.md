@@ -28,13 +28,13 @@ cover: "/assets/DataAnalysis.gif"
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="/assets/images/190406_Rplot.png" class="d-block w-100" alt="...">*기각역 : $$Z > z_α$$*
+      <img src="/assets/images/190405_Rplot.png" class="d-block w-100" alt="...">*기각역 : $$Z > z_α$$*
     </div>
     <div class="carousel-item">
-      <img src="/assets/images/190406_Rplot01.png" class="d-block w-100" alt="...">*기각역 : $$Z < -z_α$$*
+      <img src="/assets/images/190405_Rplot01.png" class="d-block w-100" alt="...">*기각역 : $$Z < -z_α$$*
     </div>
     <div class="carousel-item">
-      <img src="/assets/images/190406_Rplot02.png" class="d-block w-100" alt="...">*기각역 : $$|Z| > z_{α/2}$$*
+      <img src="/assets/images/190405_Rplot02.png" class="d-block w-100" alt="...">*기각역 : $$|Z| > z_{α/2}$$*
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
