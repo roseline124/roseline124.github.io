@@ -4,7 +4,7 @@ title:  "[통계학#1] 통계 기초 개념"
 date: 2019-03-19 17:53:59
 author: Roseline Song
 categories: Data-Analytics
-tags: R 데이터 랜덤팀배정 함수 과제 강의
+tags: R 데이터 강의
 cover: "/assets/DataAnalysis.gif"
 ---
 

@@ -4,7 +4,7 @@ title:  "[통계학#4] 표집분포와 Central Limit Theorem(중심극한정리)
 date: 2019-04-03 08:50:59
 author: Roseline Song
 categories: Data-Analytics
-tags: R 데이터 랜덤팀배정 함수 과제 강의
+tags: R 데이터 강의
 cover: "/assets/DataAnalysis.gif"
 ---
 

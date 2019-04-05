@@ -4,7 +4,7 @@ title:  "[딥러닝] 가중합, 네트워크 신경망 - 비선형 함수를 쓰
 date: 2019-03-30 13:17:00
 author: Roseline Song
 categories: Data-Analytics
-tags: 기록 공부
+tags: 딥러닝
 cover: "/assets/dailystudy.jpg"
 sitemap : 
 changefreq : week

@@ -4,7 +4,7 @@ title:  "[딥러닝] 단층 신경망 학습 규칙 - 델타 규칙"
 date: 2019-03-30 13:54:00
 author: Roseline Song
 categories: Data-Analytics
-tags: 기록 공부
+tags: 딥러닝
 cover: "/assets/dailystudy.jpg"
 sitemap : 
 changefreq : week

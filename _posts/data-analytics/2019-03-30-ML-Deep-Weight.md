@@ -4,7 +4,7 @@ title:  "[딥러닝] 가중치 갱신 방법과 Epoch- SGD, 배치(Batch), 미�
 date: 2019-03-30 13:54:00
 author: Roseline Song
 categories: Data-Analytics
-tags: 기록 공부
+tags: 딥러닝
 cover: "/assets/dailystudy.jpg"
 sitemap : 
 changefreq : week
