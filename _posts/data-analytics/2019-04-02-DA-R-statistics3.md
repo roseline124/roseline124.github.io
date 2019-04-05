@@ -4,7 +4,7 @@ title:  "[통계학#3] 정규 분포와 표준화 - pnorm, qnorm"
 date: 2019-04-02 23:50:59
 author: Roseline Song
 categories: Data-Analytics
-tags: R 데이터 강의
+tags: R 데이터 강의 통계학
 cover: "/assets/DataAnalysis.gif"
 ---
 

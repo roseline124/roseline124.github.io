@@ -4,7 +4,7 @@ title:  "[통계학#5] 통계적 추론 - 점추정과 구간추정"
 date: 2019-04-04 23:50:59
 author: Roseline Song
 categories: Data-Analytics
-tags: R 데이터 함수 과제 강의
+tags: R 통계학 강의
 cover: "/assets/DataAnalysis.gif"
 ---
 
