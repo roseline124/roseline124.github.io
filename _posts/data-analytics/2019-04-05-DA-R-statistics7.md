@@ -28,13 +28,13 @@ cover: "/assets/DataAnalysis.gif"
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="/assets/images/190405_Rplot.png" class="d-block w-100" alt="...">*기각역 : $$Z > z_α$$*
+      <img src="/assets/images/190405_Rplot.png" class="d-block w-100" alt="...">*단측 검정1*
     </div>
     <div class="carousel-item">
-      <img src="/assets/images/190405_Rplot01.png" class="d-block w-100" alt="...">*기각역 : $$Z < -z_α$$*
+      <img src="/assets/images/190405_Rplot01.png" class="d-block w-100" alt="...">*단측 검정2*
     </div>
     <div class="carousel-item">
-      <img src="/assets/images/190405_Rplot02.png" class="d-block w-100" alt="...">*기각역 : $$|Z| > z_{α/2}$$*
+      <img src="/assets/images/190405_Rplot02.png" class="d-block w-100" alt="...">*양측 검정*
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -92,6 +92,8 @@ $$E(s^2) = σ^2$$ (불편추정치)
 **모분산에 대한 추론**
 
 $$W = (n-1)s^2 / σ^2$$
+
+<br>
 
 W는 정규분포라는 가정 하에 자유도가 n-1인 카이제곱 분포를 따른다. 자유도가 n-1 즉, 제약식 조건 하나를 빼는 이유는 '표본평균'이 주어져야 표준오차를 계산을 할 수 있기 때문이다. 
 
