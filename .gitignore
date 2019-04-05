@@ -10,6 +10,7 @@ _site/js
 _site/page*
 _site
 
+category/index.html
 
 # Sass garbage
 .sass-cache
