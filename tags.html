@@ -6,7 +6,7 @@ permalink: /tag/
 
 {% for tag in site.tags %}
 
-  <a href="{{ site.baseurl }}/tag/{{tag | first}}"> 
+  <a href="{{ site.baseurl }}/tag/{{tag | first | downcase}}/index.html"> 
     <button type="button" class="btn btn-outline-secondary">{{ tag | first }} </button>
     
     
