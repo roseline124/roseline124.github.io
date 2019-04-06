@@ -37,6 +37,10 @@ N개의 수가 주어졌을 때, 네 가지 기본 통계값을 구하는 프로
 <br>
 <br>
 
+<hr>
+
+<br>
+
 ### 풀이 
 
 **배운 것**
@@ -67,8 +71,88 @@ def mode(nums):
 
 <br>
 
-참고로 아래 코드는 맞은 풀이가 아닙니다. 50% 구간에서 계속 틀려요. 
-어디가 잘못됐는지 아시는 분 계신다면 알려주시면 감사하겠습니다.
+**성공 코드**
+
+```python
+import sys 
+from collections import Counter
+
+#main
+t = int(sys.stdin.readline())
+
+numbers = []
+for _ in range(t):
+    numbers.append(int(sys.stdin.readline()))
+    
+def mean(nums):
+    return round(sum(nums)/len(nums))
+
+def median(nums):
+    nums.sort()
+    mid = nums[len(nums)//2] # nums의 개수는 홀수
+    
+    return mid
+
+def mode(nums):
+    mode_dict = Counter(nums)
+    modes = mode_dict.most_common()    
+    
+    if len(nums) > 1 : 
+        if modes[0][1] == modes[1][1]:
+            mod = modes[1][0]
+        else : 
+            mod = modes[0][0]
+    else : 
+        mod = modes[0][0]
+
+    return mod
+        
+def scope(nums):
+    return max(nums) - min(nums)
+
+print(mean(numbers))
+print(median(numbers))
+print(mode(numbers))
+print(scope(numbers))
+```
+
+<br>
+
+**오류의 원인**
+
+오류의 원인이었던 mode 함수만 다시 살펴본다. 
+
+<br>
+
+```python
+def mode(nums):
+    mode_dict = Counter(nums) 
+    modes = mode_dict.most_common() #1  
+    
+    if len(nums) > 1 : 
+        if modes[0][1] == modes[1][1]: #2
+            mod = modes[1][0]
+        else : 
+            mod = modes[0][0]
+    else : 
+        mod = modes[0][0] #3
+
+    return mod
+```
+
+<br>
+
+- #1 : from collections import Counter 에서 Counter로 만든 딕셔너리는 most_common() 함수로 최빈값을 찾을 수 있다. 이때, 같은 빈도를 가지는 수는 원래 시퀀스에 있던 순서대로 나열된다. median 함수에서 sort()함수로 이미 nums 시퀀스를 정렬했으므로 다시 정렬해줄 필요 없다. 
+
+- #2 : modes[0][1]은 가장 앞에 있는 최빈값의 빈도수이다. modes[1][1]은 그 다음 최빈값의 빈도수이다. 이 둘이 같다면 최빈값이 최소 2개 이상 있다는 뜻인데, 이 경우, 두번째로 작은 값을 채택해야 하므로 modes[1][0]을 mod에 저장한다.  
+
+- #3 : 만약 modes의 개수가 1라면 맨 첫번째 수를 mod에 저장한다.
+
+<br>
+<br>
+
+
+**아래는 계속해서 틀렸던 코드**
 
 <br>
 
@@ -107,4 +191,6 @@ print(mode(numbers))
 print(scope(numbers))
 {% endhighlight %}
 
+<br>
+<br>
 
