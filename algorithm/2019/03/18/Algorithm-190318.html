@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head lang="ko">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>[백준 알고리즘#10866] 덱(Deque) 구현하기 </title>
+  <meta name="description" content="백준 알고리즘 10866번">
+  
+  <meta name="author" content="Roseline Song">
+  <meta name="copyright" content="&copy; Roseline Song 2019">
+  
+
+  <!-- External libraries -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="백준 알고리즘 10866번" />
+  <meta property="og:url" content="http://localhost:4000" />
+  <meta property="og:site_name" content="유혹하는 개발하기" />
+  <meta property="og:title" content="[백준 알고리즘#10866] 덱(Deque) 구현하기 " />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/dailystudy.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[백준 알고리즘#10866] 덱(Deque) 구현하기 ">
+  <meta name="twitter:description" content="백준 알고리즘 10866번">
+  <meta name="twitter:image" content="http://localhost:4000/assets/dailystudy.jpg">
+  <meta name="twitter:url" content="http://localhost:4000">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/spacing.css">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2019/03/18/Algorithm-190318.html">
+  <link rel="alternate" type="application/rss+xml" title="유혹하는 개발하기" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="navbar nav-bg navigation nav-top " role="banner">
+  <div class="navigation-wrapper">
+    <!-- <a href="/" class="logo">
+      
+      <span>유혹하는 개발하기</span>
+      
+    </a> -->
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link"><a href="/">Home</a>
+        
+          
+          <li class="nav-link"><a href="/about/">About</a>
+          
+        
+          
+          <li class="nav-link"><a href="/category/">Category</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/tag/">Tag</a>
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%EA%B8%B0%EB%A1%9D/">기록</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%EA%B3%B5%EB%B6%80/">공부</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/">자료구조</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%EB%8D%B1/">덱</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/deque/">Deque</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/python/">python</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%EA%B7%9C%EC%B9%99/">규칙</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/r/">R</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%EB%8D%B0%EC%9D%B4%ED%84%B0/">데이터</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%EA%B0%95%EC%9D%98/">강의</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%ED%86%B5%EA%B3%84%ED%95%99/">통계학</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%ED%95%A8%EC%88%98/">함수</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%EC%A0%95%EB%A0%AC/">정렬</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/baekjoon/">Baekjoon</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%EB%B6%80%EB%A5%B4%ED%8A%B8%ED%8F%AC%EC%8A%A4/">부르트포스</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%EB%AC%B4%EC%B0%A8%EB%B3%84%EB%8C%80%EC%9E%85/">무차별대입</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/data/">data</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/django/">django</a>
+          
+        
+          
+          <li class="nav-link"><a href="/tag/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a>
+          
+        
+          
+          <li class="nav-link"><a href="/category/daily-study/">Daily-Study</a>
+          
+        
+          
+          <li class="nav-link"><a href="/category/algorithm/">Algorithm</a>
+          
+        
+          
+          <li class="nav-link"><a href="/category/data-analytics/">Data-Analytics</a>
+          
+        
+          
+          <li class="nav-link"><a href="/category/django/">Django</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/dailystudy.jpg);">
+  <div class="scrim has-cover">
+    <header class="post-header" style="padding-left:8rem;">
+        
+           
+            <p class="category">Algorithm</p>
+          
+        
+        <!-- display:inline-block : 콘텐츠 길이에 맞춰 너비 조정 -->
+      <div style="display:inline-block;">
+        <p class="title">[백준 알고리즘#10866] 덱(Deque) 구현하기 </p>
+        
+        <hr>
+
+        <p class="info">by Roseline Song | March 18, 2019</p>
+      </div>
+    </header>
+    <a href="#content-post" class="scroll-down icon-arrow-left" data-offset="-45">
+        <span class="hidden">Scroll Down</span>
+      </a>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta" id="content-post">
+  <div class="post-date">March 18, 2019</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/algorithm/index.html">Algorithm</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h3 id="백준-알고리즘-10866번">백준 알고리즘 10866번</h3>
+<p><br /></p>
+
+<p>정수를 저장하는 덱(Deque)를 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오.
+명령은 총 여덟 가지이다.</p>
+
+<ul>
+  <li>
+    <p>push_front X: 정수 X를 덱의 앞에 넣는다.</p>
+  </li>
+  <li>
+    <p>push_back X: 정수 X를 덱의 뒤에 넣는다.</p>
+  </li>
+  <li>
+    <p>pop_front: 덱의 가장 앞에 있는 수를 빼고, 그 수를 출력한다. 만약, 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.</p>
+  </li>
+  <li>
+    <p>pop_back: 덱의 가장 뒤에 있는 수를 빼고, 그 수를 출력한다. 만약, 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.</p>
+  </li>
+  <li>
+    <p>size: 덱에 들어있는 정수의 개수를 출력한다.</p>
+  </li>
+  <li>
+    <p>empty: 덱이 비어있으면 1을, 아니면 0을 출력한다.</p>
+  </li>
+  <li>
+    <p>front: 덱의 가장 앞에 있는 정수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.</p>
+  </li>
+  <li>
+    <p>back: 덱의 가장 뒤에 있는 정수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.</p>
+  </li>
+</ul>
+
+<p>첫째 줄에 주어지는 명령의 수 N (1 ≤ N ≤ 10,000)이 주어진다. 둘째 줄부터 N개의 줄에는 명령이 하나씩 주어진다. 주어지는 정수는 1보다 크거나 같고, 100,000보다 작거나 같다. 문제에 나와있지 않은 명령이 주어지는 경우는 없다.</p>
+
+<p>출력해야하는 명령이 주어질 때마다, 한 줄에 하나씩 출력한다.</p>
+
+<p><br /></p>
+
+<h3 id="풀이python">풀이(Python)</h3>
+
+<p><br /></p>
+
+<p><strong>배운 것</strong> : Python에서는 Switch문이 없어 Dictionary로 대신한다.</p>
+
+<p><br /></p>
+
+<p><strong>명령어 구현</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">push_front</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">deq</span><span class="p">):</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">deq</span><span class="p">)</span>
+    <span class="n">deq</span> <span class="o">=</span> <span class="n">tmp</span>
+    <span class="k">return</span> <span class="n">deq</span>
+
+<span class="k">def</span> <span class="nf">push_back</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">deq</span><span class="p">):</span>
+    <span class="n">deq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">deq</span>
+
+<span class="k">def</span> <span class="nf">pop_front</span><span class="p">(</span><span class="n">deq</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">deq</span> <span class="p">:</span> 
+        <span class="k">print</span><span class="p">(</span><span class="n">deq</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="k">else</span> <span class="p">:</span> <span class="c1">#빈 리스트 == False
+</span>        <span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">pop_back</span><span class="p">(</span><span class="n">deq</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">deq</span> <span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">deq</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="n">deq</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">deq</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="n">deq</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">deq</span> <span class="p">:</span> 
+        <span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span> <span class="p">:</span> 
+        <span class="k">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">front</span><span class="p">(</span><span class="n">deq</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">deq</span> <span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">deq</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">back</span><span class="p">(</span><span class="n">deq</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">deq</span> <span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">deq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><strong>명령어 사전</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">statements_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'push_front'</span> <span class="p">:</span> <span class="n">push_front</span><span class="p">,</span>
+    <span class="s">'push_back'</span> <span class="p">:</span> <span class="n">push_back</span><span class="p">,</span>
+    <span class="s">'pop_front'</span> <span class="p">:</span> <span class="n">pop_front</span><span class="p">,</span>
+    <span class="s">'pop_back'</span> <span class="p">:</span> <span class="n">pop_back</span><span class="p">,</span>
+    <span class="s">'size'</span> <span class="p">:</span> <span class="n">size</span><span class="p">,</span>
+    <span class="s">'empty'</span> <span class="p">:</span> <span class="n">empty</span><span class="p">,</span> 
+    <span class="s">'front'</span> <span class="p">:</span> <span class="n">front</span><span class="p">,</span>
+    <span class="s">'back'</span> <span class="p">:</span> <span class="n">back</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><strong>명령어 처리</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">deq</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">statement</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">statement</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span> 
+        <span class="n">command</span> <span class="o">=</span> <span class="n">statement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">statements_dict</span><span class="p">[</span><span class="n">command</span><span class="p">](</span><span class="n">deq</span><span class="p">)</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">command</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">statement</span>
+        <span class="n">deq</span> <span class="o">=</span> <span class="n">statements_dict</span><span class="p">[</span><span class="n">command</span><span class="p">](</span><span class="n">x</span><span class="p">,</span> <span class="n">deq</span><span class="p">)</span></code></pre></figure>
+
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/자료구조">자료구조</a>,&nbsp;<a href="/tag/알고리즘">알고리즘</a>,&nbsp;<a href="/tag/덱">덱</a>,&nbsp;<a href="/tag/Deque">Deque</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%5B%EB%B0%B1%EC%A4%80+%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%2310866%5D+%EB%8D%B1%28Deque%29+%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0+&u=http%3A%2F%2Flocalhost%3A4000%2Falgorithm%2F2019%2F03%2F18%2FAlgorithm-190318.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+	<section class="post-navigation">
+		<span class="prev-post">
+			
+				<a href="/daily-study/2019/03/17/Study-190317.html">
+					<span class="fa-stack fa-lg">
+						<!-- <i class="fa fa-square fa-stack-2x"></i> -->
+						<!-- <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i> -->
+            <button class="btn btn-info"><</button>
+          </span>
+					<span class="page-number">[오늘의 공부] 딥러닝 스터디, Django View - CBV</span>
+				</a>
+			
+		</span>
+		<span class="next-post">
+			
+				<a href="/daily-study/2019/03/18/Study-190318.html">
+					<span class="page-number">[오늘의 공부] 알고리즘 문제 풀이, 캐글 - Box Office 영화 수익 예측</span>
+					<span class="fa-stack fa-lg">
+						<!-- <i class="fa fa-square fa-stack-2x"></i> -->
+            <!-- <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i> -->
+            <button class="btn btn-info">></button>
+					</span>
+				</a>
+			
+		</span>
+	</section>
+
+
+
+
+<section class="disqus" style="margin-top:1rem;">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'roseline';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+<!-- PREVIOUS / NEXT POST -->
+<!-- 
+<div>
+    
+    <section class="post-navigation">
+
+      <span class="prev-post">
+        
+          <a href="/daily-study/2019/03/17/Study-190317.html">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="page-number">[오늘의 공부] 딥러닝 스터디, Django View - CBV</span>
+          </a>
+        
+      </span>
+
+      <span class="next-post">
+        
+          <a href="/daily-study/2019/03/18/Study-190318.html">
+            <span class="page-number">[오늘의 공부] 알고리즘 문제 풀이, 캐글 - Box Office 영화 수익 예측</span>
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        
+      </span>
+    </section>
+  
+</div> -->
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">유혹하는 개발하기</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/about/">About</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/category/">Category</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/">Tag</a>
+        
+        
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%EA%B8%B0%EB%A1%9D/">기록</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%EA%B3%B5%EB%B6%80/">공부</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/">자료구조</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%EB%8D%B1/">덱</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/deque/">Deque</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/python/">python</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%EA%B7%9C%EC%B9%99/">규칙</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/r/">R</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%EB%8D%B0%EC%9D%B4%ED%84%B0/">데이터</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%EA%B0%95%EC%9D%98/">강의</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%ED%86%B5%EA%B3%84%ED%95%99/">통계학</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%ED%95%A8%EC%88%98/">함수</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%EC%A0%95%EB%A0%AC/">정렬</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/baekjoon/">Baekjoon</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%EB%B6%80%EB%A5%B4%ED%8A%B8%ED%8F%AC%EC%8A%A4/">부르트포스</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%EB%AC%B4%EC%B0%A8%EB%B3%84%EB%8C%80%EC%9E%85/">무차별대입</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/data/">data</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/django/">django</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/tag/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/category/daily-study/">Daily-Study</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/category/algorithm/">Algorithm</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/category/data-analytics/">Data-Analytics</a>
+        
+        
+        
+          <!-- li class="nav-link" -->
+          <li><a href="/category/django/">Django</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:guseod24@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">guseod24@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://www.facebook.com/guseod24" title="Friend me on Facebook">
+              <i class="fa fa-facebook"></i>
+              <span class="username">Roseline</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://github.com/roseline124" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">Roseline</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">인생은 예술을 위해 존재하는 게 아니다. 오히려 그 반대이다. - 스티븐 킹
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="/js/nav.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.11.2.min.js"></script> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-135996088-1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/algorithm/2019/03/18/Algorithm-190318.html',
+    'title': '[백준 알고리즘#10866] 덱(Deque) 구현하기 '
+  });
+</script>
+
+
+
+  </body>
+
+</html>
