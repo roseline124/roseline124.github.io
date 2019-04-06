@@ -11,6 +11,7 @@ _site/page*
 _site
 
 category/index.html
+tag/index.html
 
 # Sass garbage
 .sass-cache
