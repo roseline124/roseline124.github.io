@@ -49,7 +49,7 @@ D(T1,T2) = |x1-x2| + |y1-y2|
 
 [참고](http://pub.chosun.com/client/news/viw.asp?cate=C03&mcate=M1004&nNewsNumb=20170825805&nidx=25806)
 
-![image.png](http://monthly.chosun.com/upload/1708/1708_396_6.jpg)
+<img src="http://monthly.chosun.com/upload/1708/1708_396_6.jpg" style="width=600px;">
 
 **택시 기하학에서 원의 넓이**
 
