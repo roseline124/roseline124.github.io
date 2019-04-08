@@ -8,7 +8,7 @@ tags: R 통계학 강의
 cover: "/assets/DataAnalysis.gif"
 ---
 
-※ 전공 데이터 애널리틱스 강의를 듣고 정리한 내용입니다.
+※ K-Mooc 통계학 / 전공 데이터 애널리틱스 강의를 듣고 정리한 내용입니다.
 
 <br>
 <br>
