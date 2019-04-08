@@ -31,8 +31,8 @@ cover: "/assets/DataAnalysis.gif"
 **임의 표본(Random Sample)**
 
 - 기댓값 E(barX) = μ : 표본이 갖는 기대값은 모평균과 일치
-- 분산 = σ^2 / n
-- 표준오차 = σ / root n 
+- 분산 = $$\frac{σ^2}{n}$$
+- 표준오차 = $$\frac{σ}{\sqrt{n}}$$ 
 
 <br>
 <br>
@@ -50,7 +50,9 @@ cover: "/assets/DataAnalysis.gif"
 
 임의 표본을 표준화해보자. 
 
-`(barX - E(barX))/sd(barX)` = `(barX - μ) / (σ / root n)` = `root n(barX - E(X)) / sd(X)` ≡ Z
+$$ \frac{(\bar{X} - E(\bar{X}))}{sd(\bar{X})} = \frac{(\bar{X} - μ)}{\frac{σ}{\sqrt{n}}} = \frac{\sqrt{n}(\bar{X} - E(X_1))}{sd(X_1)} ≡ Z score$$ 
+
+<font size="1.5rem">※ Z score : Z-test에서 쓰이는 검정 점수</font>
 
 <br>
 
