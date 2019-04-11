@@ -12,11 +12,11 @@ cover: "/assets/django2.jpg"
 
 <br>
 
-<img src="/assets/images/190411_signup.png">*회원가입 화면*
+<img src="/assets/images/190411_signup.PNG">*회원가입 화면*
 
 <br>
 
-<img src="/assets/images/190411_users.png">*User table에 반영된 모습*
+<img src="/assets/images/190411_users.PNG">*User table에 반영된 모습*
 
 <br>
 <br>
