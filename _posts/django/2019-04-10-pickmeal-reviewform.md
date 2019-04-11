@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "[Django 스터디#6-3] 맛집 리뷰 사이트 - 리뷰 폼 만들기 + CreateView "
-date: 2019-04-10 23:15:59
+title:  "[Django 스터디#6-3] 리뷰 form + CreateView / 한 템플릿에 2개의 폼 넣기"
+date: 2019-04-10 23:30:59
 author: Roseline Song
 categories: Django
 tags: python django 
@@ -37,39 +37,20 @@ cover: "/assets/django2.jpg"
 
 ```python
 from django import forms 
-from django.contrib.auth.models import User #1
+from django.db import models
 
-class UserForm(forms.ModelForm):
-    class Meta: #2
-        model = User 
-        fields = ['username', 'email', 'password']
+from .models import Review, Restaurant
+
+class RestaurantForm(forms.ModelForm):
+    class Meta:
+        model = Restaurant
+        fields = ['name', ...]
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['restaurant', 'score', ...]
 ```
-
-<br>
-
-
-- #1 : 기존의 User 모델 import하기 
-- #2 : class Meta에 model과 fields 속성에 지정. 
-
-<br>
-
-**class Meta**
-
-[참고, 번역](https://www.quora.com/Why-do-we-use-the-class-Meta-inside-the-ModelForm-in-Django)
-
-파이썬의 메타 클래스와는 다른 개념이고, django form의 class Meta는 단순히 **이름이 Meta인 내부 클래스(inner class)**이다. Meta 클래스는 ModelForm 클래스에 메타데이터를 제공하기 위해 쓰인다. 
-
-<sub>※ Meta : Meta란 '이전의, ~에 대해서'라는 의미이다. 메타데이터는 데이터에 대한 데이터이다. 예를 들어, file이라는 데이터가 있다면, 그 file의 작성자는 누구고, 언제, 어디서 작성되었는가는 메타데이터이다.</sub>
-
-<br>
-
-Django의 ModelForm은 기본값을 갖고 있지만, 나만의 Form을 만들기 위해서는 아래와 같은 ModelForm의 메타 옵션을 재정의한다. 일부 옵션은 반드시 지정해야 한다. 
-
-- model: form 만들기에 사용할 모델 클래스
-- fields: form에 포함할 필드 목록
-- exclude: form에서 제외할 필드 목록
-- widgets: field, widget 쌍으로 된 dictionary
-
 
 <br>
 <br>
@@ -78,27 +59,27 @@ Django의 ModelForm은 기본값을 갖고 있지만, 나만의 Form을 만들�
 
 <br>
 
-### 클래스형뷰(CBV)로 구현하기  
+### CreateView - views.py
 
 <br>
 
-**views.py**
+**간단한 뷰**
 
 <br>
 
 ```python
-from django.views.generic import CreateView 
-from .forms import UserForm
+from django.views.generic import CreateView
+from .forms import ReviewForm
 
-class UserCreateView(CreateView): #2
-    form_class = UserForm 
-    template_name = 'reviewBoard/signup.html'
-    success_url = "/" #1
+class ReviewCreateView(CreateView):
+    template_name = 'reviewBoard/review_new.html'
+    success_url = '/' #1
+    form_class = ReviewForm #2
 ```
 <br>
 
-- #1 : data 생성이 성공한 뒤, redirect될 주소. index 페이지로 이동한다. 
-- #2 : CreateView의 속성 form_class, template_name, success_url 등을 지정해줌으로써 훨씬 더 간단하게 Sign Up View를 구현할 수 있다. 
+- #1 : 데이터 생성에 성공한 경우 리다이렉트할 url. 위에서는 index 페이지로 이동한다. 
+- #2 : CreateView가 사용할 form_class를 지정한다. 
 
 <br>
 <br>
@@ -107,7 +88,8 @@ class UserCreateView(CreateView): #2
 
 ```python
 urlpatterns = [
-    path('join/', views.UserCreateView.as_view(), name='join'),
+    path('review/new/', views.ReviewCreateView.as_view(), name='review_new'),
+
 ]
 ```
 
@@ -118,67 +100,150 @@ urlpatterns = [
 
 <br>
 
-### 함수형 뷰(FBV)로 구현하기 
+### 한 템플릿에 두 개의 폼 넣기 
 
-**views.py**
+리뷰를 작성하려면 Restaurant 필드에서 식당을 선택해야 한다. 하지만 원하는 식당이 데이터에 없다면, 리뷰를 추가할 수 없는 상황이 온다.
 
-[참고 블로그]()
+그래서 Review Form을 먼저 보여준 뒤, 원하는 식당이 없다면 Restaurant Form 을 보여주고, Review Form은 숨긴다. 
 
-클래스형 뷰를 사용하지 않고 함수형 뷰로 구현한다면 다음과 같이 할 수 있다. 
+기존 CreateView로는 하나의 폼만 사용할 수 있기 때문에 **믹스인, 클래스 상속으로 여러 폼을 넣을 수 있는 클래스뷰**를 만든다.
+
+아래 코드들을 참고했으나, validator가 제대로 작동하지 않는 오류가 있어 내 코드에 맞게 일부분 바꿨다. 
+
+<br>
+
+[참고 코드](https://gist.github.com/michelts/1029336)
+
+[참고 코드2](https://chriskief.com/2012/12/30/django-class-based-views-with-multiple-forms/)
+
+<br>
+<br>
+
+<hr>
+
+<br>
+
+
+
+### mixin
 
 <br>
 
 ```python
-from django.contrib.auth import views, models, login
-from django.shortcuts import render, redirect
-from .forms import UserForm
+# code source : https://gist.github.com/michelts/1029336
 
-def signup(request):
-    if request.method == "POST": #1
-        form = UserForm(request.POST)
-    
+from django.shortcuts import render, render_to_response
+from .forms import ReviewForm, RestaurantForm
+
+#################### Mixins ####################
+from django.views.generic.base import View, TemplateResponseMixin
+from django.views.generic.edit import FormMixin, ProcessFormView
+
+class MultipleFormsMixin(FormMixin):
+    """
+    A mixin that provides a way to show and handle several forms in a
+    request.
+    """
+    form_classes = {} 
+
+    def get_form_classes(self):
+        return self.form_classes
+
+    def get_forms(self, form_classes):
+        return dict([(key, klass(**self.get_form_kwargs())) \
+            for key, klass in form_classes.items()])
+
+    def forms_valid(self, forms):
+        return super(MultipleFormsMixin, self).form_valid(forms)
+
+    def forms_invalid(self, forms):
+        return self.render_to_response(self.get_context_data(forms=forms))
+
+
+class ProcessMultipleFormsView(ProcessFormView):
+    """
+    A mixin that processes multiple forms on POST. Every form must be
+    valid.
+    """
+    def get(self, request, *args, **kwargs):
+        form_classes = self.get_form_classes()
+        forms = self.get_forms(form_classes)
+        return self.render_to_response(self.get_context_data(forms=forms))
+
+    #1
+    def post(self, request, *args, **kwargs):
+        form_classes = self.get_form_classes()
+        forms = self.get_forms(form_classes)
+
+        if 'ReviewForm' in request.POST:
+            form_class = self.form_classes['ReviewForm']
+            form_name = 'ReviewForm'
+        else:
+            form_class = self.form_classes['RestaurantForm']
+            form_name = 'RestaurantForm'
+
+        #2
+        form = self.get_form(form_class)
+
+        if form.is_valid(): #3
+            return self.form_valid(form)
+        else:
+            #4 
+            return self.render_to_response (self.get_context_data(forms=forms))
+
+
+class BaseMultipleFormsView(MultipleFormsMixin, ProcessMultipleFormsView):
+    """
+    A base view for displaying several forms.
+    """
+
+class MultipleFormsView(TemplateResponseMixin, BaseMultipleFormsView):
+    """
+    A view for displaing several forms, and rendering a template response.
+    """
+```
+
+<br>
+<br>
+
+**form 마다 나눠서 POST하기**
+
+<br>
+
+```python
+class ProcessMultipleFormsView(ProcessFormView):
+
+    ...(생략)...
+
+    def post(self, request, *args, **kwargs):
+        form_classes = self.get_form_classes()
+        forms = self.get_forms(form_classes)
+
+        #1
+        if 'ReviewForm' in request.POST:
+            form_class = self.form_classes['ReviewForm']
+            form_name = 'ReviewForm'
+        else:
+            form_class = self.form_classes['RestaurantForm']
+            form_name = 'RestaurantForm'
+
+        form = self.get_form(form_class)
+
         if form.is_valid(): #2
-            new_user = models.User.objects.create_user(**form.cleaned_data) #5
-            login(request, new_user)
-        
-        return redirect('reviewBoard:index')
-
-    else: #3
-        form = UserForm()
-
-    return render(request, 'reviewBoard/signup.html', {'form': form}) #4
+            return self.form_valid(form)
+        else:
+            #3
+            return self.render_to_response (self.get_context_data(forms=forms))
 ```
 
 <br>
 
-- #1 : template에서 form method가 'POST'인 경우. 즉, form을 작성하고, submit 버튼을 누른 경우이다. 
-- #2 : form이 양식에 맞게 잘 작성된 경우, user 객체를 생성해 new_user에 저장. new_user 정보를 login() 함수에 전달해 회원가입과 동시에 로그인. 
-- #3 : request method가 POST가 아니면 GET인데, 이때는 UserForm 객체를 만들어 form 변수에 저장
-- #4 : #3에서 저장한 form 또는 #1에서 `form = UserForm(request.POST)`로 저장한 form 데이터를 signup.html 템플릿에 전달
-- #5 : cleaned_data
+- #1 : form_classes에서 key 값이 'ReviewForm'인 것의 value를 ReviewForm 객체이다. 만약 request.POST을 통해 전달된 form이 ReviewForm이라면 form_class 변수에 ReviewForm 객체를 담고, 그렇지 않으면 RestaurantForm 객체를 담는다. 
 
-<br>
+- #2 : form 변수에 담긴 form이 유효한지 확인하고, 유효하다면 MultipleFormsMixin에 담긴 form_valid를 실행.
 
-**cleaned_data는 왜 쓰는 걸까?**
+- #3 : 유효하지 않다면, form에 담긴 데이터를 그대로 다시 돌려주고, 현재 페이지에 다시 리다이렉트 된다. 
 
-[참고](https://developer.mozilla.org/ko/docs/Learn/Server-side/Django/Forms)
-
-데이터를 획득하고, 기본 유효성 검사 도구를 이용해 입력값을 다듬는다(cleaned). 안전하지 않을 수 있는 입력값을 필터링하며, 해당 입력값에 맞는 표준 형식으로 변환한다.
-
-<br>
-<br>
-
-**urls.py**
-
-```python
-urlpatterns = [
-    path('join/', views.signup , name='join'),
-]
-```
-
-<br>
-
-보기에는 함수형 뷰가 좀 더 복잡해보이지만, 위의 클래스형 뷰는 정말 단순하게 구현한 경우이고, 클래스형 뷰도 얼마든지 길어질 수 있다.(다음 포스팅에서 확인 가능)
 
 <br>
 <br>
@@ -187,83 +252,148 @@ urlpatterns = [
 
 <br>
 
-### Template 
+### views.py 
 
 <br>
 
-**signup.html**
-
-뷰에서 지정한 signup.html 파일을 만든다. 디자인 요소는 뺐다. 트위터의 부트스트랩을 사용하면 직접 디자인해볼 수 있다.
+**ReviewCreateView**
 
 <br>
+
+```python
+from django.shortcuts import render, render_to_response
+from django.views.generic import CreateView
+
+from django.utils.decorators import method_decorator
+from django.contrib.auth import views, models, login, decorators 
+from django.contrib.auth.decorators import login_required 
+
+from .models import Restaurant, Review
+from .forms import ReviewForm, RestaurantForm
+
+
+# New Review
+class ReviewCreateView(CreateView, MultipleFormsView):
+    model = Review
+    fields = ('writer','restaurant', 'score', 'title', 'review', 'photo')
+    template_name = 'reviewBoard/review_new.html'
+    success_url = '/'
+    #1
+    form_classes = {'ReviewForm': ReviewForm,
+                    'RestaurantForm': RestaurantForm}
+
+    #2
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ReviewCreateView, self).dispatch(*args, **kwargs)
+
+    #3
+    def get_review_initial(self):
+        return {'title':'...',}
+
+    def get_restaurant_initial(self):
+        return {'name':'...',}
+```
+
+<br>
+
+- #1 : form_classes 속성에 dictionary로 여러 폼을 전달할 수 있다. 
+
+- #2 : 로그인을 한 사람에게만 리뷰를 작성할 수 있도록, 로그인을 요구하는 데코레이터이다.
+
+- #3 : 각 필드의 초기값 설정 
+
+<br>
+<br>
+
+**urls.py**
+
+<br>
+
+```python
+from django.contrib.auth import views as auth_views
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('review/new/', views.ReviewCreateView.as_view(), name='review_new'),
+]
+```
+
+<br>
+<br>
+
+<hr>
+
+<br>
+
+### Template
 
 ```html
 {% raw %}
-{% extends 'reviewBoard/base.html' %} 
-{% load static %}
 
-{% block content %}
+<!-- #1 -->
+<form id="ReviewForm"
+    class="jumbotron collapse show multi-collapse" 
+    method="POST" 
+    enctype="multipart/form-data"
+    action="{% url 'reviewBoard:review_new' %}">{% csrf_token %}
 
-    <!-- #1 -->
-    {% if form.errors %}
-    <p style="color:red;">양식에 맞게 작성해주세요.</p>
-    {% endif %}
+    <h3>리뷰 추가하기</h3><hr>
 
-    <!-- #2 -->
-    <form method="post" action="{% url 'reviewBoard:join' %}">
-    <!-- #3 -->
-    {% csrf_token %} 
+    {% for field in forms.ReviewForm %}
+    
+    <div class="form-group row ">
+        <label for="colFormLabel" class="col-sm-2 col-form-label">{{ field.label_tag }}</label>
+        {# error message 출력 #}
+        <div class="col-sm-10 ">
+            {{ field }}
+            
+            {% if field.errors %}
+                {% for e in field.errors %}
+                    <p style="color:palevioletred;">{{ e | escape }}</p>
+                {% endfor %}
+            {% endif %}
 
-    <!-- #4 -->
-    {{form.as_p}}
+            <!-- #2 -->
+            {% if field.label == "Restaurant" %}
+                <button type="button" 
+                data-toggle="collapse" 
+                data-target=".multi-collapse" 
+                aria-expanded="false" 
+                aria-controls="ReviewForm RestaurantForm"
+                >맛집이 리스트에 없나요?</button>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
+<button value='action' name='ReviewForm' type="submit">리뷰 추가하기</button>
+</form>
 
-    <button type="submit"> 가입하기 </button>
-    </form>
+<!-- #3 -->
+<form id="RestaurantForm" 
+    class="jumbotron collapse multi-collapse"
+    method="POST" 
+    action="{% url 'reviewBoard:review_new' %}">{% csrf_token %}
+    
+    <h3>맛집 추가하기</h3>
+    <hr class="mb-5">
 
-{% endblock %}
+    {{forms.RestaurantForm.as_p}}
+
+    <button value='action' name='RestaurantForm' type="submit">식당 추가하기</button>
+</form>
+
 {% endraw %}
 ```
 
 <br>
 
-- #1 : form 양식이 틀린 경우 error 메시지를 보여줄 수 있다. 
-- #2 : `form method="POST"`로 되어있다. 위의 함수형 뷰에서 말한 것처럼, button으로 양식을 제출했을 때 request의 method는 POST이다.
-- #3 : Django는 form에는 보안상 csrf_token을 넣어야하는 것을 의무화하고 있다. form 태그 안에 태그를 넣어주기만 하면 된다. 
-- #4 : form 안의 속성 as_p는 form이 가진 필드를 각각 p 태그로 감싸서 보여준다. as_table은 tb 태그를 사용한다. 
+- #1 : form class의 `collapse show multi-collapse`는 부트스트랩에 내장된 클래스이다. multi-collapse는 여러 개의 elements에 속한다는 것을 알려주는 크래스. show는 element를 보여주는 클래스이다. #2의 버튼에 있는 collapse cotrol에 따라 없어지고, 나타난다. 
 
+- #2 : `data-target=".multi-collapse" aria-controls="ReviewForm RestaurantForm"` data-target을 통해 .multi-collapse 클래스를 가진 엘리먼트를 동시에 컨트롤한다. aria-controls는 id 속성 값이 ReviewForm, RestaurantForm인 엘리먼트를 컨트롤한다. 
 
-<br>
-<br>
-
-**base.html**
-
-base.html에 join 페이지에 접근할 수 있는 링크를 삽입한다. 
-
-```html
-{% raw %}
-<!-- 로그인 중 -->
-{% if user.is_active %} 
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'login' %}">{{user.username}}</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'logout' %}">logout</a>
-    </li>
-
-<!-- 로그아웃 상태 -->
-{% else %}
-    <li class="nav-item">
-        <a class="nav-link" href="{%url 'login' %}"> Login</a>
-    </li>
-<!-- 이 부분 추가 -->
-    <li class="nav-item">
-        <a class="nav-link" href="{%url 'reviewBoard:join' %}">Sign Up</a>
-    </li>
-{% endif %}
-{% endraw %}
-```
-
+- #3 : 토글 버튼을 누르면 ReviewForm이 사라지고, RestaurantForm이 나타난다. 
 
 <br>
 <br>
-
