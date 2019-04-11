@@ -81,7 +81,7 @@ url을 통해 전달된 pk를 ReviewUpdateView에 전달한다.
 
 ### Template
 
-\#1의 form 태그의 `action="{% url 'reviewBoard:review_edit' review.id %}"` 코드를 보자.
+\#1의 form 태그의 `{%raw%}action="{% url 'reviewBoard:review_edit' review.id %}"{% endraw %}` 코드를 보자.
 
 UpdateView에서 지정해준 context_object_name 을 review로 지정해주었다. review의 id를 review_edit이란 이름의 url에 전달한다(pk 전달). url과 함께 매핑된 ReviewUpdateView에 pk를 전달한다. 그 아래는 review_new와 같다. 
 
