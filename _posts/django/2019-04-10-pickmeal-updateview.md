@@ -137,9 +137,11 @@ urls.py에서 review_edit이라는 name을 가진 url에 접근하고, 접근할
 <br>
 
 ```html
+    {% raw %}
     <a href="{% url 'reviewBoard:review_edit' rev.id %}">
         <button> 수정하기 </button>
     </a>
+    {%endraw%}
 ```
 
 <br>
