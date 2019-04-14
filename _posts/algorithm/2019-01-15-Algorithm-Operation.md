@@ -101,8 +101,8 @@ def binSearch(key) :
     arr = list(range(1,101))
     step = 0
 
-    first = arr[0] // 1
-    last = arr[len(arr)-1] // 100
+    first = arr[0] # 1
+    last = arr[len(arr)-1] # 100
 
     for i in range(len(arr)) :
 
@@ -130,12 +130,12 @@ def binSearch(key) :
 <br>
 
 ```python
-linearSearch(100) // 선형 검색으로 100을 찾는다.
-binSearch(100) // 이진 검색으로 100을 찾는다.
+linearSearch(100) # 선형 검색으로 100을 찾는다.
+binSearch(100) # 이진 검색으로 100을 찾는다.
 
 >>>
-linear | step :  100 // 선형 검색
-bin | step :  6 // 이진 검색
+linear | step :  100 # 선형 검색
+bin | step :  6 # 이진 검색
 ```
 
 <br>
