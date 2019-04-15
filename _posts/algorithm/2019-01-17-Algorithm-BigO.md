@@ -48,7 +48,9 @@ cover: "/assets/dailystudy.jpg"
 
 **읽기 : O(1)**
 
-<img src="https://postfiles.pstatic.net/MjAxOTAxMTRfMyAg/MDAxNTQ3NDI2NzEwNjc4.h9ifpXmd3SXrKqA5b5iMU0uuj6fmJSoZ5GgWlLmPX2Mg.wOO5gFMCQXn0i6POvqxLT4osvx3zz5bOuj2zMtIovJkg.PNG.guseod24/%EA%B7%B8%EB%A6%BC3.png?type=w966" style="width:600px;">
+<br>
+
+<img src="https://postfiles.pstatic.net/MjAxOTAxMTRfMyAg/MDAxNTQ3NDI2NzEwNjc4.h9ifpXmd3SXrKqA5b5iMU0uuj6fmJSoZ5GgWlLmPX2Mg.wOO5gFMCQXn0i6POvqxLT4osvx3zz5bOuj2zMtIovJkg.PNG.guseod24/%EA%B7%B8%EB%A6%BC3.png?type=w966" style="width:400px;">
 
 <br>
 
@@ -59,7 +61,9 @@ cover: "/assets/dailystudy.jpg"
 
 **선형 검색 : O(N)**
 
-<img src="https://postfiles.pstatic.net/MjAxOTAxMTRfODgg/MDAxNTQ3NDI3MTEyMDcy.o9F3KPrVtgKY3GtO7dTF30gSXX_Ien5ZIKU0EYwkEeIg.CAheS2HKZU9fwcd_-OFPp2rBCyiy82yDKR6yXtgoe8wg.PNG.guseod24/%EA%B7%B8%EB%A6%BC4.png?type=w966" style="width:600px;">
+<br>
+
+<img src="https://postfiles.pstatic.net/MjAxOTAxMTRfODgg/MDAxNTQ3NDI3MTEyMDcy.o9F3KPrVtgKY3GtO7dTF30gSXX_Ien5ZIKU0EYwkEeIg.CAheS2HKZU9fwcd_-OFPp2rBCyiy82yDKR6yXtgoe8wg.PNG.guseod24/%EA%B7%B8%EB%A6%BC4.png?type=w966" style="width:400px;">
 
 <br>
 
@@ -71,7 +75,9 @@ cover: "/assets/dailystudy.jpg"
 
 **이진 검색  : O(logN)**
 
-<img src="https://postfiles.pstatic.net/MjAxOTAxMTRfMTgz/MDAxNTQ3NDI3NTM5Mjc1.Z_Y1LGbLQeJiqlw_UfgH-MquYWDF0J1reA0FIQ2dvfIg.ZJ9cjbxlCoxk5dpfhBtkaKLRi06WCgqs4KCr5QgfXt8g.PNG.guseod24/%EA%B7%B8%EB%A6%BC6.png?type=w966" style="width:600px;">
+<br>
+
+<img src="https://postfiles.pstatic.net/MjAxOTAxMTRfMTgz/MDAxNTQ3NDI3NTM5Mjc1.Z_Y1LGbLQeJiqlw_UfgH-MquYWDF0J1reA0FIQ2dvfIg.ZJ9cjbxlCoxk5dpfhBtkaKLRi06WCgqs4KCr5QgfXt8g.PNG.guseod24/%EA%B7%B8%EB%A6%BC6.png?type=w966" style="width:400px;">
 
 <br>
 
