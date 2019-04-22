@@ -62,17 +62,19 @@ function exec_end_to_end() {
 }
 
 function exec_up_down() {
+    var answer = Math.floor(Math.random(1,100)*100)
+    var step = 0
 
     while(true){
-        var answer = Math.floor(Math.random(1,100)*100)
         var input = prompt("1~100까지의 숫자입니다. 맞춰보세요. ^0^")
-        var step = 0
 
         if (Number(input)===answer) {
             alert(step +"번 만에 맞았어요 :) ");
+            answer = Math.floor(Math.random(1,100)*100);
+            step = 0;
         } else {
             step += 1;
-            alert("틀렸어요 :( ")
+            alert("틀렸어요 :( ");
         }
     }
 }
