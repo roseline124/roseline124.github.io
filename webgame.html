@@ -1,0 +1,42 @@
+---
+layout: page
+title: "Web Game"
+permalink: /game/
+---
+
+<div class="container">
+
+    <h3>끝말잇기 (End-to-End)</h3>
+
+    <button id="end-to-end"
+            onclick="exec_end_to_end();"
+            type="button" 
+            class="btn btn-danger">실행하기</button>
+
+
+
+</div>
+
+
+<br>
+<br>
+<br>
+
+
+<!-- 끝말잇기 게임 -->
+<script>
+function exec_end_to_end() {
+    var word = '특이점'
+
+    while (true){
+        var answer = prompt(word + " (세 글자)") // prompt : 입력받는 함수 
+        if ((word[word.length-1] === answer[0]) & (answer.length===3)){ // 마지막 인덱스 : 문자 길이 -1
+            alert("딩동댕")
+            word = answer;
+        } else {
+            alert("땡")
+        }
+    }
+}
+
+</script>
