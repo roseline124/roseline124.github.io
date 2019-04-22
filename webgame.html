@@ -6,14 +6,23 @@ permalink: /game/
 
 <div class="container">
 
-    <h3>끝말잇기 (End-to-End)</h3>
+<br>
+<br>
+<br>
+
+    <h1>끝말잇기 (End-to-End)</h1>
 
     <button id="end-to-end"
             onclick="exec_end_to_end();"
             type="button" 
             class="btn btn-danger">실행하기</button>
 
+    <h1>업다운 게임 (Up-Down)</h1>
 
+            <button id="up-down"
+                    onclick="exec_up_down();"
+                    type="button" 
+                    class="btn btn-danger">실행하기</button>
 
 </div>
 
@@ -23,31 +32,21 @@ permalink: /game/
 <br>
 <br>
 <br>
-<br><br>
 <br>
-<br><br>
 <br>
-<br><br>
 <br>
-<br><br>
 <br>
-<br><br>
 <br>
-<br><br>
 <br>
-<br><br>
 <br>
-<br><br>
 <br>
-<br><br>
 <br>
-<br><br>
 <br>
 <br>
 
 
-<!-- 끝말잇기 게임 -->
 <script>
+// 끝말잇기 게임
 function exec_end_to_end() {
     var word = '특이점'
 
@@ -58,6 +57,22 @@ function exec_end_to_end() {
             word = answer;
         } else {
             alert("땡")
+        }
+    }
+}
+
+function exec_up_down() {
+
+    while(true){
+        var answer = Math.floor(Math.random(1,100)*100)
+        var input = prompt("1~100까지의 숫자입니다. 맞춰보세요. ^0^")
+        var step = 0
+
+        if (Number(input)===answer) {
+            alert(step +"번 만에 맞았어요 :) ");
+        } else {
+            step += 1;
+            alert("틀렸어요 :( ")
         }
     }
 }
