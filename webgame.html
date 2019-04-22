@@ -76,9 +76,13 @@ function exec_up_down() {
             alert(step +"번 만에 맞았어요 :) ");
             answer = Math.floor(Math.random(1,100)*100);
             step = 0;
-        } else {
+
+        } else if(Number(input)>answer) {
             step += 1;
-            alert("틀렸어요 :( ");
+            alert("Down!");
+        } else if(Number(input)<anwer){
+            step += 1;
+            alert("Up!");
         }
     }
 }
