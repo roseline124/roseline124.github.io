@@ -62,6 +62,9 @@ descriptions:
   - cat: Django
     desc: "마감은 없지만 성격은 급한 개발자의 Django 프로젝트"
 
+  - cat: Java
+    desc: "하루하루 다른 모습에 한번 더 반해 끝까지 난 널 자바 자바 자바"
+
   - cat: Fail-Of-Wall
     desc: "실패와 에러에 대한 기록. 삽질이 나를 성장시킨다."
 
