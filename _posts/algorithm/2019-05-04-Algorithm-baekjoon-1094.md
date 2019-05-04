@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[백준 알고리즘#1094] 막대기 (Java, Python)"
-date: 2019-05-03 17:30:59
+date: 2019-05-04 17:30:59
 author: Roseline Song
 categories: Algorithm
 tags: 알고리즘 python java Baekjoon 시뮬레이션
