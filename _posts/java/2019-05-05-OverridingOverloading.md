@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Java - 오버라이딩, 오버로딩 (Overriding & Overloading)"
+title:  "오버라이딩, 오버로딩 (Overriding & Overloading)"
 date: 2019-05-05 10:50:59
 author: Roseline Song
 categories: Java
