@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "생성자와 상속(Constructor & Inheritance)"
+title:  "Java - 생성자와 상속(Constructor & Inheritance)"
 date: 2019-05-05 10:40:59
 author: Roseline Song
 categories: Java
