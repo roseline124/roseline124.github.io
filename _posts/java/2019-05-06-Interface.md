@@ -8,6 +8,10 @@ tags: java 인터페이스
 cover: "/assets/java.jpg"
 ---
 
+**생활코딩 - 자바** 공부 후 정리한 내용입니다.
+
+<br>
+
 ### 인터페이스
 
 <br>
