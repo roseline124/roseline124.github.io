@@ -14,7 +14,7 @@ cover: "/assets/java.jpg"
 
 ### 예외 처리 (Exception Handling)
 
-유저가 개발자가 의도치 않은 방법으로 프로그램을 사용해 장애가 생기는 경우를 대비해야 한다. 예상치 못한 오류를 처리하는 것을 예외 처리, Exception Handling이라고 한다. 개발자 선에서 처리를 하거나, 코드의 사용자에게 처리를 맡길 수 있고, Java에서 정의된 Exception이 없는 경우 자신이 Exception을 정의할 수도 있다. 
+개발자가 의도치 않은 방법으로 프로그램을 사용해 장애가 생기는 경우가 있다. 이를 대비하기 위해 예상치 못한 오류를 처리하는 것을 예외 처리, Exception Handling이라고 한다. 개발자 선에서 처리를 하거나, 코드의 사용자에게 처리를 맡길 수 있고, Java에서 정의된 Exception이 없는 경우 자신이 Exception을 정의할 수도 있다. 
 
 <br>
 <br>
@@ -28,8 +28,6 @@ cover: "/assets/java.jpg"
 <br>
 
 **Try Catch**
-
-<br>
 
 python의 try-except와 같다. try문에 오류가 날 것 같은 코드를 작성하고, catch문에 어떤 오류가 발생했을 때 어떤 방식으로 처리할 건지 작성한다. catch문을 if-else if처럼 다중 catch문을 작성할 수도 있다. finally문의 코드는 예외의 발생 여부와 관계 없이 실행된다. 
 
@@ -58,8 +56,6 @@ python의 try-except와 같다. try문에 오류가 날 것 같은 코드를 작
 <br>
 
 **오류 발생시키기 : throw**
-
-<br>
 
 특정 조건에서 예외를 발생시켜 처리할 수도 있다. if문에 오류가 발생할 조건을 넣고, `throw new 예외 이름`으로 예외를 발생시킨다. 이후 try-catch로 예외를 처리한다. 
 
@@ -114,10 +110,10 @@ unchecked exception은 한 번 잘못되면 이후 로직을 실행할 수 없�
 - un-throwable : unchecked exception (extends RuntimeException)
 
 <br>
+<br>
+
 
 **exception 사용자 정의**
-
-<br>
 
 exception을 정의할 때, unchecked인지 checked인지 정한 후 unchecked라면 RuntimeException을 상속한다. 
 
