@@ -20,5 +20,3 @@ tag/index.html
 .bundle/
 vendor/
 
-# Images
-AWS_deploy/
