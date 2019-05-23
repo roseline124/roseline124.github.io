@@ -51,6 +51,8 @@ Windows 운영체제를 사용하는 경우, [PuTTY 사이트](http://www.chiark
 
 PuTTYgen을 실행. key generator로 pem 파일을  변환한다. `conversions 탭 - import key - pem 파일 선택 - save private keys`
 
+<sub>참고로, ppk(PuTTy private key) 파일을 github의 public repository에 올리지 않도록 주의한다. 해커들이 public repository의 root key들을 크롤링해서 서버를 해킹하는 경우도 있다고 한다. 해킹된 서버는 비트코인 같은 암호화폐 채굴에 사용했던 사례도 보았다. 조심, 조심.</sub>
+
 <br>
 
 <img src="/assets/images/AWS_deploy/21_puttykeygen.PNG">*PuTTY Key Generator*
