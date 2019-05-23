@@ -14,7 +14,6 @@ cover: "/assets/django2.jpg"
 
 uwsgi로 runserver를 하지 않아도 접속할 수 있게 되었으나, 더 나아가 포트 번호 없이 클라이언트가 접속하게 하려면 Nginx로 사용자와 django 웹 서버를 연결시킨다.
 
-
 <br>
 <br>
 
@@ -51,9 +50,7 @@ sudo vim /etc/nginx/nginx.conf
 
 http 태그 안에 아래 코드를 추가한다.
 
-<sub>※ nginx upstream : Nginx 서버는 `User - Nginx - uWSGI - Django`처럼 중간 다리 역할을 한다. 사용자로부터 nginx가 받은 request를 어느 서버에 넘겨줄지 정해주는 것이 upstream이다. 아래보면 uwsgi.sock 파일을 지정해서 django의 uWSGI 서버로 request를 전달하도록 설정한다. 
-
-</sub>
+<sub>※ nginx upstream : Nginx 서버는 `User - Nginx - uWSGI - Django`처럼 중간 다리 역할을 한다. 사용자로부터 nginx가 받은 request를 어느 서버에 넘겨줄지 정해주는 것이 upstream이다. 아래보면 uwsgi.sock 파일을 지정해서 django의 uWSGI 서버로 request를 전달하도록 설정한다.</sub>
 
 ```
    upstream django {
