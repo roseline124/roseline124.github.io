@@ -60,12 +60,12 @@ arr2 = random.sample(range(0,100),40)
 
 <br>
 
-- random.sample(population, k) : 0부터 99까지의 모집단에서, 40개의 표본을 무작위로 꺼낸다. 
+random.sample(population, k) : 0부터 99까지의 모집단에서, 40개의 표본을 무작위로 꺼낸다. 
 
 <br>
 <br>
 
-​```python
+```
 for i in range(len(arr2)) : 
     min_idx = i
 ```
@@ -77,7 +77,7 @@ for i in range(len(arr2)) :
 <br>
 <br>
 
-​```python
+​```
     for j in range(i+1,len(arr2)) :
         step +=1
         if arr2[j] < arr2[min_idx] :
@@ -94,7 +94,7 @@ for i in range(len(arr2)) :
 <br>
 <br>
 
-​```python
+​```
     if min_idx != i : 
         arr2[i], arr2[min_idx] = arr2[min_idx], arr2[i]
         step +=1
