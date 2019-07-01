@@ -43,7 +43,7 @@ cover: "/assets/django2.jpg"
 
 <br>
 
-<img src="/assets/images/190629_pg_1.PNG">*자신에게 맞는 버전으로 다운*
+<img src="/assets/images/P2P/190629_pg_1.PNG">*자신에게 맞는 버전으로 다운*
 
 <br>
 
@@ -51,13 +51,13 @@ stack builder 체크 박스 해제. stack builder는 postgreSQL 설치를 보완
 
 <br>
 
-<img src="/assets/images/190629_pg_2.PNG">*stack builder 체크 해제*
+<img src="/assets/images/P2P/190629_pg_2.PNG">*stack builder 체크 해제*
 
 <br>
 
 port 번호는 5432 사용 
 
-<img src="/assets/images/190629_pg_3.PNG">*port번호 설정*
+<img src="/assets/images/P2P/190629_pg_3.PNG">*port번호 설정*
 
 <br>
 <br>
@@ -94,7 +94,7 @@ windows 키 + Q (검색) -> pgadmin4 으로 접속
 
 <br>
 
-<img src="/assets/images/190629_pg_4.PNG">*pgadmin4 화면*
+<img src="/assets/images/P2P/190629_pg_4.PNG">*pgadmin4 화면*
 
 <br>
 <br>
@@ -105,7 +105,7 @@ login/Group Role 추가
 
 <br>
 
-<img src="/assets/images/190629_pg_5.PNG">*create user*
+<img src="/assets/images/P2P/190629_pg_5.PNG">*create user*
 
 <br>
 <br>
@@ -116,7 +116,7 @@ login/Group Role 추가
 
 <br>
 
-<img src="/assets/images/190629_pg_6.PNG">*이름*
+<img src="/assets/images/P2P/190629_pg_6.PNG">*이름*
 
 <br>
 <br>
@@ -127,7 +127,7 @@ login/Group Role 추가
 
 <br>
 
-<img src="/assets/images/190629_pg_7.PNG">*비밀번호 설정*
+<img src="/assets/images/P2P/190629_pg_7.PNG">*비밀번호 설정*
 
 <br>
 <br>
@@ -145,7 +145,7 @@ login/Group Role 추가
 
 <br>
 
-<img src="/assets/images/190629_pg_8.PNG">*권한*
+<img src="/assets/images/P2P/190629_pg_8.PNG">*권한*
 
 <br>
 <br>
@@ -156,7 +156,7 @@ login/Group Role 추가
 
 <br>
 
-<img src="/assets/images/190629_pg_9.PNG">*createdb*
+<img src="/assets/images/P2P/190629_pg_9.PNG">*createdb*
 
 <br>
 <br>
@@ -167,7 +167,7 @@ login/Group Role 추가
 
 <br>
 
-<img src="/assets/images/190629_pg_10.PNG">*createdb2*
+<img src="/assets/images/P2P/190629_pg_10.PNG">*createdb2*
 
 <br>
 <br>
@@ -203,7 +203,7 @@ login/Group Role 추가
 
 <br>
 
-<img src="/assets/images/190629_pg_11.PNG">*유저와 권한 확인*
+<img src="/assets/images/P2P/190629_pg_11.PNG">*유저와 권한 확인*
 
 <br>
 <br>
@@ -262,7 +262,7 @@ pyadmin4에서 해당 데이터베이스의 schema - Tables에서 Django와 연�
 
 <br>
 
-<img src="/assets/images/190629_pg_12.PNG">*확인*
+<img src="/assets/images/P2P/190629_pg_12.PNG">*확인*
 
 <br>
 <br>
