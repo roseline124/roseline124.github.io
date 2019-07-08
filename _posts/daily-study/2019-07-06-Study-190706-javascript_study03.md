@@ -205,3 +205,4 @@ alert(sum.apply(o2)) // 185
 
 
 
+
