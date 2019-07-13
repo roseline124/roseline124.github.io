@@ -51,6 +51,10 @@ Windows 운영체제를 사용하는 경우, [PuTTY 사이트](http://www.chiark
 
 PuTTYgen을 실행. key generator로 pem 파일을  변환한다. `conversions 탭 - import key - pem 파일 선택 - save private keys`
 
+이때, generate는 선택하지 않는다. 또한, save private key를 눌렀을 때, key passphrase를 사용하지 않아도 괜찮냐고 묻는데, `'yes'를 선택`한다. key passphrase같은 경우 파일을 업로드하거나 복사할 때마다 사용자가 로그온해야하기 때문에 자동화가 어렵다는 단점이 있다. 
+
+※ ppk 이름 저장 시, `pem키와 같은 이름으로 저장`한다.
+
 <sub>참고로, ppk(PuTTy private key) 파일을 github의 public repository에 올리지 않도록 주의한다. 해커들이 public repository의 root key들을 크롤링해서 서버를 해킹하는 경우도 있다고 한다. 해킹된 서버는 비트코인 같은 암호화폐 채굴에 사용했던 사례도 보았다. 조심, 조심.</sub>
 
 <br>
@@ -204,7 +208,7 @@ ssh 키를 만들 때 사용자로부터 3번의 입력을 받는데...
 
 **2. public key 생성하기**
 
-깃허브 repository에서 use SSH를 클릭했을 때 `You don't have any public SSH keys in your GitHub account. You can add a new public key,...`와 같이 뜬다면, 'new public key' 링크를 클릭한다. 그 다음...
+깃허브 repository에서 오른쪽 상단의 초록색 버튼으로 `git clone or download` 버튼이 있을 것이다. 이 버튼을 클릭한 후, use SSH를 클릭했을 때 `You don't have any public SSH keys in your GitHub account. You can add a new public key,...`와 같이 뜬다면, 'new public key' 링크를 클릭한다. 그 다음...
 
 - **SSH 터미널에서** `ssh-keygen -t rsa -C "깃허브이메일주소"` 명령어로 키 파일을 생성한다. 
 - 생성됐는지 확인하기 위해 `ls -al ~/.ssh`명령어로 public key가 있는지 확인한다. 
@@ -237,6 +241,10 @@ git clone 저장소주소
 ```
 
 <br>
+
+이때, `Enter passphrase for key ...`와 같은 문구가 등장하는데, 1번 deploy key 생성에서 만들었던 키 패스워드를 입력하면 된다. 
+
+
 <br>
 <br>
 
@@ -276,6 +284,17 @@ pip install -r requirements.txt
 
 이제 마이그레이션까지 하면 된다. 
 
+마이그레이션 전에 모듈이 제대로 설치가 안되는 경우가 있다. 예를 들어, 나의 경우는 psycopg2나 django나, django rest_framework, PIL가 그러했다(왜 이렇게 많지;). 그럴 때는 가상환경 실행 상태에서 수동으로 설치한다.
+
+```python
+pip install psycopg2-binary # 터미널에서 추천한대로 이 패키지로 설치
+pip install django
+pip install djangorestframework # 그냥 rest_framework가 아니라 djangorestframework
+pip install Pillow # PIL이 아니라 Pillow로 설치해야 한다. 
+```
+
+<br>
+
 ```
 python manage.py makemigrations 
 python manage.py migrate
@@ -286,7 +305,7 @@ python manage.py migrate
 
 **4. 실행**
 
-SSH에서는 포트 번호를 적어줘야 한다. 터미널에서는 0.0.0.0:8000 포트로 서버를 열고, 클라이언트에서는 `Elastic_IP주소(탄력적IP주소):8000`으로 접속할 수 있다. 
+SSH에서는 포트 번호를 적어줘야 한다. 터미널에서 0.0.0.0:8000 포트로 서버를 열어서, `Elastic_IP주소(탄력적IP주소):8000`으로 접속할 수 있다. 
 
 <br>
 
