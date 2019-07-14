@@ -58,7 +58,7 @@ vacuum=True
 max-requests=5000
 daemonize=/home/ubuntu/(#1)/django.log
 home=/home/ubuntu/(#1)/myvenv
-virtualenv=/home/ubuntu/(#1)/venv
+virtualenv=/home/ubuntu/(#1)/myvenv
 socket=/home/ubuntu/(#1)/uwsgi.sock
 chmod-socket=666
 ```
