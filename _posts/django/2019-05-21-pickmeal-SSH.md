@@ -235,8 +235,8 @@ github의 프로젝트 repository - Clone or download - Use SSH - 해당 주소 
 <br>
 
 ```
-mkdir web
-cd web
+mkdir www
+cd www
 git clone 저장소주소
 ```
 
