@@ -4,7 +4,7 @@ title:  "[JavaScript 스터디#5] 객체지향 프로그래밍 - 상속, 객체 
 date: 2019-07-13 21:23:00
 author: Roseline Song
 categories: Daily-Study
-tags: 기록 공부
+tags: 자바스크립트 스터디
 cover: "/assets/dailystudy2.jpg"
 ---
 

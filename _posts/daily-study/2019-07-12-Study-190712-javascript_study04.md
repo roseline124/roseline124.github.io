@@ -4,7 +4,7 @@ title:  "[JavaScript 스터디#4] 객체지향 프로그래밍 - 객체 정의, 
 date: 2019-07-12 16:34:00
 author: Roseline Song
 categories: Daily-Study
-tags: 기록 공부
+tags: 자바스크립트 스터디
 cover: "/assets/dailystudy2.jpg"
 ---
 

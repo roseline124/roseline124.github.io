@@ -4,7 +4,7 @@ title:  "[JavaScript 스터디#2] 정규표현식, 유효범위, 함수와 콜�
 date: 2019-07-06 15:59:00
 author: Roseline Song
 categories: Daily-Study
-tags: 기록 공부
+tags: 자바스크립트 스터디
 cover: "/assets/dailystudy2.jpg"
 ---
 
