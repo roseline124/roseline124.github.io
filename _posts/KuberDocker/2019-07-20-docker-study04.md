@@ -3,7 +3,7 @@ layout: post
 title:  "[도커 스터디#4] 첫번째 스터디"
 date: 2019-07-20 18:14:00
 author: Roseline Song
-categories: Daily-Study
+categories: KuberDocker
 tags: 도커 스터디
 cover: "/assets/docker.jpg"
 published: true

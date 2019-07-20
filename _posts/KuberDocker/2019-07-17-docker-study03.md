@@ -3,7 +3,7 @@ layout: post
 title:  "[도커 스터디#3] 이미지 파일 만들기(nginx)"
 date: 2019-07-17 18:23:00
 author: Roseline Song
-categories: Daily-Study
+categories: KuberDocker
 tags: 도커 스터디
 cover: "/assets/docker.jpg"
 published: true
@@ -194,12 +194,12 @@ sudo docker start `sudo docker ps -q -l` && sudo docker attach `sudo docker ps -
 
 스터디원들의 집단지성으로 문제를 해결했다. 
 일단 로컬에서 기존에 돌아가던 nginx를 kill할 필요도 없다.
-dockerfile이 잘못된 것 같으니 다른 이미지 파일을 다운받아서 실행시킨다.
-
-`sudo docker pull nginx`
+dockerfile이 잘못된 것 같으니 `sudo docker pull nginx`으로 다른 이미지 파일을 다운받아서 실행시킨다.
 
 <br>
 <br>
+
+다운받은 이미지 파일을 실행한다.
 
 ```
 sudo docker run -d -p 81:80 nginx

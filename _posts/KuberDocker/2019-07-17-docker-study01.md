@@ -3,7 +3,7 @@ layout: post
 title:  "[도커 스터디#1] 도커의 컨테이너, 이미지"
 date: 2019-07-17 16:23:00
 author: Roseline Song
-categories: Daily-Study
+categories: KuberDocker
 tags: 도커 스터디
 cover: "/assets/docker.jpg"
 published: false

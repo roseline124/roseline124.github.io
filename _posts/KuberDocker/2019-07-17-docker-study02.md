@@ -3,7 +3,7 @@ layout: post
 title:  "[도커 스터디#2] 개발환경 세팅 및 배포 실습"
 date: 2019-07-17 17:23:00
 author: Roseline Song
-categories: Daily-Study
+categories: KuberDocker
 tags: 도커 스터디
 cover: "/assets/docker.jpg"
 published: true

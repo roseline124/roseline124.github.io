@@ -3,7 +3,7 @@ layout: post
 title:  "[JavaScript 스터디#3] 클로저, arguments, 함수 호출"
 date: 2019-07-06 16:34:00
 author: Roseline Song
-categories: Daily-Study
+categories: Javascript
 tags: 자바스크립트 스터디
 cover: "/assets/dailystudy2.jpg"
 ---

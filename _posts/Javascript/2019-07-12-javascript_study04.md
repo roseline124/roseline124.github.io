@@ -3,7 +3,7 @@ layout: post
 title:  "[JavaScript 스터디#4] 객체지향 프로그래밍 - 객체 정의, 생성자, this"
 date: 2019-07-12 16:34:00
 author: Roseline Song
-categories: Daily-Study
+categories: Javascript
 tags: 자바스크립트 스터디
 cover: "/assets/dailystudy2.jpg"
 ---

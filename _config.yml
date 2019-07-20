@@ -67,8 +67,11 @@ descriptions:
   - cat: Java
     desc: "하루하루 다른 모습에 한번 더 반해 끝까지 난 널 자바 자바 자바"
 
-  - cat: Fail-Of-Wall
-    desc: "실패와 에러에 대한 기록. 삽질이 나를 성장시킨다."
+  - cat: KuberDocker 
+    desc: "당신의 쿠버에 Dock Dock"
+
+  - cat: Javascript
+    desc: "브라우저가 현란해지는 자바스크립트"
 
 # Social icons and sharing options
 #

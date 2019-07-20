@@ -3,7 +3,7 @@ layout: post
 title:  "[JavaScript 스터디#1] 함수, 배열, 객체, 모듈"
 date: 2019-07-05 19:58:00
 author: Roseline Song
-categories: Daily-Study
+categories: Javascript
 tags: 자바스크립트 스터디
 cover: "/assets/dailystudy2.jpg"
 ---
