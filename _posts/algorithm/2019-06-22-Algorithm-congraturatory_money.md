@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Python] 연결 리스트 - 축의금 계산 프로그램 (CLI)"
+title:  "[Python] 축의금 계산 프로그램 (CLI)"
 date: 2019-06-22 17:30:59
 author: Roseline Song
 categories: Algorithm
@@ -142,7 +142,7 @@ print("=============================================")
 
 ### 전체 코드 
 
-연결 리스트(Linked List)를 이용해서 질문을 잇는다.
+다음 노드로 이동하며 질문을 잇는다.
 
 <br>
 
