@@ -79,7 +79,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ### 도커 컴포즈로 Django 프로젝트 배포하기
 
-여러 컨테이너가 가는 Django 프로젝트로 도커 컴포즈를 연습해보자. `docker-compose.yml` 각 항목에 대한 설명은 [이 블로그](https://www.44bits.io/ko/post/almost-perfect-development-environment-with-docker-and-docker-compose#docker-compose.yml-%ED%8C%8C%EC%9D%BC)에 잘 나와있다.
+여러 컨테이너가 가는 Django 프로젝트로 도커 컴포즈를 연습해보자. `docker-compose.yml`과 `Dockerfile-dev` 각 항목에 대한 설명은 [이 블로그](https://www.44bits.io/ko/post/almost-perfect-development-environment-with-docker-and-docker-compose#docker-compose.yml-%ED%8C%8C%EC%9D%BC)에 잘 나와있다.
 
 **1. docker-compose.yml**
 
@@ -100,7 +100,7 @@ services :
   django:
     build:
       context: .
-      dockerfile: ./compose/django/Dockerfile-dev
+      dockerfile: ./dockerfiles/Dockerfile-dev
     environment:
       - DJANGO_DEBUG= True
       - DJANGO_DB_HOST= posrgre
@@ -120,8 +120,19 @@ services :
 <br>
 <br>
 
+**2. Dockerfile-dev**
 
-**2. version**
+```dockerfile
+FROM python:3
+
+RUN apt-get update && apt-get -y install libpq-dev
+
+WORKDIR /myfolio
+ADD ./requirements.txt /myfolio/
+RUN pip install -r requirements.txt
+```
+
+**3. version**
 
 자신이 사용하는 도커 버전에 맞게 [도커 컴포즈 파일의 버전](https://docs.docker.com/compose/compose-file/compose-versioning/)을 적어주면 된다. 도커 버전은 `sudo docker version`으로 확인 가능하다. 
 
@@ -129,6 +140,69 @@ services :
 <br>
 <br>
 
-**3. services**
+**4. environments 항목에서 주의할 점**
 
-사용할 컨테이너들을 정의한다. 
+`POSTGRES_DB = myfolio`와 같이, 변수에 띄어쓰기가 있으면 안된다. 즉, `POSTGRES_DB= myfolio`나 `POSTGRES_DB=myfolio` 처럼 space를 없애야 한다. 
+
+
+<br>
+<br>
+
+**4. 에러**
+
+```
+docker-compose up -d
+```
+
+<br>
+
+로 실행하니 아래와 같은 에러가 뜬다. 
+
+
+<br>
+
+<img src="/assets/images/190725_03.PNG" style="width:100%;">
+
+<br>
+
+
+sudo를 붙여주면 해결할 수 있다. 
+
+<sub>
+※ [스택오버플로우 참고](https://stackoverflow.com/questions/50979424/couldnt-connect-to-docker-daemon-at-httpdocker-localhost-with-docker-compose)
+</sub>
+
+<br>
+
+
+```
+sudo docker-compose up -d
+```
+
+<br>
+<br>
+
+
+**5. 또 에러..!**
+
+나한테 왜 그러는거야..?
+
+
+
+<img src="/assets/images/190725_04.PNG" style="width:100%;">
+
+<br>
+<br>
+
+
+**6. 시도하기**
+
+- `Dockerfile-dev` 파일에서 WORKDIR과 ADD 항목의 경로를 여러 가지로 바꿔본다 : 실패  
+- `.dockerignore`에 부모 폴더를 제외시킨다 : 실패
+
+<br>
+
+도와주세요.. 집단지성.
+
+<br>
+<br>
