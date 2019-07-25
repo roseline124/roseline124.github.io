@@ -188,7 +188,7 @@ sudo docker-compose up -d
 나한테 왜 그러는거야..?
 
 ```
-Step 4/5 : COPY requirements.txt .
+Step 4/5 : COPY requirements.txt /myfolio/
 ERROR: Service 'django' failed to build: 
 COPY failed: 
 stat /var/lib/docker/tmp/docker-builder670106370/requirements.txt: 
