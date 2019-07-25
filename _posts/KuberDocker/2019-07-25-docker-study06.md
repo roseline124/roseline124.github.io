@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[도커 스터디#6] 도커 컴포즈(Docker Compose)"
+title:  "[도커 스터디#6] 도커 컴포즈(Docker Compose) - Django 프로젝트 배포"
 date: 2019-07-24 13:52:00
 author: Roseline Song
 categories: KuberDocker
@@ -72,3 +72,63 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 <br>
 <br>
+
+<hr>
+
+<br>
+
+### 도커 컴포즈로 Django 프로젝트 배포하기
+
+여러 컨테이너가 가는 Django 프로젝트로 도커 컴포즈를 연습해보자. `docker-compose.yml` 각 항목에 대한 설명은 [이 블로그](https://www.44bits.io/ko/post/almost-perfect-development-environment-with-docker-and-docker-compose#docker-compose.yml-%ED%8C%8C%EC%9D%BC)에 잘 나와있다.
+
+**1. docker-compose.yml**
+
+```dockerfile
+version : '3.7' 
+
+services : 
+  postgre:
+    image : postgres
+    volumes:
+      - ./docker/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB= myfolio
+      - POSTGRES_USER= test
+      - POSTGRES_PASSWORD= test123
+      - POSTGRES_INITDB_ARGS= --encoding=UTF-8
+
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile-dev
+    environment:
+      - DJANGO_DEBUG= True
+      - DJANGO_DB_HOST= posrgre
+      - DJANGO_DB_PORT= 5432
+      - DJANGO_DB_NAME= myfolio
+      - DJANGO_DB_USERNAME= test
+      - DJANGO_DB_PASSWORD= test123
+      - DJANGO_SECRET_KEY= 세팅 파일의 시크릿키 
+    ports:
+      - "8000:8000"
+    command:
+      - python manage.py runserver
+    volumes : 
+      - ./:/myfolio/
+```
+
+<br>
+<br>
+
+
+**2. version**
+
+자신이 사용하는 도커 버전에 맞게 [도커 컴포즈 파일의 버전](https://docs.docker.com/compose/compose-file/compose-versioning/)을 적어주면 된다. 도커 버전은 `sudo docker version`으로 확인 가능하다. 
+
+
+<br>
+<br>
+
+**3. services**
+
+사용할 컨테이너들을 정의한다. 
