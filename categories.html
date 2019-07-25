@@ -4,6 +4,19 @@ title: "Category"
 permalink: /category/
 ---
 
+<!-- ???? -->
+  <h2>Shortcut 
+    <br>
+    {% for category in site.categories %}
+    
+    {% capture cat %}{{ category | first }}{% endcapture %}
+    <a style="font-size:15px;" href="#{{cat}}">{{ cat | capitalize }} | </a>
+    {% endfor %}
+  </h2>
+
+  <br>
+
+<!-- ???? ??? -->
 {% for category in site.categories %}
   {% capture cat %}{{ category | first }}{% endcapture %}
   <h2 id="{{cat}}">{{ cat | capitalize }}</h2>
@@ -25,3 +38,20 @@ permalink: /category/
   {% if forloop.last == false %}<hr>{% endif %}
 {% endfor %}
 <br>
+
+
+  <div class="skydiv">
+    <ul>
+
+        <a style="font-size:15px;"  href="#post-title">
+            <button class="btn btn-info">Go To Top</button>
+        </a>
+        <!-- {% for category in site.categories %}
+          {% capture cat %}{{ category | first }}{% endcapture %}
+        <li>
+          <a style="font-size:15px;" href="#{{cat}}">{{ cat | capitalize }}</a>
+        </li>
+        {% endfor %} -->
+    </ul> 
+  </div>
+

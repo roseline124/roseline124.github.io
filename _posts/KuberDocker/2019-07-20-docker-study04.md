@@ -6,7 +6,6 @@ author: Roseline Song
 categories: KuberDocker
 tags: 도커 스터디
 cover: "/assets/docker.jpg"
-published: true
 ---
 
 ### 첫번째 스터디 
