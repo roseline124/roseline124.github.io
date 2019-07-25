@@ -187,10 +187,13 @@ sudo docker-compose up -d
 
 나한테 왜 그러는거야..?
 
-
-
-<img src="/assets/images/190725_04.PNG" style="width:100%;">
-
+```
+Step 4/5 : COPY requirements.txt .
+ERROR: Service 'django' failed to build: 
+COPY failed: 
+stat /var/lib/docker/tmp/docker-builder670106370/requirements.txt: 
+no such file or directory
+```
 <br>
 <br>
 
