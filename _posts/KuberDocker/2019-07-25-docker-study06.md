@@ -87,7 +87,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 **1. docker-compose.yml**
 
-```dockerfile
+```yaml
 version : '3.7' 
 
 services : 

@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "[JavaScript 스터디#1] 함수, 배열, 객체, 모듈"
+title:  "[Vue 스터디#1] javascript - 함수, 배열, 객체, 모듈"
 date: 2019-07-05 19:58:00
 author: Roseline Song
 categories: Javascript
 tags: 자바스크립트 스터디
-cover: "/assets/dailystudy2.jpg"
+cover: "/assets/vue.jpg"
 ---
 
 ※ '생활코딩 - 자바스크립트 기초 문법' 강의를 듣고 작성했습니다. (+ 변수 부분은 노마드 코더의 바닐라 js 기초 강의를 듣고 작성했습니다.)

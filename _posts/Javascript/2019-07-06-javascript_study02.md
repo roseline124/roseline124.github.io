@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "[JavaScript 스터디#2] 정규표현식, 유효범위, 함수와 콜백"
+title:  "[Vue 스터디#2] javascript - 정규표현식, 유효범위, 함수와 콜백"
 date: 2019-07-06 15:59:00
 author: Roseline Song
 categories: Javascript
 tags: 자바스크립트 스터디
-cover: "/assets/dailystudy2.jpg"
+cover: "/assets/vue.jpg"
 ---
 
 ※ '생활코딩 - 자바스크립트 기초 문법' 강의를 듣고 작성했습니다. 

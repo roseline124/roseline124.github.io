@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "[JavaScript 스터디#3] 클로저, arguments, 함수 호출"
+title:  "[Vue 스터디#3] javascript - 클로저, arguments, 함수 호출"
 date: 2019-07-06 16:34:00
 author: Roseline Song
 categories: Javascript
 tags: 자바스크립트 스터디
-cover: "/assets/dailystudy2.jpg"
+cover: "/assets/vue.jpg"
 ---
 
 ※ '생활코딩 - 자바스크립트 기초 문법' 강의를 듣고 작성했습니다. 

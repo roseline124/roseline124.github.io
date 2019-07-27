@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "[JavaScript 스터디#5] 객체지향 프로그래밍 - 상속, 객체 확장, object, 원시데이터 타입, 참조"
+title:  "[Vue 스터디#5] javascript - 객체지향 프로그래밍 : 상속, 객체 확장, object, 원시데이터 타입, 참조"
 date: 2019-07-13 21:23:00
 author: Roseline Song
 categories: Javascript
 tags: 자바스크립트 스터디
-cover: "/assets/dailystudy2.jpg"
+cover: "/assets/vue.jpg"
 ---
 
 ※ '생활코딩 - 자바스크립트 기초 문법' 강의를 듣고 작성했습니다. 
