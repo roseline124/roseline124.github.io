@@ -208,7 +208,22 @@ no such file or directory
 
 `/var/lib/docker/tmp/docker-builderxxxxxx.../` 폴더에 계속 requirements.txt가 없다고 나와서, docker-builder 폴더로 들어가보았다. 폴더에는 docker-compose.yml, Dockerfile-dev, myfolio프로젝트 앱 폴더가 있었다. 여기에 requirements.txt가 없다고 뜨니 여기로 파일을 옮겨볼까? 했는데 성공했다! 
 
-*근데 왜 Dockerfile-dev에서 workdir로 `myfolio`를 정해줬는데, 왜 경로를 읽지 못한 걸까?*
+※ 근데 왜 Dockerfile-dev에서 workdir로 `myfolio`를 정해줬는데, 왜 경로를 읽지 못한 걸까?
+
+**workdir로 정하는 폴더 안에는 Dockerfile-dev와 docker-compose.yml, 그리고 코드 폴더가 같이 들어가 있어야 한다. 따라서 아래 폴더구조하면 workdir를 myfolio가 아닌 compose_ex로 했어야 한다.**
+
+<br>
+
+```
+// 폴더 구조
+compose_ex/
+  docker-compose.yml
+  Dockerfile-dev
+  myfolio/
+    requirements.txt
+```
+
+<br>
 
 <sub>※ 폴더로 이동할 때 permission denied가 뜨면 `sudo su` 명령어로 root 권한으로 바꾼 뒤 `cd` 명령으로 폴더에 들어간다. 돌아올 때는 `sudo su ubuntu`</sub>
 
@@ -219,8 +234,6 @@ no such file or directory
 
 
 이번엔 memory error가 떴다. requirements.txt에 있는 패키지들을 설치하는 과정에서 버퍼링이 메모리를 너무 많이 잡아먹어서 생기는 오류라고 한다. 다시 한 번 실행할 땐 되는가 싶더니 도커 exit 137코드와 함께 프로세스가 killed되었다고 나온다. 이것도 역시 메모리를 많이 잡아먹어서 docker가 아닌 로컬에서 kill시킨 것이라고 한다. 
-
-*같이 해결해봐요 ^0^*
 
 
 - [스택오버플로우](https://stackoverflow.com/questions/40651796/docker-compose-memoryerror) : 메모리 에러  
@@ -237,4 +250,16 @@ no such file or directory
 <br>
 <br>
 
+**8. 에러 해결**
+
+일단 이 문제를 해결하려면 AWS 인스턴스의 메모리를 늘려야 한다. (스터디장님에 따르면 '디지털오션 클라우드'에서 더 좋은 사양을 더 싼 가격에 이용할 수 있다고 한다.) 
+
+또한, 프로세스를 kill해도 메모리가 내려가는 데에는 시간이 걸리기 때문에 이 상태에서 계속 컴포즈를 실행하면 서버가 맛이 가버린다. `AWS 인스턴스 탭 - 모니터링`에 들어가면 (세부 정보는 cloud watch) CPU, 메모리 히스토리 그래프를 확인할 수 있다. 
+
+그렇다면, 인스턴스 복구는 어떻게 할까? `AWS 인스턴스 탭 - 작업 - 기존 인스턴스를 기반으로 시작`해서 다시 만든다. 
+
+
+
+<br>
+<br>
 
