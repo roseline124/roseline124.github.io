@@ -183,9 +183,7 @@ sudo docker-compose up -d
 <br>
 
 
-**5. 또 에러..!**
-
-나한테 왜 그러는거야..?
+**5. 에러**
 
 ```
 Step 4/5 : COPY requirements.txt /myfolio/
