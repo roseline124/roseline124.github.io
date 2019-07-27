@@ -200,12 +200,39 @@ no such file or directory
 
 **6. 시도하기**
 
-- `Dockerfile-dev` 파일에서 WORKDIR과 ADD 항목의 경로를 여러 가지로 바꿔본다 : 실패  
-- `.dockerignore`에 부모 폴더를 제외시킨다 : 실패
+- ~~`Dockerfile-dev` 파일에서 WORKDIR과 ADD 항목의 경로를 여러 가지로 바꿔본다 : 실패~~
+- ~~`.dockerignore`에 부모 폴더를 제외시킨다 : 실패~~
+- `requirements.txt`를 docker-compose.yml과 같은 폴더 경로에 위치시킨다 : 성공!
+
+`/var/lib/docker/tmp/docker-builderxxxxxx.../` 폴더에 계속 requirements.txt가 없다고 나와서, docker-builder 폴더로 들어가보았다. 폴더에는 docker-compose.yml, Dockerfile-dev, myfolio프로젝트 앱 폴더가 있었다. 여기에 requirements.txt가 없다고 뜨니 여기로 파일을 옮겨볼까? 했는데 성공했다! 
+
+*근데 왜 Dockerfile-dev에서 workdir로 `myfolio`를 정해줬는데, 왜 경로를 읽지 못한 걸까?*
+
+<sub>※ 폴더로 이동할 때 permission denied가 뜨면 `sudo su` 명령어로 root 권한으로 바꾼 뒤 `cd` 명령으로 폴더에 들어간다. 돌아올 때는 `sudo su ubuntu`</sub>
+
+<br>
+<br>
+
+**7. Memory 에러 / killed**
+
+
+이번엔 memory error가 떴다. requirements.txt에 있는 패키지들을 설치하는 과정에서 버퍼링이 메모리를 너무 많이 잡아먹어서 생기는 오류라고 한다. 다시 한 번 실행할 땐 되는가 싶더니 도커 exit 137코드와 함께 프로세스가 killed되었다고 나온다. 이것도 역시 메모리를 많이 잡아먹어서 docker가 아닌 로컬에서 kill시킨 것이라고 한다. 
+
+*같이 해결해봐요 ^0^*
+
+
+- [스택오버플로우](https://stackoverflow.com/questions/40651796/docker-compose-memoryerror) : 메모리 에러  
+- [스택오버플로우](https://stackoverflow.com/questions/50425245/how-to-trouble-shooting-docker-container-killed-with-error-code-137) : killed
 
 <br>
 
-도와주세요.. 집단지성.
+<img src="/assets/images/190727_01.png">
+
+<br>
+
+<img src="/assets/images/190727_02.png">
 
 <br>
 <br>
+
+
