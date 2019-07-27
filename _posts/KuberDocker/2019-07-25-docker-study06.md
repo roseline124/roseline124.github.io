@@ -228,7 +228,7 @@ no such file or directory
 
 <br>
 
-<img src="/assets/images/190727_02.png">
+<img src="/assets/images/190727_02.PNG">
 
 <br>
 <br>
