@@ -81,6 +81,10 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 여러 컨테이너가 가는 Django 프로젝트로 도커 컴포즈를 연습해보자. `docker-compose.yml`과 `Dockerfile-dev` 각 항목에 대한 설명은 [이 블로그](https://www.44bits.io/ko/post/almost-perfect-development-environment-with-docker-and-docker-compose#docker-compose.yml-%ED%8C%8C%EC%9D%BC)에 잘 나와있다.
 
+<sub>
+※ 꼭 docker-compose.yml이라는 이름으로 지어야할까? 그렇지 않다. 원하는 이름으로 짓고, 빌드할 때 `-f` 옵션을 붙여주면 된다. ex) `sudo docker-compose -f foo.yml up -d`. 만약 이름을 따로 변경하지 않았다면 `sudo docker-compose up -d`만 써도 된다.
+</sub>
+
 **1. docker-compose.yml**
 
 ```dockerfile
