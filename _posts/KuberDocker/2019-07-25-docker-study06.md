@@ -198,8 +198,8 @@ no such file or directory
 
 **6. 시도하기**
 
-- ~~`Dockerfile-dev` 파일에서 WORKDIR과 ADD 항목의 경로를 여러 가지로 바꿔본다 : 실패~~
-- ~~`.dockerignore`에 부모 폴더를 제외시킨다 : 실패~~
+- ~~Dockerfile-dev 파일에서 WORKDIR과 ADD 항목의 경로를 여러 가지로 바꿔본다 : 실패~~
+- ~~.dockerignore에 부모 폴더를 제외시킨다 : 실패~~
 - `requirements.txt`를 docker-compose.yml과 같은 폴더 경로에 위치시킨다 : 성공!
 
 `/var/lib/docker/tmp/docker-builderxxxxxx.../` 폴더에 계속 requirements.txt가 없다고 나와서, docker-builder 폴더로 들어가보았다. 폴더에는 docker-compose.yml, Dockerfile-dev, myfolio프로젝트 앱 폴더가 있었다. 여기에 requirements.txt가 없다고 뜨니 여기로 파일을 옮겨볼까? 했는데 성공했다! 
