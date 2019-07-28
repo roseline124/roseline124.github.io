@@ -59,6 +59,8 @@ npm run dev
 <img src="/assets/images/190727_vue_05.PNG">
 
 <br>
+<br>
+
 
 - #3 : index.html에서 어느 요소에 vue를 적용할 지 정한다.
 - #2 : app.vue에서 해당 요소를 어떻게 다룰지 작성한다. 
@@ -67,10 +69,6 @@ npm run dev
 <br>
 
 <img src="/assets/images/190727_vue_06.PNG">
-
-<br>
-
-
 
 <br>
 <br>
