@@ -78,7 +78,7 @@ npm run dev
 <hr>
 
 <br>
-N
+
 ### JSON 데이터를 읽고 리스트로 출력하기
 
 **1. assets/data/users.json**
