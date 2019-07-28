@@ -78,7 +78,127 @@ npm run dev
 <hr>
 
 <br>
+N
+### JSON 데이터를 읽고 리스트로 출력하기
 
-### JSON 데이터를 읽고 출력하기
+**1. assets/data/users.json**
+
+<br>
+
+
+```json
+{
+    "users":[
+        {
+            "id":1,
+            "name": "roseline",
+            "phone_number":"010-0000-0000",
+            "created_date":"2019-07-26 12:10:43.254915+09",
+        },
+        {
+            "id":2,
+            "name": "songsong",
+            "phone_number":"010-1111-1111",
+            "created_date":"2019-07-26 12:11:43.254915+09",
+        }
+    ]
+}
+```
+
+<br>
+<br>
+
+
+**2. json 파일 읽기**
+
+app.vue와 연결시킬 컴포넌트를 만들고, json 파일을 읽는다.
+읽어낸 데이터는 `userList`라는 변수에 담는다. 
+
+<br>
+
+```javascript
+<script>
+import userList from "../assets/data/users.json";
+
+export default {
+    // 컴포넌트 구현
+};
+</script>
+```
+
+<br>
+<br>
+
+**3. 읽은 데이터를 가공해서 템플릿으로 보내기**
+
+- #1 : 컴포넌트에서는 data를 `users()`와 같이 함수로 적어야 한다. 그리고 템플릿으로 보낼 데이터를 return 하면된다. 
+- #2 : map()은 userList.users 안의 데이터를 차례로 읽어 #3을 실행한다. 
+- #3 : users내의 `created_date`라는 항목을 Date 형식으로 바꾼 뒤 시간과 분만 뽑아내어 다시 `created_date`에 저장한다.
+
+<br>
+
+```javascript
+<script>
+import userList from "../assets/data/users.json";
+
+export default {
+  name: "UserList",
+  computed: {
+    users() { // #1
+      return userList.users.map((items) => { // #2
+        // #3 
+          let c = new Date(items["created_date"]); 
+          let created_date = c.getHours()+"시 "+c.getMinutes()+"분"; 
+
+          items["created_date"] = created_date;
+          
+        return items;
+      })
+    },
+  }
+};
+</script>
+
+```
+
+<br>
+<br>
+
+
+**3. 템플릿에 적용하기**
+
+템플릿에 어떻게 적용할 건지 쓴다. 위 #1의 `users`가 데이터의 이름이 된다.
+`{{  }}`은 vue에서 변수를 담을 때 사용한다. 
+
+<br>
+
+```html
+<template>
+  <div>
+    <h1>사용자</h1>
+
+    <ul v-for="item in users">
+        <li>이름 : {{ item.name}}</li>
+        <li>전화번호 : {{ item.phone_number}}</li>
+        <li>등록 시간 : {{ item.created_date}}</li>
+    </ul>    
+  </div>
+</template>
+```
+
+<br>
+<br>
+
+
+**4. 확인**
+
+[http://localhost:8080](http://localhost:8080)에서 확인한다.
+
+<br>
+
+<img src="/assets/images/190727_vue_07.PNG">
+
+<br>
+<br>
 
 
