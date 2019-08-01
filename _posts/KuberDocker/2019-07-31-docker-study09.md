@@ -8,18 +8,18 @@ tags: 도커 스터디
 cover: "/assets/docker.jpg"
 ---
 
-[뗏목 사이트를 참고하세요!](https://raft.github.io/)
+[뗏목 사이트를 참고하세요!](https://raft.github.io/){: target="_blank" }
 
 <br>
 <br>
 
 ### 뗏목(Raft)이란?
 
-<img style="width:50%" src="/assets/images/raft.png">*출처 : [뗏목 사이트](https://raft.github.io/)*
+<img style="width:50%" src="/assets/images/raft.png">*출처 : [뗏목 사이트](https://raft.github.io/){: target="_blank" }*
 
 뗏목은 여러 개의 나무를 이어서 물에 동동 뜰 수 있게 만든 일종의 운송 수단이다. 여러 개의 나무가 지탱하고 있기 때문에 일부 나무가 손상 되어도 뗏목은 앞으로 나아갈 수 있다.  
 
-뗏목 알고리즘은 뗏목처럼 여러 서버 중 일부에 장애가 생겨도 제 기능을 유지하도록 하는 합의 알고리즘(Consensus Algorithm)이다. [도커 스웜](https://roseline124.github.io/kuberdocker/2019/07/31/docker-study08.html)에서 매니저 노드가 스웜의 일관된 상태를 유지하기 위해 사용하는 알고리즘이다. 뗏목 합의 알고리즘을 이해하기 위해 다음의 용어들을 살펴보자.
+뗏목 알고리즘은 뗏목처럼 여러 서버 중 일부에 장애가 생겨도 제 기능을 유지하도록 하는 합의 알고리즘(Consensus Algorithm)이다. [도커 스웜](https://roseline124.github.io/kuberdocker/2019/07/31/docker-study08.html){: target="_blank" }에서 매니저 노드가 스웜의 일관된 상태를 유지하기 위해 사용하는 알고리즘이다. 뗏목 합의 알고리즘을 이해하기 위해 다음의 용어들을 살펴보자.
 
 <br>
 <br>
@@ -80,7 +80,7 @@ cover: "/assets/docker.jpg"
 
 ### 뗏목 알고리즘의 시각화
 
-[뗏목 사이트](https://raft.github.io/)에서는 시각화해서 합의 알고리즘이 어떻게 진행되는지 확인할 수 있다. 
+[뗏목 사이트](https://raft.github.io/){: target="_blank" }에서는 시각화해서 합의 알고리즘이 어떻게 진행되는지 확인할 수 있다. 
 
 **1. 뗏목이 완벽한 경우**
 
@@ -88,7 +88,7 @@ cover: "/assets/docker.jpg"
 
 <br>
 
-<img src="/assets/videos/raft_algorithm01.gif">*출처 : [뗏목 사이트](https://raft.github.io/)*
+<img src="/assets/videos/raft_algorithm01.gif">*출처 : [뗏목 사이트](https://raft.github.io/){: target="_blank" }*
 
 <br>
 <br>
@@ -99,7 +99,7 @@ cover: "/assets/docker.jpg"
 
 <br>
 
-<img src="/assets/videos/raft_algorithm02.gif">*출처 : [뗏목 사이트](https://raft.github.io/)*
+<img src="/assets/videos/raft_algorithm02.gif">*출처 : [뗏목 사이트](https://raft.github.io/){: target="_blank" }*
 
 <br>
 <br>
@@ -110,7 +110,7 @@ cover: "/assets/docker.jpg"
 
 <br>
 
-<img src="/assets/videos/raft_algorithm03.gif">*출처 : [뗏목 사이트](https://raft.github.io/)*
+<img src="/assets/videos/raft_algorithm03.gif">*출처 : [뗏목 사이트](https://raft.github.io/){: target="_blank" }*
 
 <br>
 <br>
