@@ -196,8 +196,24 @@ h3 {
 
 .skydiv { 
 	position: fixed !important;
-	top: 93% !important;
-	left: 90% !important;
+	@include media($mobile) {
+		top: 92% !important;
+		left: 63% !important;
+	}	
+	@include media($tablet) {
+		top: 93% !important;
+		left: 90% !important;
+	}	
+	@include media($desktop) {
+		top: 93% !important;
+		left: 90% !important;
+	}	
+	top: 92% !important;
+	left: 63% !important;
+
+	.go-to-top{
+		font-size: 15px;
+	}
 }
 
 
