@@ -99,7 +99,7 @@ h3 {
 ::-webkit-scrollbar-thumb:hover {
 	background: $dark-gray; }
 
-.site-header-container, .post-header-container {
+.site-header-container{
 	width: 100%;
 	// text-align: center;
 	&.has-cover {
@@ -108,17 +108,57 @@ h3 {
 		background-position: 50% 50%;
 		background-size: cover;
 		.title {
-			// font-size: modular-scale(3);
 			font-size: 1.5rem;
 		}
 		.subtitle, .info {
-			// font-size: modular-scale(1);
 			font-size: 1rem;
 		}
 		.category {
 			margin:0;
 		}
 	}
+}
+
+.post-header-container{
+	width: 100%;
+	// text-align: center;
+	&.has-cover {
+		color: $white;
+		// text-shadow: 0 2px 1px rgba(0,0,0,0.67) !important;
+		background-position: 50% 50%;
+		background-size: cover;
+		.title {
+			@include media ($mobile) {
+				font-size: 1.0rem;
+			}
+			@include media ($tablet) {
+				font-size: 1.5rem;
+			}
+			@include media ($desktop) {
+				font-size: 1.5rem;
+			}
+			font-size: 1.0rem; // 480px ?? ? ?? ??
+		}
+		.info {
+			@include media($mobile) {
+				font-size: 0.7rem;
+			}	
+			@include media($tablet) {
+				font-size: 1rem;
+			}	
+			@include media($desktop) {
+				font-size: 1rem;
+			}	
+			font-size: 0.7rem;
+		}
+		.category {
+			margin:0;
+		}
+	}
+}
+
+
+.site-header-container {
 	.scrim {
 		padding: 3em 1em;
 		&.has-cover {
@@ -126,7 +166,25 @@ h3 {
 			padding: 18em 1em !important;
 			@include media($tablet) {
 				padding: 18em 1em !important;
-			}
+			}	
+		}
+	}
+}
+.post-header-container {
+	.scrim {
+		padding: 3em 1em;
+		&.has-cover {
+			background-color: rgba(0,0,0,0.4);
+			@include media($mobile) {
+				padding: 14em 1em !important;
+			}	
+			@include media($tablet) {
+				padding: 18em 1em !important;
+			}	
+			@include media($desktop) {
+				padding: 18em 1em !important;
+			}	
+			padding: 14em 1em !important;
 		}
 	}
 }
@@ -146,6 +204,16 @@ h3 {
 /*
 *	Header
 */
+.post-header {
+	@include media ($tablet) {
+		padding-left:0;
+	}
+	@include media ($desktop) {
+		padding-left:8rem;
+	}
+	padding-left:0;
+}
+
 .navigation {
 	// box-shadow: 0 2px $highlight-color;
 	display: inline;
@@ -355,11 +423,25 @@ h3 {
 			text-align: center;
 
 			.title {
-				font-size: modular-scale(6);
 				font-family: 'Nanum Myeongjo' !important;
+				@include media ($mobile) {
+					font-size: 1.5rem;
+				}
+				@include media ($tablet) {
+					font-size: 3rem;
+				}
+				@include media ($desktop) {
+					font-size: 3rem;
+				}
+				font-size: 1.5rem; // 480px ?? ? ?? ?? 
 			}
 			.subtitle {
-				font-size: modular-scale(1);
+				@include media ($tablet) {
+					font-size: modular-scale(1);
+				}
+				@include media ($desktop) {
+					font-size: modular-scale(1);
+				}
 				color:#f5f5f58a;
 				font-family: 'Nanum Myeongjo' !important;
 			}

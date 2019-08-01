@@ -9,7 +9,8 @@
 
       <p><strong>Site Map</strong></p>
       <ul class="pages">
-        {% for page in site.pages %}
+          <li><a href="{{ site.baseurl }}/">Home</a>
+        {% for page in site.pages reversed limit: 9 %}
         {% if page.title and page.main_nav != false %}
           <!-- li class="nav-link" -->
           <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>

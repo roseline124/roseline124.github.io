@@ -7,13 +7,16 @@
       <span>{{ site.title }}</span>
       {% endif %}
     </a> -->
-    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+    <a href="javascript:void(0)" 
+       class="navigation-menu-button" 
+       id="js-mobile-menu">
       <i class="fa fa-bars"></i>
     </a>
+
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
         <li class="nav-link"><a href="{{ site.baseurl }}/">Home</a>
-        {% for page in site.pages %}
+        {% for page in site.pages reversed limit: 9 %}
           {% if page.title and page.main_nav != false %}
           <li class="nav-link">
             <a href="{{ page.url | prepend: site.baseurl }}">
@@ -23,5 +26,8 @@
         {% endfor %}
       </ul>
     </nav>
+
   </div>
 </header>
+
+

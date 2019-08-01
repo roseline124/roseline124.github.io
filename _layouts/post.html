@@ -6,7 +6,7 @@ layout: default
 
 <div class="post-header-container {% if page.cover %}has-cover{% endif %}" {% if page.cover %}style="background-image: url({{ page.cover | prepend: site.baseurl }});"{% endif %}>
   <div class="scrim {% if page.cover %}has-cover{% endif %}">
-    <header class="post-header" style="padding-left:8rem;">
+    <header class="post-header">
         {% if page.categories.size > 0 %}
           {% for cat in page.categories %} 
             <p class="category">{{ cat | capitalize }}</p>
