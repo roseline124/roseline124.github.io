@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[도커 스터디#8] 도커 스웜 - 뗏목 합의 알고리즘이란?(Raft consensus algorithm)"
+title:  "[도커 스터디#9] 도커 스웜 - 뗏목 합의 알고리즘이란?(Raft consensus algorithm)"
 date: 2019-07-31 17:37:00
 author: Roseline Song
 categories: KuberDocker
