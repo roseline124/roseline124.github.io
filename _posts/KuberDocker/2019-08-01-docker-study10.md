@@ -8,8 +8,8 @@ tags: 도커 스터디
 cover: "/assets/docker.jpg"
 ---
 
-[※참고 : Docker Swarm Tutorial](https://youtu.be/m6WgX_LBtEk){: target="_blank" }
-[※참고 : 백기선 - 도커 Swarm과 서비스](https://youtu.be/p58k2_HMWRM){: target="_blank" }
+[※참고 : Docker Swarm Tutorial](https://youtu.be/m6WgX_LBtEk){: target="_blank" } <br>
+[※참고 : 백기선 - 도커 Swarm과 서비스](https://youtu.be/p58k2_HMWRM){: target="_blank" } <br>
 [※참고 : 도커 공식문서 - 스웜과 서비스](https://docs.docker.com/get-started/part3/){: target="_blank" }
 
 <br>
