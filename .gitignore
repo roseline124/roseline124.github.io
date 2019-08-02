@@ -2,16 +2,7 @@
 .vscode
 
 # Compiled site
-_site/about
-_site/algorithm
-_site/assets
-_site/css
-_site/js
-_site/page*
 _site
-
-category/index.html
-tag/index.html
 
 # Sass garbage
 .sass-cache
@@ -19,4 +10,3 @@ tag/index.html
 # Bundler
 .bundle/
 vendor/
-
