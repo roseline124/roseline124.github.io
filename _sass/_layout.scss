@@ -260,7 +260,8 @@ h3 {
   .navigation-wrapper {
   	// @include outer-container; #max-width 삭제
     @include clearfix;
-    position: relative;
+	position: relative;
+	z-index:1000;
   }
   .logo {
     float: left;
@@ -337,6 +338,7 @@ h3 {
 }
 .nav-bg {
 	background-color : #1f232bea;
+	z-index: 999;
 }
 .navbar {
 	transition: background-color .5s ease-out;
