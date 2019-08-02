@@ -71,6 +71,8 @@ networks:
 
 docker context는 도커를 빌드할 때 필요한 워킹 디렉토리 같은 것이다. 해당 디렉토리를 기준으로 도커가 빌드에 필요한 모든 파일을 참조한다. 
 
+<br>
+
 <img src="/assets/images/190802_02.PNG">*댓글 참고!*
 
 <br>
