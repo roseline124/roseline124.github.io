@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[도커 스터디#11] 도커 스웜 - 튜토리얼 (여러 머신에서의 배포)"
-date: 2019-08-01 17:37:00
+date: 2019-08-02 17:37:00
 author: Roseline Song
 categories: KuberDocker
 tags: 도커 스터디
