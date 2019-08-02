@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[도커 스터디#12] 도커 스웜 - 라운드로빈 스케줄링"
+title:  "[도커 스터디#12] 라운드로빈 스케줄링"
 date: 2019-08-02 17:37:00
 author: Roseline Song
 categories: KuberDocker
