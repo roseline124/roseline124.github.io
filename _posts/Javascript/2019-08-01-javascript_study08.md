@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Vue 스터디#8] modal, 팝업 띄우기 (+v-if가 안될 때)"
+title:  "[Vue 스터디#8] modal, 팝업 만들기 (+ v-if가 안될 때)"
 date: 2019-08-01 18:23:00
 author: Roseline Song
 categories: Javascript
