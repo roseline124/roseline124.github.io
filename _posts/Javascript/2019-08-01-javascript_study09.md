@@ -75,7 +75,7 @@ export default {
 - #1 : **v-model로 컴포넌트 data의 `input_name`과 엘리먼트를 연결**시킨다. submit을 통해 form이 제출되면 input 태그에 있던 값이 컴포넌트 데이터에 전달된다.
 - #2 : select 태그에서는 **option이 아닌 select태그에 v-model을 쓴다**.
 - #3 : placeholder 역할을 하는 옵션 태그이다.
-- #4 : `v-for`를 통해 1부터 10까지 반복되며 그 값은 number에 담긴다. `v-bind:value="number"` 속성을 통해 템플릿 내에서 콧수염 태그로 변수를 사용할 수 있다. ex) `{{number}}명`
+- #4 : `v-for`를 통해 1부터 10까지 반복되며 그 값은 number에 담긴다. `v-bind:value="number"` 속성을 통해 템플릿 내에서 콧수염 태그로 변수를 사용할 수 있다. ex) `\{\{number\}\}명`. `\` 백슬래시는 빼고 생각하면 된다. 
 - #5 : 클릭하면 컴포넌트 내의 `prevent_event` 메서드를 호출한다.
 
 <br>
@@ -110,7 +110,7 @@ export default {
                   v-bind:value="number" 
                   :key="number.id"
                   selected="0">
-            {{number}}명
+            \{\{number\}\}명
           </option>
         </select>
     </div>
@@ -208,9 +208,9 @@ this.$emit('create_wait', wait); // #하위 컴포넌트에서 상위컴포넌�
           :key="item.id" 
       >
         <!-- #2 -->
-        <li>이름 : {{ item.name}}</li>
-        <li>예약 번호 : {{ index + 1}}</li>
-        <li>예약 인원 : {{ item.people}}명</li>
+        <li>이름 : \{\{ item.name\}\}</li>
+        <li>예약 번호 : \{\{ index + 1\}\}</li>
+        <li>예약 인원 : \{\{ item.people\}\}명</li>
 
         <!-- #3 -->
         <button @click="delete_waiting"
