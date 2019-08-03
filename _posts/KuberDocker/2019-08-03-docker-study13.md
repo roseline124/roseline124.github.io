@@ -90,13 +90,13 @@ OSI 4 또는 7계층으로 주소를 구분하여 서비스를 찾아준다.
 
 **9. 도커 공식 문서에서 매니저 노드를 홀수로 하는 게 좋다고 되어있는데 왜일까?**
 
-매니저 노드가 짝수 개인 경우, 스웜에서 한 매니저가 죽으면 raft 알고리즘에서 과반을 입증할 수가 없다. (이걸 이해하려면 [raft 알고리즘](https://roseline124.github.io/kuberdocker/2019/07/31/docker-study09.html){:target ="_blank"}을 먼저 알아야한다.)
+매니저 노드가 짝수 개인 경우, 스웜에서 한 매니저가 죽으면 raft 알고리즘에서 과반을 입증할 수가 없다. (이걸 이해하려면 [raft 알고리즘](https://roseline124.github.io/kuberdocker/2019/07/31/docker-study09.html){: target="_blank" }을 먼저 알아야한다.)
 
 4개의 매니저 노드 중 매니저 하나가 죽었다고 하자. 명령 실행을 위해 다른 매니저 노드들에게 합의를 요청한다. 죽은 서버와 자신을 제외하고 2개의 표를 얻는데, 4개 노드 중 2개의 동의로는 과반을 입증할 수 없기 때문에 합의를 볼 수 없는 상황에 이른다. 
 
 <br>
 
-[※도커 리더 다운 실험 참고](https://www.sauru.so/blog/high-availability-of-docker-swarm/){:target ="_blank"}
+[※도커 리더 다운 실험 참고](https://www.sauru.so/blog/high-availability-of-docker-swarm/){: target="_blank" }
 
 
 <br>
@@ -105,7 +105,7 @@ OSI 4 또는 7계층으로 주소를 구분하여 서비스를 찾아준다.
 
 **10. curl 외에 요청 확인하는 법**
 
-**httpie**를 이용하면 응답이 깔끔하게 정리되어서 나온다. [httpie 사이트 참고](https://httpie.org/){:target = "_blank"}
+**httpie**를 이용하면 응답이 깔끔하게 정리되어서 나온다. [httpie 사이트 참고](https://httpie.org/){: target="_blank" }
 
 
 <br>
