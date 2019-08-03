@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[도커 스터디#13] 세번째 스터디 "
+title:  "[도커 스터디#13] 도커 스웜(Docker Swarm) - 세번째 스터디"
 date: 2019-08-03 18:46:00
 author: Roseline Song
 categories: KuberDocker
@@ -28,7 +28,7 @@ ingress는 외부에서 내부 네트워크로 접속할 때 어떻게 처리할
 
 <br>
 
-<img src="/assets/images/190803_01.PNG">*ingress network*
+<img src="/assets/images/190803_01.png">*ingress network*
 
 <br>
 
@@ -36,7 +36,7 @@ ingress는 외부에서 내부 네트워크로 접속할 때 어떻게 처리할
 
 <br>
 
-<img src="/assets/images/190803_02.PNG">*overlay nerwork*
+<img src="/assets/images/190803_02.png">*overlay nerwork*
 
 <br>
 <br>
