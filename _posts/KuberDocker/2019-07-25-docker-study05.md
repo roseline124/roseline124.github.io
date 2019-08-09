@@ -101,6 +101,7 @@ RUN chown -R www-data:www-data /var/lib/nginx #2
 VOLUME ["/data", "/etc/nginx/site-enabled", "/var/log/nginx"] 
 
 # Open HTTP port for nginx
+EXPOSE 80
 
 WORKDIR /etc/nginx 
 
@@ -132,7 +133,7 @@ sudo docker imgages // 이미지 파일 목록 확인
 **1. 도커 컨테이너 실행**
 
 ```
-sudo docker -d -p 외부포트:내부포트 이미지파일명  
+sudo docker run -d -p 외부포트:내부포트 이미지파일명  
 ```
 
 <br>
