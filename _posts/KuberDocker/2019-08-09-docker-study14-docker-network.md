@@ -8,12 +8,6 @@ tags: 도커 스터디
 cover: "/assets/docker.jpg"
 ---
 
-이번주는 원래 쿠버네티스 실습 환경을 구축해오는 것이었지만, 
-쿠버로 들어가기 전 부족한 도커 개념을 다시 공부해오기로 바뀌었다. 
-
-<br>
-
-도커 네트워크에 대한 설명은 이 [영상](https://youtu.be/Xxhhdo2e-DA){: target="_blank" }에 잘 나와있다. ~~영어 주의~~
 
 <br>
 
@@ -50,7 +44,7 @@ cover: "/assets/docker.jpg"
 
 docker를 설치하고 `ifconfig`로 네트워크 인터페이스를 살펴보면 가상 인터페이스 `docker0`를 확인할 수 있다. 
 
-`docker0`는 기본 브릿지 네트워크로서, 사용자 정의 브릿지 네트워크와는 달리 `-p` 또는 `--publish` 옵션으로 컨테이너를 실행할 때마다 포트를 지정해주어야 한다. ([반면 사용자 정의 브릿지 네트워크에서는 내부 포트는 자동으로 서로 공유하고, 외부 포트는 하나로 고정해 일일이 지정할 필요가 없다.](https://docs.docker.com/network/bridge/){: target="_blank" })
+`docker0`는 기본 브릿지 네트워크로서, 사용자 정의 브릿지 네트워크와는 달리 `-p` 또는 `--publish` 옵션으로 컨테이너를 실행할 때마다 포트를 지정해주어야 한다. (반면 사용자 정의 브릿지 네트워크에서는 내부 포트는 자동으로 서로 공유하고, 외부 포트는 하나로 고정해 일일이 지정할 필요가 없다.)
 
 docker0의 IP주소는 172.17.x.1로 고정되어 있다. 
 
@@ -93,6 +87,8 @@ host의 다른 프로세스나 특정 컨테이너에서 포트 번호를 쓰면
 
 
 ### 빈 네트워크(None Network)
+
+<br>
 
 `sudo docker run 이미지명 --network=none`을 통해 실행한 컨테이너는 어떤 네트워크와도 연결(attached)되지 않는다. 그래서 외부 네트워크나 다른 컨테이너에서 접근할 수 없다. 이 네트워크는 스웜 모드에서는 사용할 수 없다.
 
@@ -156,6 +152,20 @@ sudo docker run -p 외부접속포트:내부포트 이미지명
 
 만약 사용자가 접속한 노드에 장애가 있거나 컨테이너가 없는 경우 어떻게 될까? ingress network에서는 routing mesh를 통해 여러 노드 내에서 같은 IP 주소와 포트를 공유할 수 있다. 즉, 사용자가 요청하면 호스트 이름과 포트를 조합해 트래픽을 적절한 서비스로 라우팅한다. 
 
+
+<br>
+<br>
+
+<hr>
+
+<br>
+
+
+### 참고
+
+- [Kode Kloud - Docker Advanced Networking](https://youtu.be/Xxhhdo2e-DA){: target="_blank" }
+- [ㅍㅍㅋㄷ - docker0와 container network 구조](https://bluese05.tistory.com/15){: target="_blank" }
+- [도커 공식문서](https://docs.docker.com/network/){: target="_blank" }
 
 <br>
 <br>
