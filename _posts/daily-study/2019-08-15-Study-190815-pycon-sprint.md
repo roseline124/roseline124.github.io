@@ -20,17 +20,13 @@ cover: "/assets/dailystudy2.jpg"
 
 <br>
 
-summernote는 WYSIWYG editor 오픈소스 프로젝트이다. 
+summernote는 WYSIWYG editor 오픈소스 프로젝트이다. <br>
 star가 8,718로 WYSIWYG editor 사이에서는 가장 인기가 많다. 
 
-<br>
-
-summernote의 두번째 commiter 박현우님께서 스프린트장을 맡으셨다.
+summernote의 두번째 commiter 박현우님께서 스프린트장을 맡으셨다. <br>
 오자마자, 프로젝트 구조에 대해 친절히 설명해주셨다.
 
-<br>
-
-그리고, chrome debugging이랑 git, javascript 프로젝트에 대한 지식, 꿀팁을 알려주셨다. 
+그리고, chrome debugging이랑 git, javascript 프로젝트에 대한 지식, 꿀팁을 알려주셨다. <br>
 진짜 오길 너무 잘했다고 생각! 
 
 <br>
