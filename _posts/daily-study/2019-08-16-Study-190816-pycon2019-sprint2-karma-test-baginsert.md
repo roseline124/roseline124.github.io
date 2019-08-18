@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[오늘의 공부] 19.08.16 / 19.08.18 | 파이콘 스프린트 2일차 후기 - 테스트 / 백 인써트 자원봉사"
+title:  "[오늘의 공부] 19.08.16 | 파이콘2019 스프린트 2일차 후기 - 테스트 / 백 인써트 자원봉사"
 date: 2019-08-16 23:15:00
 author: Roseline Song
 categories: Daily-Study
