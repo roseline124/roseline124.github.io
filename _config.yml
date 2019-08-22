@@ -37,12 +37,10 @@ jekyll-archives:
   enabled:
     - categories
     - tags
-    - webgames
   layout: 'archive'
   permalinks:
     category: '/category/:name/'
     tag: '/tag/:name/'
-    webgames : 'game/:name'
 
 # Disqus comments
 disqus_shortname: roseline
